@@ -50,6 +50,7 @@ Depois de montar, carregue a pasta `extensao/uirapp` em `brave://extensions` (Mo
 | `python scripts/marca.py` | Gera a logo, o mascote e os ícones a partir do código |
 | `python scripts/imagem_instalar.py` | Refaz a imagem do passo a passo de instalar |
 | `python scripts/imagens_readme.py` | Refaz as imagens do README com dados de exemplo |
+| `python scripts/imagem_social.py` | Refaz a imagem de compartilhamento do repositório (1280x640) |
 
 ### Onde está cada coisa
 

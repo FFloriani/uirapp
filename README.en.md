@@ -15,7 +15,7 @@ Free WhatsApp Web extension: hide your chats with Alt+S, keep quick replies and 
 [Download](#download) · [Install](#install) · [What it does](#what-it-does) · [Privacy](#privacy-and-permissions) · [Report a problem](https://github.com/FFloriani/uirapp/issues)
 
 [![Latest version](https://img.shields.io/github/v/release/FFloriani/uirapp?label=version)](https://github.com/FFloriani/uirapp/releases/latest)
-[![Brave and Chrome 120+](https://img.shields.io/badge/Brave%20and%20Chrome-120%2B-1A6178)](#compatibility)
+[![Brave and Chrome 120+](https://img.shields.io/badge/Brave%20and%20Chrome-120%2B-17627A)](#compatibility)
 [![Last commit](https://img.shields.io/github/last-commit/FFloriani/uirapp)](https://github.com/FFloriani/uirapp/commits/main)
 
 <img src="docs/imagens/readme-inicio.png" alt="WhatsApp Web with every chat covered by sleeping birds and the Uirapp popup open, saying Conversas escondidas (Chats hidden)" width="800">

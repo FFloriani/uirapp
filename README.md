@@ -14,7 +14,7 @@ Extensão grátis para o WhatsApp Web: esconde conversas com Alt+S, guarda respo
 [Baixar](#baixar) · [Instalar](#instalar) · [O que faz](#o-que-faz) · [Privacidade](#privacidade-e-permissões) · [Reportar problema](https://github.com/FFloriani/uirapp/issues)
 
 [![Última versão](https://img.shields.io/github/v/release/FFloriani/uirapp?label=vers%C3%A3o)](https://github.com/FFloriani/uirapp/releases/latest)
-[![Brave e Chrome 120+](https://img.shields.io/badge/Brave%20e%20Chrome-120%2B-1A6178)](#compatibilidade)
+[![Brave e Chrome 120+](https://img.shields.io/badge/Brave%20e%20Chrome-120%2B-17627A)](#compatibilidade)
 [![Último commit](https://img.shields.io/github/last-commit/FFloriani/uirapp?label=%C3%BAltimo%20commit)](https://github.com/FFloriani/uirapp/commits/main)
 
 <img src="docs/imagens/readme-inicio.png" alt="WhatsApp Web com as conversas cobertas por passarinhos dormindo e a janela do Uirapp aberta, dizendo Conversas escondidas" width="800">
