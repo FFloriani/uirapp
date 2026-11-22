@@ -2,3 +2,9 @@
 *.png binary
 *.woff2 binary
 *.zip binary
+
+# gerados por scripts/montar.py: fora da conta de linguagens do GitHub
+design-system/vitrine.html linguist-generated
+prototipo/*.html linguist-generated
+extensao/uirapp/** linguist-generated
+ui/tokens.css linguist-generated
