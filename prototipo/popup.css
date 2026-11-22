@@ -1,0 +1,71 @@
+/* Encaixe da janela da extensão. Componente mora em ../ui/componentes.css */
+.app {
+  position: relative; width: var(--tam-popup); max-width: 100%; height: 560px; max-height: var(--tam-popup-max);
+  overflow: hidden; margin: 0 auto;
+}
+.tela, .formulario { height: 100%; display: flex; flex-direction: column; min-height: 0; }
+.formulario { flex: 1; }
+.topo { flex: none; min-height: 56px; display: flex; align-items: center; gap: var(--espaco-1); padding: 0 var(--espaco-2); }
+.topo h2 { font: var(--tipo-title); }
+.topo h2:focus, .palco-titulo:focus { outline: none; }
+.topo-marca { padding: 0 var(--espaco-4); }
+.principal { padding: var(--espaco-5) var(--espaco-4) var(--espaco-2); }
+.menu { display: flex; flex-direction: column; }
+.rolo { flex: 1; min-height: 0; overflow-y: auto; padding-bottom: var(--espaco-4); }
+.rodape { flex: none; margin-top: auto; padding: var(--espaco-3) var(--espaco-4) var(--espaco-4); }
+.rodape-duplo { display: grid; gap: var(--espaco-2); }
+.afiliacao { color: var(--text-muted); font: var(--tipo-small); text-align: center; }
+
+.resposta { display: flex; align-items: center; padding-right: var(--espaco-2); }
+.resposta + .resposta { border-top: 1px solid var(--line); }
+.resposta .linha { flex: 1; min-width: 0; min-height: 64px; }
+.resposta-nome { display: block; }
+
+.acessos { margin: 0; padding: var(--espaco-3) var(--espaco-4) 0; }
+.acessos div { padding: var(--espaco-3) 0; }
+.acessos div + div { border-top: 1px solid var(--line); }
+.acessos dt { color: var(--text-muted); font: var(--tipo-small); }
+.acessos dd { margin: 0; font: var(--tipo-label); }
+.acessos dd.nada { font: var(--tipo-title); }
+.apagar-tudo { color: var(--danger); }
+.apagar-tudo:hover:not(:disabled) { color: var(--danger); }
+
+.palco-alto { height: 244px; }
+.palco-alto .palco-texto { top: 64px; }
+
+/* 0.2: busca, favoritos, variáveis, temas e novidades */
+.busca { position: relative; margin: 0 var(--espaco-4) var(--espaco-2); }
+.busca > .icone { position: absolute; left: var(--espaco-3); top: 50%; translate: 0 -50%; color: var(--text-muted); pointer-events: none; }
+.busca .entrada { padding-left: calc(var(--espaco-3) * 2 + var(--tam-icon)); }
+.vazio-busca { padding: var(--espaco-4); color: var(--text-muted); font: var(--tipo-small); }
+.topo .favorito { margin-left: auto; }
+.favorito .icone + .icone, .favorito[aria-pressed="true"] .icone:first-child { display: none; }
+.favorito[aria-pressed="true"] .icone + .icone { display: block; color: var(--primary); }
+.fichas-variaveis { display: flex; flex-wrap: wrap; gap: var(--espaco-2); padding: var(--espaco-3) var(--espaco-4) 0; }
+.chip {
+  min-height: var(--tam-hit); min-width: var(--tam-hit); padding: 0 var(--espaco-3); border: 1px solid var(--control); border-radius: var(--raio-round);
+  font: var(--tipo-small); color: var(--text);
+}
+.chip:hover { background: var(--surface-hover); }
+.entrada-curta { min-height: 76px; }
+.campo-apoio { padding: var(--espaco-2) var(--espaco-4) 0; color: var(--text-muted); font: var(--tipo-small); }
+.resposta .botao-icone { color: var(--text-muted); }
+.temas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--espaco-2); padding: 0 var(--espaco-4); }
+.tema {
+  position: relative; display: grid; gap: var(--espaco-1); padding: var(--espaco-1); border: 2px solid transparent;
+  border-radius: var(--raio-control); cursor: pointer; font: var(--tipo-small); text-align: center;
+}
+.tema input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.tema:has(:checked) { border-color: var(--primary); }
+.tema:has(:focus-visible) { outline: 3px solid var(--primary); outline-offset: 2px; }
+.tema:hover { background: var(--surface-hover); }
+.tema-amostra {
+  height: 44px; display: grid; grid-template-columns: 1fr 1fr; align-content: center; gap: 4px; padding: 6px;
+  border-radius: var(--raio-key); border: 1px solid var(--line);
+}
+.tema-amostra i { display: block; height: 10px; border-radius: 4px; }
+.tema-original { background: repeating-linear-gradient(135deg, var(--surface-hover) 0 6px, var(--bg) 6px 12px); }
+.tema-amostra i:last-child { grid-column: 1 / -1; width: 60%; justify-self: end; }
+.tema-nome { min-height: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.novidades { display: grid; gap: var(--espaco-3); padding: var(--espaco-4); list-style: disc inside; font: var(--tipo-label); }
+.tela > .rolo > .palco { margin-bottom: 0; }

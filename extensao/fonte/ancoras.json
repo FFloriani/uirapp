@@ -1,0 +1,101 @@
+{
+  "_leia": "Unico lugar dos marcadores do WhatsApp Web. Lista e conversa de grupo aberta = vistas logadas em 22/11/2026. Foto, video, audio e envio = lidos nos scripts publicos. O que nao esta aqui fica escondido.",
+  "estrutura": [
+    "#side",
+    "#pane-side",
+    "#pane-side [data-testid=\"chat-list\"]",
+    "#pane-side [role=\"row\"]",
+    "#pane-side [data-testid=\"cell-frame-container\"]",
+    "#main",
+    "#main [data-testid=\"conversation-header\"]",
+    "#main [data-testid=\"conversation-panel-body\"]",
+    "#main [data-testid=\"conversation-panel-messages\"]",
+    "#main footer",
+    "#main [data-testid=\"compose-box\"]"
+  ],
+  "nomes": [
+    "[data-testid=\"cell-frame-title\"]",
+    "[data-testid=\"conversation-info-header-chat-title-name\"]",
+    "[data-testid=\"conversation-info-header-chat-title\"]",
+    "#main [data-testid=\"msg-container\"] [data-testid=\"author\"]",
+    "#main [data-testid=\"chat-subtitle\"]"
+  ],
+  "nomesTarja": [
+    "[data-testid=\"cell-frame-title\"]",
+    "[data-testid=\"conversation-info-header-chat-title-name\"]"
+  ],
+  "fotos": [
+    "[data-testid=\"cell-frame-container\"] > :first-child",
+    "[data-testid=\"conversation-header-avatar\"]"
+  ],
+  "fotosPresas": [
+    "#main [data-testid=\"group-chat-profile-picture\"]"
+  ],
+  "previaTexto": [
+    "#pane-side [data-testid=\"last-msg-status\"] > span[dir]:last-child"
+  ],
+  "previaVao": [
+    "#pane-side [data-testid=\"last-msg-status\"]:has(> span[dir]:last-child) > :not(span[dir]:last-child)"
+  ],
+  "previaInteira": [
+    "#pane-side [data-testid=\"last-msg-status\"]"
+  ],
+  "previaTarja": [
+    "#pane-side [data-testid=\"cell-frame-secondary\"]"
+  ],
+  "previaMidia": [
+    "[data-testid=\"chat_list_last_msg_media_thumb\"]",
+    "[data-testid=\"last-msg-status\"] img:not(.emoji)",
+    "[data-testid=\"last-msg-status\"] video",
+    "[data-testid=\"last-msg-status\"] canvas"
+  ],
+  "mensagens": [
+    "#main [data-pre-plain-text] .selectable-text",
+    "#main [data-pre-plain-text] [data-testid~=\"selectable-text\"]",
+    "#main [data-testid=\"msg-container\"] [data-testid=\"msg-meta\"]",
+    "#main [data-testid=\"conversation-compose-box-input\"]",
+    "#main [data-testid=\"compose-btn-send\"]",
+    "#main [data-testid=\"msg-container\"] [data-testid=\"quoted-message\"] .selectable-text"
+  ],
+  "mensagemTarja": [
+    "#main [data-testid=\"msg-container\"]"
+  ],
+  "nomesDentroDeTexto": [
+    "[data-testid=\"quoted-message\"]",
+    "[data-testid=\"author\"]",
+    "[data-pre-plain-text] .selectable-text [role]:not(img)",
+    "[data-pre-plain-text] .selectable-text [tabindex]:not(img)",
+    "[data-pre-plain-text] .selectable-text [title]",
+    "[data-testid=\"last-msg-status\"] > span[dir]:last-child [role]:not(img)",
+    "[data-testid=\"last-msg-status\"] > span[dir]:last-child [title]",
+    "[data-testid=\"profile-first-initial\"]",
+    "[data-testid=\"profile-second-initial\"]"
+  ],
+  "midia": [
+    "#main [data-testid=\"msgImage\"]",
+    "#main [data-testid=\"msg-video\"]",
+    "#main [data-testid=\"image-album\"]",
+    "#main [data-testid=\"sticker-container\"]",
+    "#main [data-testid=\"link-preview-thumbnail\"]",
+    "#main [data-testid=\"chat_thread_gif_thumb_image\"]",
+    "#main [data-testid=\"document-thumb-details\"]",
+    "#main [data-testid=\"audio-play\"]",
+    "#main [data-testid=\"ptt-status\"]",
+    "#main [data-testid=\"msg-container\"] img[src^=\"blob:\"]"
+  ],
+  "fotosDentroDeMidia": [
+    "#main [data-testid*=\"avatar\"]",
+    "#main [data-testid=\"group-chat-profile-picture\"]"
+  ],
+  "reconhece": {
+    "lista": "#pane-side",
+    "celula": "#pane-side [data-testid=\"cell-frame-container\"]",
+    "titulo": "#pane-side [data-testid=\"cell-frame-title\"]",
+    "linha": "#pane-side [role=\"row\"]",
+    "lado": "#side",
+    "conversa": "#main",
+    "mensagens": "#main [data-testid=\"conversation-panel-messages\"]",
+    "entrada": "[data-testid=\"link-device-qr-code\"], [data-testid=\"link-device-phone-number-entry-screen\"], #link-device-instructions-list",
+    "carregando": "[data-testid=\"wa-web-loading-screen\"], [data-testid=\"wa-web-startup-splash-meta\"]"
+  }
+}

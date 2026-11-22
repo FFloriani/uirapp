@@ -1,0 +1,252 @@
+/* Componentes do Uirapp. Só usa variáveis de tokens.css, gerado do DESIGN.md. */
+
+@font-face {
+  font-family: "Sofia Sans";
+  src: url("fontes/sofia-sans-latin-wght-normal.woff2") format("woff2");
+  font-weight: 1 1000;
+  font-display: block;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { background: var(--bg); color: var(--text); font: var(--tipo-body); }
+body { margin: 0; }
+h1, h2, h3, p, ul { margin: 0; padding: 0; }
+ul { list-style: none; }
+button, input, textarea, select { font: inherit; color: inherit; }
+button { border: 0; background: none; padding: 0; cursor: pointer; }
+button:disabled, input:disabled, textarea:disabled { cursor: not-allowed; }
+:focus-visible, .ex-foco { outline: 3px solid var(--primary); outline-offset: 2px; }
+
+.so-leitor {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
+}
+
+/* ícone */
+.icone { width: var(--tam-icon); height: var(--tam-icon); flex: none; }
+.icone-cheio { fill: currentColor; }
+.icone-traco { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* nome */
+.nome { display: block; height: 27px; width: auto; color: var(--text); }
+
+/* mascote: o estado e a plumagem vêm de um antepassado */
+.passaro { display: block; flex: none; --p-cabeca: var(--escarlate); --p-corpo: var(--carvao); --p-bico: var(--bico); }
+.passaro .p-cabeca { fill: var(--p-cabeca); }
+.passaro .p-corpo { fill: var(--p-corpo); }
+.passaro .p-bico { fill: var(--p-bico); }
+:root[data-plumagem="laranja"] .passaro:not([class*="plumagem-"]), .passaro.plumagem-laranja {
+  --p-cabeca: var(--plumagem-laranja); --p-corpo: var(--carvao); --p-bico: var(--plumagem-laranja-bico);
+}
+:root[data-plumagem="lenda"] .passaro:not([class*="plumagem-"]), .passaro.plumagem-lenda {
+  --p-cabeca: var(--plumagem-lenda); --p-corpo: var(--plumagem-lenda-corpo); --p-bico: var(--plumagem-lenda-bico);
+}
+.passaro.plumagem-vermelha { --p-cabeca: var(--escarlate); --p-corpo: var(--carvao); --p-bico: var(--bico); }
+
+.passaro .olho, .passaro .bico-aberto { display: none; }
+.passaro .olho-acordado { display: inline; }
+[data-humor="silencio"] .passaro .olho-acordado, .passaro.dorme .olho-acordado,
+[data-humor="cantando"] .passaro .olho-acordado, .passaro.canta .olho-acordado,
+[data-humor="alerta"] .passaro .olho-acordado, .passaro.assusta .olho-acordado { display: none; }
+[data-humor="silencio"] .passaro .olho-silencio, .passaro.dorme .olho-silencio,
+[data-humor="cantando"] .passaro .olho-cantando, .passaro.canta .olho-cantando,
+[data-humor="cantando"] .passaro .bico-aberto, .passaro.canta .bico-aberto,
+[data-humor="alerta"] .passaro .olho-alerta, .passaro.assusta .olho-alerta { display: inline; }
+[data-humor="cantando"] .passaro .bico-fechado, .passaro.canta .bico-fechado { display: none; }
+
+/* palco com poleiro */
+.palco {
+  position: relative; height: 196px; flex: none;
+  background: var(--ceu-aberto); color: var(--on-ceu-aberto);
+  transition: background-color var(--tempo-dusk) var(--tempo-ease), color var(--tempo-dusk) var(--tempo-ease);
+}
+.palco[data-estado="silencio"] { background: var(--ceu-silencio); color: var(--on-ceu-silencio); }
+.palco[data-estado="fechado"] { background: var(--ceu-neblina); color: var(--on-ceu-aberto); }
+.palco[data-estado="alerta"] { background: var(--ceu-alerta); color: var(--on-warning); }
+.palco .passaro {
+  position: absolute; z-index: 1; left: var(--espaco-4); bottom: -4px; width: var(--tam-mascot);
+  transition: transform var(--tempo-dusk) var(--tempo-ease);
+}
+.palco[data-estado="silencio"] .passaro { transform: translateY(3px); }
+.palco-texto {
+  position: absolute; left: calc(var(--tam-mascot) + var(--espaco-6)); right: var(--espaco-4); top: var(--espaco-6);
+}
+.palco-titulo { font: var(--tipo-display); text-wrap: balance; }
+.palco-apoio { margin-top: var(--espaco-2); font: var(--tipo-small); }
+.galho {
+  position: absolute; left: 0; right: 0; bottom: calc(var(--tam-perch) / -2);
+  height: var(--tam-perch); background: var(--galho); border-radius: 0 var(--raio-round) var(--raio-round) 0;
+}
+.folhas { position: absolute; right: var(--espaco-5); bottom: calc(100% - 3px); width: 52px; height: 28px; fill: var(--folha); }
+
+/* botão */
+.botao {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--espaco-2);
+  min-height: var(--tam-hit); padding: 0 var(--espaco-4);
+  border-radius: var(--raio-control); font: var(--tipo-label);
+  background: var(--primary); color: var(--on-primary);
+  transition: background-color var(--tempo-press) var(--tempo-ease), transform var(--tempo-press) var(--tempo-ease);
+}
+.botao:hover:not(:disabled), .botao.ex-mouse { background: var(--primary-hover); }
+.botao:active:not(:disabled), .botao.ex-aperto { background: var(--primary-hover); transform: translateY(1px); }
+.botao:disabled { background: var(--surface-hover); color: var(--text-muted); }
+.botao-largo { width: 100%; }
+.botao-com-tecla { justify-content: space-between; }
+.botao-discreto { background: transparent; color: var(--primary); }
+.botao-discreto:hover:not(:disabled), .botao-discreto.ex-mouse { background: var(--surface-hover); color: var(--primary-hover); }
+.botao-perigo { background: var(--danger); color: var(--on-danger); }
+.botao-perigo:hover:not(:disabled), .botao-perigo.ex-mouse { background: var(--danger); text-decoration: underline; text-underline-offset: 3px; }
+.botao-icone {
+  width: var(--tam-hit); height: var(--tam-hit); flex: none;
+  display: grid; place-items: center; border-radius: var(--raio-control); color: var(--text);
+}
+.botao-icone:hover, .botao-icone.ex-mouse { background: var(--surface-hover); }
+.tecla {
+  padding: 3px var(--espaco-2); border-radius: var(--raio-key);
+  background: var(--surface-hover); color: var(--text); font: var(--tipo-small); white-space: nowrap;
+}
+
+/* linha */
+.linha {
+  width: 100%; min-height: var(--tam-row); padding: var(--espaco-2) var(--espaco-4);
+  display: flex; align-items: center; gap: var(--espaco-3); text-align: left; font: var(--tipo-label);
+}
+.linha + .linha { border-top: 1px solid var(--line); }
+button.linha:hover, label.linha:hover, .linha.ex-mouse { background: var(--surface-hover); }
+.linha:focus-visible, .linha.ex-foco { outline-offset: -3px; }
+label.linha { cursor: pointer; }
+.linha-texto { flex: 1; min-width: 0; }
+.linha-apoio {
+  display: block; margin-top: 1px; color: var(--text-muted); font: var(--tipo-small);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.linha-valor { color: var(--text-muted); font: var(--tipo-small); text-align: right; }
+.linha > .icone:last-child { color: var(--text-muted); width: 18px; height: 18px; }
+.grupo-titulo { padding: var(--espaco-4) var(--espaco-4) var(--espaco-2); font: var(--tipo-small); color: var(--text-muted); }
+
+/* interruptor */
+.interruptor {
+  appearance: none; position: relative; flex: none; margin: 0; width: 46px; height: 28px;
+  border-radius: var(--raio-round); background: var(--control); cursor: pointer;
+  transition: background-color var(--tempo-change) var(--tempo-ease);
+}
+.interruptor::after {
+  content: ""; position: absolute; top: 4px; left: 4px; width: 20px; height: 20px;
+  border-radius: var(--raio-round); background: var(--surface);
+  transition: transform var(--tempo-change) var(--tempo-ease);
+}
+.interruptor:checked { background: var(--primary); }
+.interruptor:checked::after { transform: translateX(18px); background: var(--on-primary); }
+.interruptor:disabled { opacity: .45; }
+
+/* seletor de opções */
+.segmentos {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 2px;
+  margin: 0 var(--espaco-4); padding: 2px; border: 1px solid var(--control); border-radius: var(--raio-control);
+}
+.segmento {
+  position: relative; min-height: var(--tam-hit); display: grid; place-items: center;
+  border-radius: calc(var(--raio-control) - 3px); font: var(--tipo-label); cursor: pointer;
+}
+.segmento input, .plumagem input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.segmento:hover, .segmento.ex-mouse { background: var(--surface-hover); }
+.segmento:has(:checked) { background: var(--primary); color: var(--on-primary); }
+.segmento:has(:focus-visible), .plumagem:has(:focus-visible) { outline: 3px solid var(--primary); outline-offset: 2px; }
+
+/* plumagem */
+.plumagens { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--espaco-2); padding: 0 var(--espaco-4); }
+.plumagem {
+  position: relative; display: flex; flex-direction: column; align-items: center; overflow: hidden;
+  background: var(--surface); border: 2px solid transparent; border-radius: var(--raio-panel);
+  font: var(--tipo-label); cursor: pointer; text-align: center;
+}
+.plumagem-ceu { width: 100%; height: 100px; display: grid; place-items: center; background: var(--ceu-aberto); }
+.plumagem .passaro { width: 78px; }
+.plumagem-nome { min-height: var(--tam-hit); display: grid; place-items: center; padding: 0 var(--espaco-1); }
+.plumagem:hover, .plumagem.ex-mouse { background: var(--surface-hover); }
+.plumagem:has(:checked) { border-color: var(--primary); }
+.plumagem:has(:checked) .plumagem-nome { color: var(--primary); }
+
+/* campo */
+.campo { display: grid; gap: var(--espaco-1); padding: var(--espaco-3) var(--espaco-4) 0; }
+.campo-rotulo { font: var(--tipo-label); }
+.entrada {
+  width: 100%; min-height: var(--tam-hit); padding: var(--espaco-2) var(--espaco-3);
+  background: var(--surface); color: var(--text); font: var(--tipo-body);
+  border: 1px solid var(--control); border-radius: var(--raio-control);
+}
+textarea.entrada { min-height: 132px; resize: vertical; }
+.entrada:focus-visible, .entrada.ex-foco { outline: 2px solid var(--primary); outline-offset: 0; border-color: var(--primary); }
+.entrada[aria-invalid="true"] { border-color: var(--danger); }
+.entrada:disabled { background: var(--surface-hover); color: var(--text-muted); }
+.campo-erro { color: var(--danger); font: var(--tipo-small); display: flex; gap: var(--espaco-1); align-items: center; }
+.campo-erro .icone { width: 16px; height: 16px; }
+
+/* aviso e aviso passageiro */
+.nota {
+  display: flex; gap: var(--espaco-2); align-items: center; padding: var(--espaco-3) var(--espaco-4);
+  background: var(--warning); color: var(--on-warning); font: var(--tipo-small);
+}
+.aviso {
+  position: absolute; z-index: 3; left: var(--espaco-4); right: var(--espaco-4); bottom: var(--espaco-4);
+  min-height: var(--tam-hit); padding: var(--espaco-2) var(--espaco-3);
+  display: flex; align-items: center; gap: var(--espaco-2);
+  border-radius: var(--raio-control); background: var(--text); color: var(--bg); font: var(--tipo-small);
+}
+.aviso .passaro { width: 34px; height: 34px; padding: 4px; border-radius: var(--raio-round); background: var(--ceu-aberto); }
+
+/* diálogo */
+.dialogo {
+  width: calc(var(--tam-popup) - var(--espaco-6)); max-width: calc(100% - var(--espaco-6));
+  padding: var(--espaco-5); border: 1px solid var(--line); border-radius: var(--raio-panel);
+  background: var(--surface); color: var(--text);
+}
+.dialogo::backdrop { background: color-mix(in srgb, var(--carvao) 62%, transparent); }
+.dialogo h2 { font: var(--tipo-title); }
+.dialogo p { margin-top: var(--espaco-2); color: var(--text-muted); }
+.dialogo-acoes { display: flex; justify-content: flex-end; gap: var(--espaco-2); margin-top: var(--espaco-5); }
+
+/* vazio */
+.vazio { display: grid; justify-items: center; padding: var(--espaco-6) var(--espaco-4); text-align: center; gap: var(--espaco-3); }
+.vazio-poleiro {
+  position: relative; width: 190px; padding-top: var(--espaco-4); display: grid; justify-items: center;
+  background: var(--ceu-aberto); border-radius: var(--raio-panel) var(--raio-panel) 0 0;
+}
+.vazio-poleiro .passaro { width: 104px; position: relative; z-index: 1; margin-bottom: -4px; }
+.vazio-poleiro .galho { border-radius: var(--raio-round); }
+.vazio-poleiro .folhas { right: var(--espaco-1); width: 40px; height: 22px; }
+.vazio h2 { font: var(--tipo-title); margin-top: var(--espaco-3); }
+
+/* tarja: opaca, sem seleção. O conteúdo fica invisível; desfoque não conta */
+.silencio [data-tarja] { user-select: none; pointer-events: none; }
+.silencio [data-tarja="texto"], .silencio [data-tarja="linha"], .silencio [data-tarja="midia"] { background: var(--tarja); border-radius: var(--raio-key); }
+.silencio [data-tarja] > .conteudo { visibility: hidden; }
+/* nome e prévia: largura fixa, para o tamanho não entregar quem é */
+.silencio [data-tarja="linha"] { display: block; width: 9em; max-width: 100%; height: 1.2em; overflow: hidden; white-space: nowrap; text-overflow: clip; color: transparent; }
+[data-tarja="foto"] > .passaro { display: none; }
+.silencio [data-tarja="foto"] { background: var(--ceu-silencio); }
+.silencio [data-tarja="foto"] > .passaro { display: block; }
+
+/* botão flutuante dentro do WhatsApp */
+.flutuante {
+  position: fixed; z-index: 4; width: 56px; height: 56px; display: grid; place-items: center;
+  border-radius: var(--raio-round); background: var(--ceu-aberto); border: 2px solid var(--galho);
+  transition: background-color var(--tempo-dusk) var(--tempo-ease);
+}
+.flutuante[aria-pressed="true"] { background: var(--ceu-silencio); }
+.flutuante .passaro { width: 40px; }
+
+/* cobertura: falhou, fecha */
+.cobertura {
+  position: fixed; inset: 0; z-index: 5; padding: var(--espaco-5);
+  display: grid; align-content: center; justify-items: center; gap: var(--espaco-4);
+  background: var(--ceu-alerta); color: var(--on-warning); text-align: center;
+}
+.cobertura .vazio-poleiro { width: 260px; background: none; }
+.cobertura .vazio-poleiro .passaro { width: 148px; margin-bottom: -6px; }
+.cobertura h2 { font: var(--tipo-display); margin-top: var(--espaco-3); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0s !important; animation-duration: 0s !important; }
+}

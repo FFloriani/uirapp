@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data: blob:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>Ninho · Uirapp</title>
+<link rel="icon" href="../../marca/icones/icone-32.png">
+<link rel="stylesheet" href="../../ui/tokens.css">
+<link rel="stylesheet" href="../../ui/componentes.css">
+<link rel="stylesheet" href="ninho.css">
+</head>
+<body>
+<header class="ninho-topo">
+  <div class="ninho-marca"><!--@passaro:canta--><h1><!--@nome--></h1><span class="ninho-nome">Ninho</span></div>
+  <nav class="abas" aria-label="Partes do Ninho">
+    <a class="aba" href="#atendimento" data-aba="atendimento"><!--@icone:layout-kanban-->Atendimento</a>
+    <a class="aba" href="#lembretes" data-aba="lembretes"><!--@icone:bell-->Lembretes</a>
+    <a class="aba" href="#temas" data-aba="temas"><!--@icone:brush-->Temas</a>
+    <a class="aba" href="#desenho" data-aba="desenho"><!--@icone:palette-->Desenho</a>
+    <a class="aba" href="#backup" data-aba="backup"><!--@icone:database-->Backup</a>
+  </nav>
+</header>
+
+<main class="ninho">
+
+<section class="parte" id="atendimento" aria-labelledby="t-atendimento" hidden>
+  <div class="parte-topo">
+    <h2 id="t-atendimento" tabindex="-1">Atendimento</h2>
+    <div class="ferramentas">
+      <input class="entrada" id="f-busca" type="search" placeholder="Buscar ficha" aria-label="Buscar ficha" autocomplete="off">
+      <select class="entrada" id="f-etiqueta" aria-label="Filtrar por etiqueta"><option value="">Todas as etiquetas</option></select>
+      <button class="botao botao-discreto" type="button" id="editar-etapas">Etapas</button>
+      <button class="botao" type="button" id="nova-ficha"><!--@icone:plus-->Nova ficha</button>
+    </div>
+  </div>
+  <div class="quadro" id="quadro" aria-label="Fichas por etapa"></div>
+  <div class="vazio" id="quadro-vazio" hidden>
+    <div class="vazio-poleiro"><!--@passaro--><!--@galho--></div>
+    <h2>Nenhuma ficha ainda</h2>
+  </div>
+</section>
+
+<section class="parte" id="lembretes" aria-labelledby="t-lembretes" hidden>
+  <div class="parte-topo">
+    <h2 id="t-lembretes" tabindex="-1">Lembretes</h2>
+    <div class="ferramentas"><button class="botao" type="button" id="novo-lembrete"><!--@icone:plus-->Novo lembrete</button></div>
+  </div>
+  <ul class="lista-lembretes" id="lista-lembretes" aria-label="Lembretes"></ul>
+  <div class="vazio" id="lembretes-vazio" hidden>
+    <div class="vazio-poleiro"><!--@passaro--><!--@galho--></div>
+    <h2>Nenhum lembrete ainda</h2>
+  </div>
+</section>
+
+<section class="parte" id="temas" aria-labelledby="t-temas" hidden>
+  <div class="parte-topo"><h2 id="t-temas" tabindex="-1">Temas</h2></div>
+  <div class="estudio">
+    <form class="estudio-campos" id="form-tema" novalidate>
+      <div class="campo"><label class="campo-rotulo" for="tm-nome">Nome</label><input class="entrada" id="tm-nome" maxlength="30" autocomplete="off" aria-describedby="e-tm-nome"><p class="campo-erro" id="e-tm-nome" hidden><!--@icone:alert-triangle-->Dê um nome ao tema.</p></div>
+      <div class="cores">
+        <label class="cor"><input type="color" id="tm-fundo" value="#18242E"><span>Fundo</span></label>
+        <label class="cor"><input type="color" id="tm-texto" value="#EEF4F6"><span>Texto</span></label>
+        <label class="cor"><input type="color" id="tm-acento" value="#8FCFE0"><span>Destaque</span></label>
+      </div>
+      <div class="campo"><label class="campo-rotulo" for="tm-imagem">Imagem de fundo da conversa</label><input class="entrada" id="tm-imagem" type="file" accept="image/png,image/jpeg,image/webp"></div>
+      <button class="botao botao-discreto" type="button" id="tm-sem-imagem" hidden>Tirar a imagem</button>
+      <p class="campo-apoio" id="tm-ajuste" hidden>Ajustei o texto para ler bem.</p>
+      <div class="acoes"><button class="botao" type="submit">Salvar e usar</button></div>
+    </form>
+    <div class="previa" id="previa" aria-label="Como fica">
+      <div class="previa-lista"><i></i><i></i><i></i><i></i></div>
+      <div class="previa-conversa"><span class="balao-recebido">Bom dia! Tudo certo?</span><span class="balao-enviado">Tudo sim, já te mando.</span><span class="previa-escrever">Mensagem</span></div>
+    </div>
+  </div>
+  <h3 class="sub">Seus temas</h3>
+  <ul class="meus-temas" id="meus-temas" aria-label="Seus temas"></ul>
+  <p class="campo-apoio" id="temas-vazio">Nenhum tema seu ainda.</p>
+  <div class="acoes"><label class="botao botao-discreto arquivo"><input type="file" id="tm-importar" accept="application/json,.json">Importar tema</label></div>
+</section>
+
+<section class="parte" id="desenho" aria-labelledby="t-desenho" hidden>
+  <div class="parte-topo">
+    <h2 id="t-desenho" tabindex="-1">Desenho</h2>
+    <div class="ferramentas">
+      <div class="pinceis" role="radiogroup" aria-label="Cor">
+        <label class="pincel"><input type="radio" name="cor" value="#1E1E24" checked><span class="pincel-cor" data-cor="#1E1E24"></span><span class="so-leitor">Carvão</span></label>
+        <label class="pincel"><input type="radio" name="cor" value="#E63323"><span class="pincel-cor" data-cor="#E63323"></span><span class="so-leitor">Escarlate</span></label>
+        <label class="pincel"><input type="radio" name="cor" value="#17627A"><span class="pincel-cor" data-cor="#17627A"></span><span class="so-leitor">Azul</span></label>
+        <label class="pincel"><input type="radio" name="cor" value="#3E7183"><span class="pincel-cor" data-cor="#3E7183"></span><span class="so-leitor">Folha</span></label>
+        <label class="pincel"><input type="radio" name="cor" value="#FFFFFF"><span class="pincel-cor" data-cor="#FFFFFF"></span><span class="so-leitor">Borracha</span></label>
+      </div>
+      <label class="espessura"><span>Traço</span><input type="range" id="d-traco" min="2" max="40" value="6"></label>
+      <button class="botao botao-discreto" type="button" id="d-desfazer">Desfazer</button>
+      <button class="botao botao-discreto" type="button" id="d-limpar">Limpar</button>
+      <button class="botao botao-discreto" type="button" id="d-baixar"><!--@icone:download-->Baixar</button>
+      <button class="botao" type="button" id="d-copiar"><!--@icone:copy-->Copiar imagem</button>
+    </div>
+  </div>
+  <canvas class="tela-desenho" id="tela-desenho" width="1200" height="720" aria-label="Área de desenho"></canvas>
+</section>
+
+<section class="parte" id="backup" aria-labelledby="t-backup" hidden>
+  <div class="parte-topo"><h2 id="t-backup" tabindex="-1">Backup</h2></div>
+  <div class="colunas">
+    <form class="cartao" id="form-backup" novalidate>
+      <h3>Guardar</h3>
+      <p class="campo-apoio">Ajustes, respostas, fichas, lembretes e temas, num arquivo.</p>
+      <div class="campo"><label class="campo-rotulo" for="b-senha">Senha para abrir</label><input class="entrada" id="b-senha" type="password" maxlength="200" autocomplete="new-password" aria-describedby="e-b-senha"><p class="campo-erro" id="e-b-senha" hidden><!--@icone:alert-triangle-->Use 8 letras ou mais.</p></div>
+      <div class="acoes"><button class="botao" type="submit"><!--@icone:download-->Baixar backup</button></div>
+    </form>
+    <form class="cartao" id="form-restaurar" novalidate>
+      <h3>Restaurar</h3>
+      <p class="campo-apoio">Troca tudo o que está aqui pelo que está no arquivo.</p>
+      <div class="campo"><label class="campo-rotulo" for="b-arquivo">Arquivo</label><input class="entrada" id="b-arquivo" type="file" accept="application/json,.json"></div>
+      <div class="campo" id="campo-r-senha" hidden><label class="campo-rotulo" for="b-r-senha">Senha do arquivo</label><input class="entrada" id="b-r-senha" type="password" maxlength="200" autocomplete="off" aria-describedby="e-b-r"><p class="campo-erro" id="e-b-r" hidden><!--@icone:alert-triangle-->Senha errada ou arquivo estranho.</p></div>
+      <p class="campo-apoio" id="b-resumo"></p>
+      <div class="acoes"><button class="botao" type="submit" id="b-restaurar" disabled>Restaurar</button></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<dialog class="dialogo dialogo-largo" id="d-ficha" aria-labelledby="t-ficha">
+  <form id="form-ficha" novalidate>
+    <h2 id="t-ficha">Ficha</h2>
+    <div class="grade">
+      <div class="campo"><label class="campo-rotulo" for="fi-nome">Nome</label><input class="entrada" id="fi-nome" maxlength="80" autocomplete="off" aria-describedby="e-fi-nome"><p class="campo-erro" id="e-fi-nome" hidden><!--@icone:alert-triangle-->Dê um nome.</p></div>
+      <div class="campo"><label class="campo-rotulo" for="fi-telefone">Número</label><input class="entrada" id="fi-telefone" type="tel" maxlength="30" autocomplete="off" aria-describedby="e-fi-tel"><p class="campo-erro" id="e-fi-tel" hidden><!--@icone:alert-triangle-->Confira o número, com DDD.</p></div>
+      <div class="campo"><label class="campo-rotulo" for="fi-etapa">Etapa</label><select class="entrada" id="fi-etapa"></select></div>
+      <div class="campo"><label class="campo-rotulo" for="fi-valor">Valor</label><input class="entrada" id="fi-valor" inputmode="decimal" maxlength="20" autocomplete="off" placeholder="R$ 0,00" aria-describedby="e-fi-valor"><p class="campo-erro" id="e-fi-valor" hidden><!--@icone:alert-triangle-->Valor em reais, como 150,00.</p></div>
+      <div class="campo campo-inteiro"><label class="campo-rotulo" for="fi-etiquetas">Etiquetas</label><input class="entrada" id="fi-etiquetas" maxlength="200" autocomplete="off" placeholder="vip, retorno"></div>
+      <div class="campo campo-inteiro"><label class="campo-rotulo" for="fi-nota">Notas</label><textarea class="entrada" id="fi-nota" maxlength="4000"></textarea></div>
+    </div>
+    <div class="dialogo-acoes">
+      <button class="botao botao-discreto apagar" type="button" id="fi-apagar"><!--@icone:trash-->Apagar</button>
+      <button class="botao botao-discreto" type="button" id="fi-da-conversa">Nome da conversa aberta</button>
+      <button class="botao botao-discreto" type="button" id="fi-conversar"><!--@icone:phone-->Conversar</button>
+      <button class="botao botao-discreto" type="button" id="fi-lembrar"><!--@icone:bell-->Lembrar</button>
+      <button class="botao botao-discreto" type="button" id="fi-fechar">Fechar</button>
+      <button class="botao" type="submit">Salvar ficha</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="dialogo dialogo-largo" id="d-lembrete" aria-labelledby="t-lembrete">
+  <form id="form-lembrete" novalidate>
+    <h2 id="t-lembrete">Lembrete</h2>
+    <div class="grade">
+      <div class="campo"><label class="campo-rotulo" for="le-titulo">O quê</label><input class="entrada" id="le-titulo" maxlength="80" autocomplete="off" aria-describedby="e-le-titulo"><p class="campo-erro" id="e-le-titulo" hidden><!--@icone:alert-triangle-->Diga do que lembrar.</p></div>
+      <div class="campo"><label class="campo-rotulo" for="le-quando">Quando</label><input class="entrada" id="le-quando" type="datetime-local" aria-describedby="e-le-quando"><p class="campo-erro" id="e-le-quando" hidden><!--@icone:alert-triangle-->Escolha um horário que ainda não passou.</p></div>
+      <div class="campo"><label class="campo-rotulo" for="le-telefone">Número</label><input class="entrada" id="le-telefone" type="tel" maxlength="30" autocomplete="off" aria-describedby="e-le-tel"><p class="campo-erro" id="e-le-tel" hidden><!--@icone:alert-triangle-->Confira o número, com DDD.</p></div>
+      <div class="campo"><label class="campo-rotulo" for="le-ficha">Ficha</label><select class="entrada" id="le-ficha"><option value="">Nenhuma</option></select></div>
+      <div class="campo campo-inteiro"><label class="campo-rotulo" for="le-texto">Mensagem pronta</label><textarea class="entrada" id="le-texto" maxlength="4000"></textarea></div>
+    </div>
+    <div class="dialogo-acoes">
+      <button class="botao botao-discreto" type="button" id="le-fechar">Fechar</button>
+      <button class="botao" type="submit">Salvar lembrete</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="dialogo dialogo-largo" id="d-etapas" aria-labelledby="t-etapas">
+  <form id="form-etapas" novalidate>
+    <h2 id="t-etapas">Etapas</h2>
+    <ol class="etapas" id="lista-etapas"></ol>
+    <button class="botao botao-discreto" type="button" id="mais-etapa"><!--@icone:plus-->Etapa</button>
+    <div class="dialogo-acoes">
+      <button class="botao botao-discreto" type="button" id="et-fechar">Fechar</button>
+      <button class="botao" type="submit">Salvar etapas</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="dialogo" id="dialogo" aria-labelledby="dialogo-titulo">
+  <h2 id="dialogo-titulo">Apagar?</h2>
+  <p id="dialogo-texto">Não dá para desfazer.</p>
+  <div class="dialogo-acoes">
+    <button class="botao botao-discreto" type="button" id="dialogo-manter">Manter</button>
+    <button class="botao botao-perigo" type="button" id="dialogo-apagar">Apagar</button>
+  </div>
+</dialog>
+
+<div class="aviso aviso-ninho" id="aviso" role="status" data-humor="cantando" hidden><!--@passaro--><span id="aviso-texto"></span></div>
+
+<template id="molde-coluna">
+  <section class="coluna"><h3 class="coluna-titulo"><span class="coluna-nome"></span><span class="coluna-conta"></span></h3><ul class="coluna-fichas"></ul></section>
+</template>
+<template id="molde-ficha">
+  <li class="ficha" draggable="true"><button class="ficha-abrir" type="button"><span class="ficha-nome"></span><span class="ficha-valor"></span><span class="ficha-etiquetas"></span><span class="ficha-nota"></span></button></li>
+</template>
+<template id="molde-lembrete">
+  <li class="lembrete"><span class="lembrete-quando"></span><span class="lembrete-titulo"></span><span class="lembrete-acoes"><button class="botao botao-discreto lembrete-feito" type="button">Feito</button><button class="botao-icone lembrete-editar" type="button"><!--@icone:chevron-right--></button></span></li>
+</template>
+<template id="molde-meu-tema">
+  <li class="meu-tema"><span class="tema-amostra"><i></i><i></i><i></i></span><span class="meu-tema-nome"></span><button class="botao botao-discreto tema-usar" type="button">Usar</button><button class="botao botao-discreto tema-exportar" type="button">Exportar</button><button class="botao-icone tema-apagar" type="button"><!--@icone:trash--></button></li>
+</template>
+
+<!--@scripts-->
+</body>
+</html>

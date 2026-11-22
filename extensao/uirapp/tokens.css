@@ -1,0 +1,97 @@
+/* GERADO por scripts/montar.py. Não edite aqui. Fonte: DESIGN.md */
+:root {
+  color-scheme: light;
+  --primary: #17627A;
+  --primary-hover: #104D61;
+  --on-primary: #FFFFFF;
+  --bg: #F4F7F8;
+  --surface: #FFFFFF;
+  --surface-hover: #E4ECEF;
+  --text: #1E1E24;
+  --text-muted: #55616A;
+  --line: #D5DEE2;
+  --control: #72828B;
+  --danger: #A1173C;
+  --on-danger: #FFFFFF;
+  --warning: #F7D9A0;
+  --on-warning: #1E1E24;
+  --ceu-aberto: #BCDDE8;
+  --on-ceu-aberto: #1E1E24;
+  --ceu-silencio: #58758C;
+  --on-ceu-silencio: #FFFFFF;
+  --ceu-alerta: #F7D9A0;
+  --ceu-neblina: #C5CBCE;
+  --galho: #75523F;
+  --folha: #3E7183;
+  --tarja: #AFC0C8;
+  --escarlate: #E63323;
+  --carvao: #1E1E24;
+  --bico: #FF8A3D;
+  --creme: #FFF3E8;
+  --plumagem-laranja: #F47A20;
+  --plumagem-laranja-bico: #FFD166;
+  --plumagem-lenda: #B5562B;
+  --plumagem-lenda-corpo: #4A332C;
+  --plumagem-lenda-bico: #E0A06A;
+  --espaco-1: 4px;
+  --espaco-2: 8px;
+  --espaco-3: 12px;
+  --espaco-4: 16px;
+  --espaco-5: 24px;
+  --espaco-6: 32px;
+  --espaco-7: 48px;
+  --raio-key: 5px;
+  --raio-control: 10px;
+  --raio-panel: 18px;
+  --raio-round: 999px;
+  --tam-popup: 360px;
+  --tam-popup-max: 600px;
+  --tam-hit: 44px;
+  --tam-row: 52px;
+  --tam-icon: 22px;
+  --tam-mascot: 132px;
+  --tam-perch: 10px;
+  --tempo-press: 120ms;
+  --tempo-change: 180ms;
+  --tempo-dusk: 420ms;
+  --tempo-ease: cubic-bezier(.2,.8,.2,1);
+  --tipo-display: 800 28px/1.05 "Sofia Sans", system-ui, sans-serif;
+  --tipo-title: 750 20px/1.2 "Sofia Sans", system-ui, sans-serif;
+  --tipo-label: 650 16px/1.25 "Sofia Sans", system-ui, sans-serif;
+  --tipo-body: 430 15px/1.4 "Sofia Sans", system-ui, sans-serif;
+  --tipo-small: 520 13px/1.35 "Sofia Sans", system-ui, sans-serif;
+}
+:root[data-tema="noite"] {
+  color-scheme: dark;
+  --primary: #8FCFE0;
+  --primary-hover: #B4E1EC;
+  --on-primary: #0E2631;
+  --bg: #18242E;
+  --surface: #21313D;
+  --surface-hover: #2B3E4B;
+  --text: #EEF4F6;
+  --text-muted: #A9BAC4;
+  --line: #344955;
+  --control: #7F95A1;
+  --danger: #FF9DB3;
+  --on-danger: #3D0718;
+  --tarja: #47606F;
+}
+@media (prefers-color-scheme: dark) {
+:root:not([data-tema]) {
+  color-scheme: dark;
+  --primary: #8FCFE0;
+  --primary-hover: #B4E1EC;
+  --on-primary: #0E2631;
+  --bg: #18242E;
+  --surface: #21313D;
+  --surface-hover: #2B3E4B;
+  --text: #EEF4F6;
+  --text-muted: #A9BAC4;
+  --line: #344955;
+  --control: #7F95A1;
+  --danger: #FF9DB3;
+  --on-danger: #3D0718;
+  --tarja: #47606F;
+}
+}

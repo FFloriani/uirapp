@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "Uirapp",
+  "version": "0.2.0",
+  "description": "Esconde conversas no WhatsApp Web com Alt+S, guarda respostas prontas e troca o tema. Sem servidor. Não é afiliado ao WhatsApp.",
+  "minimum_chrome_version": "120",
+  "permissions": [
+    "storage",
+    "scripting",
+    "contextMenus",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://web.whatsapp.com/*"
+  ],
+  "background": {
+    "service_worker": "fundo.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://web.whatsapp.com/*"
+      ],
+      "css": [
+        "silencio.css"
+      ],
+      "js": [
+        "regras.js",
+        "nucleo.js",
+        "frases.js",
+        "idioma.js",
+        "pacote.js",
+        "silencio.js",
+        "aparencia.js",
+        "conversa.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Uirapp",
+    "default_icon": {
+      "16": "icones/icone-16.png",
+      "32": "icones/icone-32.png"
+    }
+  },
+  "icons": {
+    "16": "icones/icone-16.png",
+    "32": "icones/icone-32.png",
+    "48": "icones/icone-48.png",
+    "128": "icones/icone-128.png"
+  },
+  "commands": {
+    "alternar": {
+      "suggested_key": {
+        "default": "Alt+S"
+      },
+      "description": "Esconder ou mostrar conversas"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'; object-src 'none'"
+  }
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>Uirapp na conversa</title>
+<link rel="icon" href="../marca/icones/icone-32.png">
+<link rel="stylesheet" href="../ui/tokens.css">
+<link rel="stylesheet" href="../ui/componentes.css">
+<link rel="stylesheet" href="conversa.css">
+</head>
+<body>
+<main class="mensageiro" id="mensageiro">
+  <aside class="lista" aria-label="Conversas">
+    <h1 class="lista-titulo">Conversas fictícias</h1>
+    <ul>
+      <li class="contato atual"><span class="foto" data-tarja="foto"><span class="conteudo">MP</span><!--@passaro:dorme--></span><span class="contato-texto"><span class="contato-nome" data-tarja="linha"><span class="conteudo">Marina da padaria</span></span><span class="contato-previa" data-tarja="linha"><span class="conteudo">Fechado, passo aí às 5 🥖</span></span></span></li>
+      <li class="contato"><span class="foto" data-tarja="foto"><span class="conteudo">CO</span><!--@passaro:dorme--></span><span class="contato-texto"><span class="contato-nome" data-tarja="linha"><span class="conteudo">Caio Oficina</span></span><span class="contato-previa" data-tarja="linha"><span class="conteudo">O orçamento ficou em R$ 480</span></span></span></li>
+      <li class="contato"><span class="foto" data-tarja="foto"><span class="conteudo">M</span><!--@passaro:dorme--></span><span class="contato-texto"><span class="contato-nome" data-tarja="linha"><span class="conteudo">Mãe</span></span><span class="contato-previa" data-tarja="linha"><span class="conteudo">Me liga quando puder ❤️</span></span></span></li>
+      <li class="contato"><span class="foto" data-tarja="foto"><span class="conteudo">FS</span><!--@passaro:dorme--></span><span class="contato-texto"><span class="contato-nome" data-tarja="linha"><span class="conteudo">Futebol de sábado</span></span><span class="contato-previa" data-tarja="linha"><span class="conteudo">Léo: faltam dois</span></span></span></li>
+      <li class="contato"><span class="foto" data-tarja="foto"><span class="conteudo">RC</span><!--@passaro:dorme--></span><span class="contato-texto"><span class="contato-nome" data-tarja="linha"><span class="conteudo">Rita Contadora</span></span><span class="contato-previa" data-tarja="linha"><span class="conteudo">Mandei a guia do mês</span></span></span></li>
+      <li class="contato"><span class="foto" data-tarja="foto"><span class="conteudo">JB</span><!--@passaro:dorme--></span><span class="contato-texto"><span class="contato-nome" data-tarja="linha"><span class="conteudo">João do bairro</span></span><span class="contato-previa" data-tarja="linha"><span class="conteudo">Ainda tem o tamanho 42?</span></span></span></li>
+    </ul>
+  </aside>
+  <section class="conversa" aria-label="Conversa aberta">
+    <header class="conversa-topo"><span class="foto" data-tarja="foto"><span class="conteudo">MP</span><!--@passaro:dorme--></span><span class="contato-nome" data-tarja="linha"><span class="conteudo">Marina da padaria</span></span></header>
+    <div class="baloes">
+      <p class="balao"><span data-tarja="texto"><span class="conteudo">Oi! Vocês ainda têm pão de queijo congelado?</span></span></p>
+      <p class="balao meu"><span data-tarja="texto"><span class="conteudo">Temos, o pacote de 1 kg sai por R$ 32.</span></span></p>
+      <p class="balao"><span data-tarja="texto"><span class="conteudo">Separa dois pra mim, por favor 🙏</span></span></p>
+      <p class="balao meu"><span class="midia" data-tarja="midia"><span class="conteudo">Foto do comprovante</span></span></p>
+      <p class="balao"><span data-tarja="texto"><span class="conteudo">Fechado, passo aí às 5 🥖</span></span></p>
+    </div>
+    <div class="escrever">Digite uma mensagem</div>
+  </section>
+</main>
+
+<button class="flutuante" id="flutuante" type="button" aria-pressed="false" aria-label="Esconder conversas" title="Esconder conversas (Alt+S)" data-humor="acordado"><!--@passaro--></button>
+
+<div class="cobertura" id="cobertura" role="alertdialog" aria-modal="true" aria-labelledby="c-titulo" data-humor="alerta" hidden>
+  <div class="vazio-poleiro"><!--@passaro--><!--@galho--></div>
+  <h2 id="c-titulo">O WhatsApp mudou</h2>
+  <p>Cobri a tela inteira.</p>
+  <button class="botao" id="descobrir" type="button">Descobrir a tela</button>
+</div>
+<script src="conversa.js" defer></script>
+</body>
+</html>

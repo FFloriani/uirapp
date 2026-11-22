@@ -1,0 +1,189 @@
+/* O Silêncio dentro do WhatsApp Web.
+
+   Regra: esconde tudo e só mostra o que for reconhecido. Sem o atributo data-uirapp (script ainda não leu,
+   quebrou ou alguém tirou), a tela fica fechada.
+
+   Este arquivo entra duas vezes: pelo manifest (antes da primeira pintura) e pelo fundo com origem USER, que
+   vence estilo inline important, animação e transição do site.
+
+   Com important, a camada declarada primeiro vence: nega > mostra > esconde.
+   @nome@ vira a lista de ancoras.json; $nome$ vira token do DESIGN.md. */
+
+@layer nega, mostra, esconde;
+
+@layer esconde {
+  html:not([data-uirapp~="aberto"]) > :not(uirapp-casa),
+  html:not([data-uirapp~="aberto"]) > :not(uirapp-casa) *,
+  html:not([data-uirapp~="aberto"]) > :not(uirapp-casa)::before,
+  html:not([data-uirapp~="aberto"]) > :not(uirapp-casa)::after,
+  html:not([data-uirapp~="aberto"]) > :not(uirapp-casa) *::before,
+  html:not([data-uirapp~="aberto"]) > :not(uirapp-casa) *::after {
+    visibility: hidden !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* fora do silêncio parcial, o corpo inteiro some: filho nenhum desfaz opacidade de pai */
+  html:not([data-uirapp~="aberto"]):not([data-uirapp~="parcial"]) > body {
+    opacity: 0 !important;
+  }
+}
+
+@layer mostra {
+  /* esqueleto: recebe clique e rolagem, não tem texto próprio (o script confere) */
+  html[data-uirapp~="parcial"] :is(@estrutura@) {
+    visibility: visible !important;
+    background-image: none !important;
+  }
+
+  html[data-uirapp~="parcial"][data-uirapp~="ve-nomes"] :is(@nomes@),
+  html[data-uirapp~="parcial"][data-uirapp~="ve-nomes"] :is(@nomes@) *,
+  html[data-uirapp~="parcial"][data-uirapp~="ve-fotos"] :is(@fotos@, @fotosPresas@),
+  html[data-uirapp~="parcial"][data-uirapp~="ve-fotos"] :is(@fotos@, @fotosPresas@) *,
+  html[data-uirapp~="parcial"][data-uirapp~="ve-mensagens"] :is(@mensagens@),
+  html[data-uirapp~="parcial"][data-uirapp~="ve-mensagens"] :is(@mensagens@) *,
+  html[data-uirapp~="parcial"][data-uirapp~="ve-midia"] :is(@midia@),
+  html[data-uirapp~="parcial"][data-uirapp~="ve-midia"] :is(@midia@) *,
+  html[data-uirapp~="parcial"][data-uirapp~="ve-previas"][data-uirapp~="ve-nomes"] :is(@previaInteira@),
+  html[data-uirapp~="parcial"][data-uirapp~="ve-previas"][data-uirapp~="ve-nomes"] :is(@previaInteira@) * {
+    visibility: visible !important;
+  }
+
+  /* prévia sem nome: só o texto, e sem mouse, para o balão de dica do pai não abrir */
+  html[data-uirapp~="parcial"][data-uirapp~="ve-previas"]:not([data-uirapp~="ve-nomes"]) :is(@previaTexto@),
+  html[data-uirapp~="parcial"][data-uirapp~="ve-previas"]:not([data-uirapp~="ve-nomes"]) :is(@previaTexto@) * {
+    visibility: visible !important;
+    pointer-events: none !important;
+  }
+
+  /* o nome escondido de quem mandou não pode deixar um vão do tamanho dele */
+  html[data-uirapp~="parcial"][data-uirapp~="ve-previas"]:not([data-uirapp~="ve-nomes"]) :is(@previaVao@) {
+    display: none !important;
+  }
+
+  /* o balão fica escondido: o texto leva o próprio fundo, senão some no papel de parede */
+  html[data-uirapp~="parcial"][data-uirapp~="ve-mensagens"] :is(@mensagens@):not(img) {
+    background-color: $colors.surface$ !important; /* só a cor: o desenho do emoji é imagem de fundo */
+    color: $colors.text$ !important;
+    border-radius: $rounded.key$ !important;
+    box-decoration-break: clone !important;
+  }
+
+  html[data-uirapp~="parcial"][data-uirapp~="ve-mensagens"]:has(> body.dark) :is(@mensagens@):not(img) {
+    background-color: $colors.noite-surface$ !important;
+    color: $colors.noite-text$ !important;
+  }
+
+  html[data-uirapp~="parcial"][data-uirapp~="ve-mensagens"] :is(@mensagens@) * {
+    color: inherit !important;
+  }
+
+  /* tarjas: opacas e de largura fixa, para o tamanho não entregar quem é */
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-nomes"]) :is(@nomesTarja@),
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-previas"]) :is(@previaTarja@),
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-mensagens"]) :is(@mensagemTarja@),
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-fotos"]) :is(@fotos@) {
+    position: relative !important;
+  }
+
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-nomes"]) :is(@nomesTarja@)::after,
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-previas"]) :is(@previaTarja@)::after,
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-mensagens"]) :is(@mensagemTarja@)::after,
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-fotos"]) :is(@fotos@, @fotosPresas@)::after {
+    content: "" !important;
+    display: block !important;
+    visibility: visible !important;
+    position: absolute !important;
+    box-sizing: border-box !important;
+    pointer-events: none !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: $rounded.key$ !important;
+    background: $colors.tarja$ !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  html[data-uirapp~="parcial"]:has(> body.dark):not([data-uirapp~="ve-nomes"]) :is(@nomesTarja@)::after,
+  html[data-uirapp~="parcial"]:has(> body.dark):not([data-uirapp~="ve-previas"]) :is(@previaTarja@)::after,
+  html[data-uirapp~="parcial"]:has(> body.dark):not([data-uirapp~="ve-mensagens"]) :is(@mensagemTarja@)::after {
+    background: $colors.noite-tarja$ !important;
+  }
+
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-nomes"]) :is(@nomesTarja@)::after {
+    inset: 50% auto auto 0 !important;
+    margin: -.45em 0 0 !important;
+    width: 9em !important;
+    height: .9em !important;
+  }
+
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-previas"]) :is(@previaTarja@)::after {
+    inset: 50% auto auto 0 !important;
+    margin: -.4em 0 0 !important;
+    width: 14em !important;
+    height: .8em !important;
+  }
+
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-mensagens"]) :is(@mensagemTarja@)::after {
+    inset: auto auto $spacing.2$ $spacing.6$ !important; /* embaixo, para não tapar quem mandou */
+    margin: 0 !important;
+    width: 14em !important;
+    height: 1.1em !important;
+  }
+
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-fotos"]) :is(@fotos@, @fotosPresas@)::after {
+    inset: 50% auto auto 50% !important;
+    margin: 0 !important;
+    translate: -50% -50% !important;
+    width: min(44px, 100%) !important; /* na conversa de grupo a foto tem 28 px */
+    height: auto !important;
+    aspect-ratio: 1 !important;
+    border-radius: 50% !important;
+    background: $colors.ceu-silencio$ url("$passaro.vermelha$") center / 78% no-repeat !important;
+  }
+
+  html[data-uirapp~="parcial"][data-uirapp~="laranja"]:not([data-uirapp~="ve-fotos"]) :is(@fotos@, @fotosPresas@)::after {
+    background-image: url("$passaro.laranja$") !important;
+  }
+
+  html[data-uirapp~="parcial"][data-uirapp~="lenda"]:not([data-uirapp~="ve-fotos"]) :is(@fotos@, @fotosPresas@)::after {
+    background-image: url("$passaro.lenda$") !important;
+  }
+}
+
+/* o que volta a esconder dentro de uma área mostrada */
+@layer nega {
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-nomes"]) :is(@nomesDentroDeTexto@),
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-nomes"]) :is(@nomesDentroDeTexto@) *,
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-midia"]) :is(@midia@),
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-midia"]) :is(@midia@) *,
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-midia"]) :is(@previaMidia@),
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-midia"]) :is(@previaMidia@) *,
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-fotos"]) :is(@fotosDentroDeMidia@),
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-fotos"]) :is(@fotosDentroDeMidia@) * {
+    visibility: hidden !important;
+  }
+}
+
+/* o script nem respondeu: depois de 4 s, diz o que houve sem depender dele */
+html:not([data-uirapp])::after {
+  content: "O Uirapp cobriu a tela. Recarregue a página.";
+  position: fixed;
+  z-index: 2147483647;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: $spacing.5$;
+  background: $colors.ceu-alerta$;
+  color: $colors.on-warning$;
+  font: 700 $typography.title.fontSize$/1.2 system-ui, sans-serif;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  animation: uirapp-parou 1ms linear 4s forwards;
+}
+
+@keyframes uirapp-parou {
+  to { opacity: 1; }
+}

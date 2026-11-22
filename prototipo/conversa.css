@@ -1,0 +1,31 @@
+/* Mensageiro fictício e neutro, só para mostrar o Uirapp por cima. Não imita o WhatsApp. */
+html, body { height: 100%; }
+.mensageiro { height: 100%; display: grid; grid-template-columns: minmax(280px, 34%) 1fr; }
+.lista { border-right: 1px solid var(--line); overflow: hidden; }
+.lista-titulo { padding: var(--espaco-5) var(--espaco-4) var(--espaco-3); font: var(--tipo-title); }
+.contato { display: flex; align-items: center; gap: var(--espaco-3); padding: var(--espaco-3) var(--espaco-4); }
+.contato.atual { background: var(--surface-hover); }
+.foto {
+  position: relative; width: 48px; height: 48px; flex: none; overflow: hidden;
+  display: grid; place-items: center; border-radius: var(--raio-round);
+  background: var(--line); color: var(--text); font: var(--tipo-label);
+}
+.foto .passaro { position: absolute; width: 36px; left: 6px; top: 7px; }
+.contato-texto { display: grid; justify-items: start; gap: var(--espaco-1); min-width: 0; }
+.contato-nome { font: var(--tipo-label); }
+.contato-previa { max-width: 100%; color: var(--text-muted); font: var(--tipo-small); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.conversa { min-width: 0; display: flex; flex-direction: column; background: var(--surface); }
+.conversa-topo { flex: none; display: flex; align-items: center; gap: var(--espaco-3); padding: var(--espaco-3) var(--espaco-4); border-bottom: 1px solid var(--line); }
+.baloes { flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: var(--espaco-2); padding: var(--espaco-5); }
+.balao { align-self: flex-start; max-width: 76%; padding: var(--espaco-3) var(--espaco-4); border-radius: var(--raio-panel); background: var(--bg); }
+.balao.meu { align-self: flex-end; background: var(--surface-hover); }
+.balao [data-tarja] { display: block; }
+.midia { width: 200px; height: 112px; }
+.midia > .conteudo { height: 100%; display: grid; place-items: center; border-radius: var(--raio-key); background: var(--line); }
+.escrever { flex: none; margin: var(--espaco-3) 88px var(--espaco-4) var(--espaco-4); padding: var(--espaco-3); border: 1px solid var(--control); border-radius: var(--raio-control); color: var(--text-muted); }
+.flutuante { right: var(--espaco-4); bottom: var(--espaco-3); }
+
+@media (max-width: 720px) {
+  .mensageiro { grid-template-columns: 1fr; }
+  .lista { display: none; }
+}

@@ -1,0 +1,208 @@
+<!doctype html>
+<!-- GERADO por scripts/montar.py. Não edite aqui. -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data: blob:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>Ninho · Uirapp</title>
+<link rel="icon" href="icones/icone-32.png">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="componentes.css">
+<link rel="stylesheet" href="ninho.css">
+</head>
+<body>
+<header class="ninho-topo">
+  <div class="ninho-marca"><svg class="passaro canta" viewBox="180 178 690 696" aria-hidden="true" focusable="false"><path class="p-corpo" d="M212.5 594C222 560 261 520 303 497C352 468 405 453 461 454C558 455 581 502 668 500C721 499 757 477 773 441L776 445C794 480 803 517 803 557C803 714 664 829 497 829C441 829 389 817 344 792L213 856C198 862 188 849 195 835L254 722C226 688 212 647 212 604Z"/><path class="p-cabeca" d="M212 598C211 553 242 511 270 472C299 432 312 399 331 359C379 258 466 190 575 190C653 190 722 229 758 292L766 377C761 405 764 423 776 445C759 483 721 505 668 506C581 508 558 461 461 460C405 459 352 474 303 503C261 526 222 565 212 598Z"/><g class="olho olho-acordado"><circle cx="636" cy="324" r="45.5" fill="#1E1E24"/><circle cx="652" cy="307" r="14" fill="#FFFFFF"/></g><g class="olho olho-silencio"><path d="M590 318Q636 372 682 318" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-cantando"><path d="M590 342Q636 286 682 342" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-alerta"><circle cx="636" cy="324" r="62" fill="#FFFFFF"/><circle cx="642" cy="324" r="35" fill="#1E1E24"/><circle cx="653" cy="311" r="11" fill="#FFFFFF"/></g><path class="p-bico bico-fechado" d="M758 292C795 292 836 305 853 321C858 326 855 331 848 335L772 376C758 382 737 384 725 372C714 361 716 346 722 333C731 314 743 301 758 292Z"/><path class="p-bico bico-aberto" d="M758 292C795 283 832 279 859 283C867 285 867 292 860 296L788 340L847 370C854 375 852 382 843 383C810 388 763 390 734 379C716 372 711 352 722 333C731 314 743 301 758 292Z"/></svg><h1><svg class="nome" viewBox="546 388 914 278" role="img" aria-label="Uirapp"><g fill="currentColor" fill-rule="evenodd"><path d="M552 428C552 415 562 406 575 406H581C594 406 603 415 603 428V520C603 543 616 555 636 555C656 555 669 543 669 520V428C669 415 678 406 691 406H699C712 406 721 415 721 428V517C721 570 686 602 636 602C586 602 552 570 552 517Z"/><rect x="748" y="456" width="50" height="144.5" rx="22"/><path d="M825 578V470C825 457 836 448 848 448C862 448 870 454 873 463C885 451 896 446 907 446C923 446 932 457 932 474C932 493 919 500 902 496C886 492 874 504 874 526V578C874 592 865 601 849 601C834 601 825 592 825 578Z"/><path d="M1052 456C1056 451 1064 448 1075 448C1089 448 1099 457 1099 471V578C1099 592 1089 601 1075 601C1064 601 1055 596 1052 589C1041 598 1027 603 1009 603C969 603 937 568 937 524C937 480 970 446 1015 446C1030 446 1042 450 1052 456ZM987 523.5a32 36 0 1 0 64 0a32 36 0 1 0 -64 0Z"/><path d="M1125 636V470C1125 457 1134 448 1148 448C1159 448 1167 452 1172 460C1183 451 1197 446 1213 446C1251 446 1280 480 1280 524C1280 568 1250 603 1210 603C1195 603 1182 599 1172 591V636C1172 650 1163 659 1148 659C1134 659 1125 650 1125 636ZM1169 522a31 35.5 0 1 0 62 0a31 35.5 0 1 0 -62 0Z"/><path d="M1125 636V470C1125 457 1134 448 1148 448C1159 448 1167 452 1172 460C1183 451 1197 446 1213 446C1251 446 1280 480 1280 524C1280 568 1250 603 1210 603C1195 603 1182 599 1172 591V636C1172 650 1163 659 1148 659C1134 659 1125 650 1125 636ZM1169 522a31 35.5 0 1 0 62 0a31 35.5 0 1 0 -62 0Z" transform="translate(173.5 0)"/></g><circle cx="773.5" cy="419.5" r="25.5" fill="#E63323"/></svg></h1><span class="ninho-nome">Ninho</span></div>
+  <nav class="abas" aria-label="Partes do Ninho">
+    <a class="aba" href="#atendimento" data-aba="atendimento"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4l6 0" /> <path d="M14 4l6 0" /> <path d="M4 10a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2l0 -8" /> <path d="M14 10a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2l0 -2" /></svg>Atendimento</a>
+    <a class="aba" href="#lembretes" data-aba="lembretes"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /> <path d="M9 17v1a3 3 0 0 0 6 0v-1" /></svg>Lembretes</a>
+    <a class="aba" href="#temas" data-aba="temas"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21v-4a4 4 0 1 1 4 4h-4" /> <path d="M21 3a16 16 0 0 0 -12.8 10.2" /> <path d="M21 3a16 16 0 0 1 -10.2 12.8" /> <path d="M10.6 9a9 9 0 0 1 4.4 4.4" /></svg>Temas</a>
+    <a class="aba" href="#desenho" data-aba="desenho"><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2c5.498 0 10 4.002 10 9c0 1.351 -.6 2.64 -1.654 3.576c-1.03 .914 -2.412 1.424 -3.846 1.424h-2.516a1 1 0 0 0 -.5 1.875a1 1 0 0 1 .194 .14a2.3 2.3 0 0 1 -1.597 3.99l-.156 -.009l.068 .004l-.273 -.004c-5.3 -.146 -9.57 -4.416 -9.716 -9.716l-.004 -.28c0 -5.523 4.477 -10 10 -10m-3.5 6.5a2 2 0 0 0 -1.995 1.85l-.005 .15a2 2 0 1 0 2 -2m8 0a2 2 0 0 0 -1.995 1.85l-.005 .15a2 2 0 1 0 2 -2m-4 -3a2 2 0 0 0 -1.995 1.85l-.005 .15a2 2 0 1 0 2 -2" /></svg>Desenho</a>
+    <a class="aba" href="#backup" data-aba="backup"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6a8 3 0 1 0 16 0a8 3 0 1 0 -16 0" /> <path d="M4 6v6a8 3 0 0 0 16 0v-6" /> <path d="M4 12v6a8 3 0 0 0 16 0v-6" /></svg>Backup</a>
+  </nav>
+</header>
+
+<main class="ninho">
+
+<section class="parte" id="atendimento" aria-labelledby="t-atendimento" hidden>
+  <div class="parte-topo">
+    <h2 id="t-atendimento" tabindex="-1">Atendimento</h2>
+    <div class="ferramentas">
+      <input class="entrada" id="f-busca" type="search" placeholder="Buscar ficha" aria-label="Buscar ficha" autocomplete="off">
+      <select class="entrada" id="f-etiqueta" aria-label="Filtrar por etiqueta"><option value="">Todas as etiquetas</option></select>
+      <button class="botao botao-discreto" type="button" id="editar-etapas">Etapas</button>
+      <button class="botao" type="button" id="nova-ficha"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5l0 14" /> <path d="M5 12l14 0" /></svg>Nova ficha</button>
+    </div>
+  </div>
+  <div class="quadro" id="quadro" aria-label="Fichas por etapa"></div>
+  <div class="vazio" id="quadro-vazio" hidden>
+    <div class="vazio-poleiro"><svg class="passaro " viewBox="180 178 690 696" aria-hidden="true" focusable="false"><path class="p-corpo" d="M212.5 594C222 560 261 520 303 497C352 468 405 453 461 454C558 455 581 502 668 500C721 499 757 477 773 441L776 445C794 480 803 517 803 557C803 714 664 829 497 829C441 829 389 817 344 792L213 856C198 862 188 849 195 835L254 722C226 688 212 647 212 604Z"/><path class="p-cabeca" d="M212 598C211 553 242 511 270 472C299 432 312 399 331 359C379 258 466 190 575 190C653 190 722 229 758 292L766 377C761 405 764 423 776 445C759 483 721 505 668 506C581 508 558 461 461 460C405 459 352 474 303 503C261 526 222 565 212 598Z"/><g class="olho olho-acordado"><circle cx="636" cy="324" r="45.5" fill="#1E1E24"/><circle cx="652" cy="307" r="14" fill="#FFFFFF"/></g><g class="olho olho-silencio"><path d="M590 318Q636 372 682 318" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-cantando"><path d="M590 342Q636 286 682 342" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-alerta"><circle cx="636" cy="324" r="62" fill="#FFFFFF"/><circle cx="642" cy="324" r="35" fill="#1E1E24"/><circle cx="653" cy="311" r="11" fill="#FFFFFF"/></g><path class="p-bico bico-fechado" d="M758 292C795 292 836 305 853 321C858 326 855 331 848 335L772 376C758 382 737 384 725 372C714 361 716 346 722 333C731 314 743 301 758 292Z"/><path class="p-bico bico-aberto" d="M758 292C795 283 832 279 859 283C867 285 867 292 860 296L788 340L847 370C854 375 852 382 843 383C810 388 763 390 734 379C716 372 711 352 722 333C731 314 743 301 758 292Z"/></svg><span class="galho" aria-hidden="true"><svg class="folhas" viewBox="0 0 64 34" focusable="false"><path d="M22 32C8 32 1 22 2 8C16 8 25 17 22 32Z"/><path d="M30 33C29 15 41 3 60 3C61 22 49 33 30 33Z"/></svg></span></div>
+    <h2>Nenhuma ficha ainda</h2>
+  </div>
+</section>
+
+<section class="parte" id="lembretes" aria-labelledby="t-lembretes" hidden>
+  <div class="parte-topo">
+    <h2 id="t-lembretes" tabindex="-1">Lembretes</h2>
+    <div class="ferramentas"><button class="botao" type="button" id="novo-lembrete"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5l0 14" /> <path d="M5 12l14 0" /></svg>Novo lembrete</button></div>
+  </div>
+  <ul class="lista-lembretes" id="lista-lembretes" aria-label="Lembretes"></ul>
+  <div class="vazio" id="lembretes-vazio" hidden>
+    <div class="vazio-poleiro"><svg class="passaro " viewBox="180 178 690 696" aria-hidden="true" focusable="false"><path class="p-corpo" d="M212.5 594C222 560 261 520 303 497C352 468 405 453 461 454C558 455 581 502 668 500C721 499 757 477 773 441L776 445C794 480 803 517 803 557C803 714 664 829 497 829C441 829 389 817 344 792L213 856C198 862 188 849 195 835L254 722C226 688 212 647 212 604Z"/><path class="p-cabeca" d="M212 598C211 553 242 511 270 472C299 432 312 399 331 359C379 258 466 190 575 190C653 190 722 229 758 292L766 377C761 405 764 423 776 445C759 483 721 505 668 506C581 508 558 461 461 460C405 459 352 474 303 503C261 526 222 565 212 598Z"/><g class="olho olho-acordado"><circle cx="636" cy="324" r="45.5" fill="#1E1E24"/><circle cx="652" cy="307" r="14" fill="#FFFFFF"/></g><g class="olho olho-silencio"><path d="M590 318Q636 372 682 318" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-cantando"><path d="M590 342Q636 286 682 342" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-alerta"><circle cx="636" cy="324" r="62" fill="#FFFFFF"/><circle cx="642" cy="324" r="35" fill="#1E1E24"/><circle cx="653" cy="311" r="11" fill="#FFFFFF"/></g><path class="p-bico bico-fechado" d="M758 292C795 292 836 305 853 321C858 326 855 331 848 335L772 376C758 382 737 384 725 372C714 361 716 346 722 333C731 314 743 301 758 292Z"/><path class="p-bico bico-aberto" d="M758 292C795 283 832 279 859 283C867 285 867 292 860 296L788 340L847 370C854 375 852 382 843 383C810 388 763 390 734 379C716 372 711 352 722 333C731 314 743 301 758 292Z"/></svg><span class="galho" aria-hidden="true"><svg class="folhas" viewBox="0 0 64 34" focusable="false"><path d="M22 32C8 32 1 22 2 8C16 8 25 17 22 32Z"/><path d="M30 33C29 15 41 3 60 3C61 22 49 33 30 33Z"/></svg></span></div>
+    <h2>Nenhum lembrete ainda</h2>
+  </div>
+</section>
+
+<section class="parte" id="temas" aria-labelledby="t-temas" hidden>
+  <div class="parte-topo"><h2 id="t-temas" tabindex="-1">Temas</h2></div>
+  <div class="estudio">
+    <form class="estudio-campos" id="form-tema" novalidate>
+      <div class="campo"><label class="campo-rotulo" for="tm-nome">Nome</label><input class="entrada" id="tm-nome" maxlength="30" autocomplete="off" aria-describedby="e-tm-nome"><p class="campo-erro" id="e-tm-nome" hidden><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" /></svg>Dê um nome ao tema.</p></div>
+      <div class="cores">
+        <label class="cor"><input type="color" id="tm-fundo" value="#18242E"><span>Fundo</span></label>
+        <label class="cor"><input type="color" id="tm-texto" value="#EEF4F6"><span>Texto</span></label>
+        <label class="cor"><input type="color" id="tm-acento" value="#8FCFE0"><span>Destaque</span></label>
+      </div>
+      <div class="campo"><label class="campo-rotulo" for="tm-imagem">Imagem de fundo da conversa</label><input class="entrada" id="tm-imagem" type="file" accept="image/png,image/jpeg,image/webp"></div>
+      <button class="botao botao-discreto" type="button" id="tm-sem-imagem" hidden>Tirar a imagem</button>
+      <p class="campo-apoio" id="tm-ajuste" hidden>Ajustei o texto para ler bem.</p>
+      <div class="acoes"><button class="botao" type="submit">Salvar e usar</button></div>
+    </form>
+    <div class="previa" id="previa" aria-label="Como fica">
+      <div class="previa-lista"><i></i><i></i><i></i><i></i></div>
+      <div class="previa-conversa"><span class="balao-recebido">Bom dia! Tudo certo?</span><span class="balao-enviado">Tudo sim, já te mando.</span><span class="previa-escrever">Mensagem</span></div>
+    </div>
+  </div>
+  <h3 class="sub">Seus temas</h3>
+  <ul class="meus-temas" id="meus-temas" aria-label="Seus temas"></ul>
+  <p class="campo-apoio" id="temas-vazio">Nenhum tema seu ainda.</p>
+  <div class="acoes"><label class="botao botao-discreto arquivo"><input type="file" id="tm-importar" accept="application/json,.json">Importar tema</label></div>
+</section>
+
+<section class="parte" id="desenho" aria-labelledby="t-desenho" hidden>
+  <div class="parte-topo">
+    <h2 id="t-desenho" tabindex="-1">Desenho</h2>
+    <div class="ferramentas">
+      <div class="pinceis" role="radiogroup" aria-label="Cor">
+        <label class="pincel"><input type="radio" name="cor" value="#1E1E24" checked><span class="pincel-cor" data-cor="#1E1E24"></span><span class="so-leitor">Carvão</span></label>
+        <label class="pincel"><input type="radio" name="cor" value="#E63323"><span class="pincel-cor" data-cor="#E63323"></span><span class="so-leitor">Escarlate</span></label>
+        <label class="pincel"><input type="radio" name="cor" value="#17627A"><span class="pincel-cor" data-cor="#17627A"></span><span class="so-leitor">Azul</span></label>
+        <label class="pincel"><input type="radio" name="cor" value="#3E7183"><span class="pincel-cor" data-cor="#3E7183"></span><span class="so-leitor">Folha</span></label>
+        <label class="pincel"><input type="radio" name="cor" value="#FFFFFF"><span class="pincel-cor" data-cor="#FFFFFF"></span><span class="so-leitor">Borracha</span></label>
+      </div>
+      <label class="espessura"><span>Traço</span><input type="range" id="d-traco" min="2" max="40" value="6"></label>
+      <button class="botao botao-discreto" type="button" id="d-desfazer">Desfazer</button>
+      <button class="botao botao-discreto" type="button" id="d-limpar">Limpar</button>
+      <button class="botao botao-discreto" type="button" id="d-baixar"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /> <path d="M7 11l5 5l5 -5" /> <path d="M12 4l0 12" /></svg>Baixar</button>
+      <button class="botao" type="button" id="d-copiar"><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.926 7.074a3.67 3.67 0 0 1 1.074 2.593v8.666a3.667 3.667 0 0 1 -3.667 3.667h-8.666a3.667 3.667 0 0 1 -3.667 -3.667v-8.666q 0 -.053 .005 -.102a3.66 3.66 0 0 1 3.662 -3.565h8.666c.973 0 1.905 .386 2.593 1.074" /> <path d="M17.374 3.514a1 1 0 1 1 -1.748 .972c-.221 -.398 -.342 -.486 -.626 -.486h-10c-.548 0 -1 .452 -1 1v9.998c0 .36 .194 .692 .507 .87a1 1 0 1 1 -.99 1.738a3 3 0 0 1 -1.517 -2.606v-10c0 -1.652 1.348 -3 3 -3h10c1.094 0 1.828 .533 2.374 1.514" /></svg>Copiar imagem</button>
+    </div>
+  </div>
+  <canvas class="tela-desenho" id="tela-desenho" width="1200" height="720" aria-label="Área de desenho"></canvas>
+</section>
+
+<section class="parte" id="backup" aria-labelledby="t-backup" hidden>
+  <div class="parte-topo"><h2 id="t-backup" tabindex="-1">Backup</h2></div>
+  <div class="colunas">
+    <form class="cartao" id="form-backup" novalidate>
+      <h3>Guardar</h3>
+      <p class="campo-apoio">Ajustes, respostas, fichas, lembretes e temas, num arquivo.</p>
+      <div class="campo"><label class="campo-rotulo" for="b-senha">Senha para abrir</label><input class="entrada" id="b-senha" type="password" maxlength="200" autocomplete="new-password" aria-describedby="e-b-senha"><p class="campo-erro" id="e-b-senha" hidden><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" /></svg>Use 8 letras ou mais.</p></div>
+      <div class="acoes"><button class="botao" type="submit"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /> <path d="M7 11l5 5l5 -5" /> <path d="M12 4l0 12" /></svg>Baixar backup</button></div>
+    </form>
+    <form class="cartao" id="form-restaurar" novalidate>
+      <h3>Restaurar</h3>
+      <p class="campo-apoio">Troca tudo o que está aqui pelo que está no arquivo.</p>
+      <div class="campo"><label class="campo-rotulo" for="b-arquivo">Arquivo</label><input class="entrada" id="b-arquivo" type="file" accept="application/json,.json"></div>
+      <div class="campo" id="campo-r-senha" hidden><label class="campo-rotulo" for="b-r-senha">Senha do arquivo</label><input class="entrada" id="b-r-senha" type="password" maxlength="200" autocomplete="off" aria-describedby="e-b-r"><p class="campo-erro" id="e-b-r" hidden><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" /></svg>Senha errada ou arquivo estranho.</p></div>
+      <p class="campo-apoio" id="b-resumo"></p>
+      <div class="acoes"><button class="botao" type="submit" id="b-restaurar" disabled>Restaurar</button></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<dialog class="dialogo dialogo-largo" id="d-ficha" aria-labelledby="t-ficha">
+  <form id="form-ficha" novalidate>
+    <h2 id="t-ficha">Ficha</h2>
+    <div class="grade">
+      <div class="campo"><label class="campo-rotulo" for="fi-nome">Nome</label><input class="entrada" id="fi-nome" maxlength="80" autocomplete="off" aria-describedby="e-fi-nome"><p class="campo-erro" id="e-fi-nome" hidden><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" /></svg>Dê um nome.</p></div>
+      <div class="campo"><label class="campo-rotulo" for="fi-telefone">Número</label><input class="entrada" id="fi-telefone" type="tel" maxlength="30" autocomplete="off" aria-describedby="e-fi-tel"><p class="campo-erro" id="e-fi-tel" hidden><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" /></svg>Confira o número, com DDD.</p></div>
+      <div class="campo"><label class="campo-rotulo" for="fi-etapa">Etapa</label><select class="entrada" id="fi-etapa"></select></div>
+      <div class="campo"><label class="campo-rotulo" for="fi-valor">Valor</label><input class="entrada" id="fi-valor" inputmode="decimal" maxlength="20" autocomplete="off" placeholder="R$ 0,00" aria-describedby="e-fi-valor"><p class="campo-erro" id="e-fi-valor" hidden><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" /></svg>Valor em reais, como 150,00.</p></div>
+      <div class="campo campo-inteiro"><label class="campo-rotulo" for="fi-etiquetas">Etiquetas</label><input class="entrada" id="fi-etiquetas" maxlength="200" autocomplete="off" placeholder="vip, retorno"></div>
+      <div class="campo campo-inteiro"><label class="campo-rotulo" for="fi-nota">Notas</label><textarea class="entrada" id="fi-nota" maxlength="4000"></textarea></div>
+    </div>
+    <div class="dialogo-acoes">
+      <button class="botao botao-discreto apagar" type="button" id="fi-apagar"><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6a1 1 0 0 1 .117 1.993l-.117 .007h-.081l-.919 11a3 3 0 0 1 -2.824 2.995l-.176 .005h-8c-1.598 0 -2.904 -1.249 -2.992 -2.75l-.005 -.167l-.923 -11.083h-.08a1 1 0 0 1 -.117 -1.993l.117 -.007zm-10 4a1 1 0 0 0 -1 1v6a1 1 0 0 0 2 0v-6a1 1 0 0 0 -1 -1m4 0a1 1 0 0 0 -1 1v6a1 1 0 0 0 2 0v-6a1 1 0 0 0 -1 -1" /> <path d="M14 2a2 2 0 0 1 2 2a1 1 0 0 1 -1.993 .117l-.007 -.117h-4l-.007 .117a1 1 0 0 1 -1.993 -.117a2 2 0 0 1 1.85 -1.995l.15 -.005z" /></svg>Apagar</button>
+      <button class="botao botao-discreto" type="button" id="fi-da-conversa">Nome da conversa aberta</button>
+      <button class="botao botao-discreto" type="button" id="fi-conversar"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /></svg>Conversar</button>
+      <button class="botao botao-discreto" type="button" id="fi-lembrar"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /> <path d="M9 17v1a3 3 0 0 0 6 0v-1" /></svg>Lembrar</button>
+      <button class="botao botao-discreto" type="button" id="fi-fechar">Fechar</button>
+      <button class="botao" type="submit">Salvar ficha</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="dialogo dialogo-largo" id="d-lembrete" aria-labelledby="t-lembrete">
+  <form id="form-lembrete" novalidate>
+    <h2 id="t-lembrete">Lembrete</h2>
+    <div class="grade">
+      <div class="campo"><label class="campo-rotulo" for="le-titulo">O quê</label><input class="entrada" id="le-titulo" maxlength="80" autocomplete="off" aria-describedby="e-le-titulo"><p class="campo-erro" id="e-le-titulo" hidden><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" /></svg>Diga do que lembrar.</p></div>
+      <div class="campo"><label class="campo-rotulo" for="le-quando">Quando</label><input class="entrada" id="le-quando" type="datetime-local" aria-describedby="e-le-quando"><p class="campo-erro" id="e-le-quando" hidden><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" /></svg>Escolha um horário que ainda não passou.</p></div>
+      <div class="campo"><label class="campo-rotulo" for="le-telefone">Número</label><input class="entrada" id="le-telefone" type="tel" maxlength="30" autocomplete="off" aria-describedby="e-le-tel"><p class="campo-erro" id="e-le-tel" hidden><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" /></svg>Confira o número, com DDD.</p></div>
+      <div class="campo"><label class="campo-rotulo" for="le-ficha">Ficha</label><select class="entrada" id="le-ficha"><option value="">Nenhuma</option></select></div>
+      <div class="campo campo-inteiro"><label class="campo-rotulo" for="le-texto">Mensagem pronta</label><textarea class="entrada" id="le-texto" maxlength="4000"></textarea></div>
+    </div>
+    <div class="dialogo-acoes">
+      <button class="botao botao-discreto" type="button" id="le-fechar">Fechar</button>
+      <button class="botao" type="submit">Salvar lembrete</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="dialogo dialogo-largo" id="d-etapas" aria-labelledby="t-etapas">
+  <form id="form-etapas" novalidate>
+    <h2 id="t-etapas">Etapas</h2>
+    <ol class="etapas" id="lista-etapas"></ol>
+    <button class="botao botao-discreto" type="button" id="mais-etapa"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5l0 14" /> <path d="M5 12l14 0" /></svg>Etapa</button>
+    <div class="dialogo-acoes">
+      <button class="botao botao-discreto" type="button" id="et-fechar">Fechar</button>
+      <button class="botao" type="submit">Salvar etapas</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="dialogo" id="dialogo" aria-labelledby="dialogo-titulo">
+  <h2 id="dialogo-titulo">Apagar?</h2>
+  <p id="dialogo-texto">Não dá para desfazer.</p>
+  <div class="dialogo-acoes">
+    <button class="botao botao-discreto" type="button" id="dialogo-manter">Manter</button>
+    <button class="botao botao-perigo" type="button" id="dialogo-apagar">Apagar</button>
+  </div>
+</dialog>
+
+<div class="aviso aviso-ninho" id="aviso" role="status" data-humor="cantando" hidden><svg class="passaro " viewBox="180 178 690 696" aria-hidden="true" focusable="false"><path class="p-corpo" d="M212.5 594C222 560 261 520 303 497C352 468 405 453 461 454C558 455 581 502 668 500C721 499 757 477 773 441L776 445C794 480 803 517 803 557C803 714 664 829 497 829C441 829 389 817 344 792L213 856C198 862 188 849 195 835L254 722C226 688 212 647 212 604Z"/><path class="p-cabeca" d="M212 598C211 553 242 511 270 472C299 432 312 399 331 359C379 258 466 190 575 190C653 190 722 229 758 292L766 377C761 405 764 423 776 445C759 483 721 505 668 506C581 508 558 461 461 460C405 459 352 474 303 503C261 526 222 565 212 598Z"/><g class="olho olho-acordado"><circle cx="636" cy="324" r="45.5" fill="#1E1E24"/><circle cx="652" cy="307" r="14" fill="#FFFFFF"/></g><g class="olho olho-silencio"><path d="M590 318Q636 372 682 318" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-cantando"><path d="M590 342Q636 286 682 342" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-alerta"><circle cx="636" cy="324" r="62" fill="#FFFFFF"/><circle cx="642" cy="324" r="35" fill="#1E1E24"/><circle cx="653" cy="311" r="11" fill="#FFFFFF"/></g><path class="p-bico bico-fechado" d="M758 292C795 292 836 305 853 321C858 326 855 331 848 335L772 376C758 382 737 384 725 372C714 361 716 346 722 333C731 314 743 301 758 292Z"/><path class="p-bico bico-aberto" d="M758 292C795 283 832 279 859 283C867 285 867 292 860 296L788 340L847 370C854 375 852 382 843 383C810 388 763 390 734 379C716 372 711 352 722 333C731 314 743 301 758 292Z"/></svg><span id="aviso-texto"></span></div>
+
+<template id="molde-coluna">
+  <section class="coluna"><h3 class="coluna-titulo"><span class="coluna-nome"></span><span class="coluna-conta"></span></h3><ul class="coluna-fichas"></ul></section>
+</template>
+<template id="molde-ficha">
+  <li class="ficha" draggable="true"><button class="ficha-abrir" type="button"><span class="ficha-nome"></span><span class="ficha-valor"></span><span class="ficha-etiquetas"></span><span class="ficha-nota"></span></button></li>
+</template>
+<template id="molde-lembrete">
+  <li class="lembrete"><span class="lembrete-quando"></span><span class="lembrete-titulo"></span><span class="lembrete-acoes"><button class="botao botao-discreto lembrete-feito" type="button">Feito</button><button class="botao-icone lembrete-editar" type="button"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6l-6 6" /></svg></button></span></li>
+</template>
+<template id="molde-meu-tema">
+  <li class="meu-tema"><span class="tema-amostra"><i></i><i></i><i></i></span><span class="meu-tema-nome"></span><button class="botao botao-discreto tema-usar" type="button">Usar</button><button class="botao botao-discreto tema-exportar" type="button">Exportar</button><button class="botao-icone tema-apagar" type="button"><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6a1 1 0 0 1 .117 1.993l-.117 .007h-.081l-.919 11a3 3 0 0 1 -2.824 2.995l-.176 .005h-8c-1.598 0 -2.904 -1.249 -2.992 -2.75l-.005 -.167l-.923 -11.083h-.08a1 1 0 0 1 -.117 -1.993l.117 -.007zm-10 4a1 1 0 0 0 -1 1v6a1 1 0 0 0 2 0v-6a1 1 0 0 0 -1 -1m4 0a1 1 0 0 0 -1 1v6a1 1 0 0 0 2 0v-6a1 1 0 0 0 -1 -1" /> <path d="M14 2a2 2 0 0 1 2 2a1 1 0 0 1 -1.993 .117l-.007 -.117h-4l-.007 .117a1 1 0 0 1 -1.993 -.117a2 2 0 0 1 1.85 -1.995l.15 -.005z" /></svg></button></li>
+</template>
+
+<script src="regras.js" defer></script>
+<script src="nucleo.js" defer></script>
+<script src="frases.js" defer></script>
+<script src="idioma.js" defer></script>
+<script src="deposito.js" defer></script>
+<script src="ninho.js" defer></script>
+</body>
+</html>

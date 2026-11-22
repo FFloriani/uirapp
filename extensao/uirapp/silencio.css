@@ -1,0 +1,179 @@
+/* GERADO por scripts/montar.py. Não edite aqui. */
+@layer nega, mostra, esconde;
+
+@layer esconde {
+  html:not([data-uirapp~="aberto"]) > :not(uirapp-casa),
+  html:not([data-uirapp~="aberto"]) > :not(uirapp-casa) *,
+  html:not([data-uirapp~="aberto"]) > :not(uirapp-casa)::before,
+  html:not([data-uirapp~="aberto"]) > :not(uirapp-casa)::after,
+  html:not([data-uirapp~="aberto"]) > :not(uirapp-casa) *::before,
+  html:not([data-uirapp~="aberto"]) > :not(uirapp-casa) *::after {
+    visibility: hidden !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  
+  html:not([data-uirapp~="aberto"]):not([data-uirapp~="parcial"]) > body {
+    opacity: 0 !important;
+  }
+}
+
+@layer mostra {
+  
+  html[data-uirapp~="parcial"] :is(#side, #pane-side, #pane-side [data-testid="chat-list"], #pane-side [role="row"], #pane-side [data-testid="cell-frame-container"], #main, #main [data-testid="conversation-header"], #main [data-testid="conversation-panel-body"], #main [data-testid="conversation-panel-messages"], #main footer, #main [data-testid="compose-box"]) {
+    visibility: visible !important;
+    background-image: none !important;
+  }
+
+  html[data-uirapp~="parcial"][data-uirapp~="ve-nomes"] :is([data-testid="cell-frame-title"], [data-testid="conversation-info-header-chat-title-name"], [data-testid="conversation-info-header-chat-title"], #main [data-testid="msg-container"] [data-testid="author"], #main [data-testid="chat-subtitle"]),
+  html[data-uirapp~="parcial"][data-uirapp~="ve-nomes"] :is([data-testid="cell-frame-title"], [data-testid="conversation-info-header-chat-title-name"], [data-testid="conversation-info-header-chat-title"], #main [data-testid="msg-container"] [data-testid="author"], #main [data-testid="chat-subtitle"]) *,
+  html[data-uirapp~="parcial"][data-uirapp~="ve-fotos"] :is([data-testid="cell-frame-container"] > :first-child, [data-testid="conversation-header-avatar"], #main [data-testid="group-chat-profile-picture"]),
+  html[data-uirapp~="parcial"][data-uirapp~="ve-fotos"] :is([data-testid="cell-frame-container"] > :first-child, [data-testid="conversation-header-avatar"], #main [data-testid="group-chat-profile-picture"]) *,
+  html[data-uirapp~="parcial"][data-uirapp~="ve-mensagens"] :is(#main [data-pre-plain-text] .selectable-text, #main [data-pre-plain-text] [data-testid~="selectable-text"], #main [data-testid="msg-container"] [data-testid="msg-meta"], #main [data-testid="conversation-compose-box-input"], #main [data-testid="compose-btn-send"], #main [data-testid="msg-container"] [data-testid="quoted-message"] .selectable-text),
+  html[data-uirapp~="parcial"][data-uirapp~="ve-mensagens"] :is(#main [data-pre-plain-text] .selectable-text, #main [data-pre-plain-text] [data-testid~="selectable-text"], #main [data-testid="msg-container"] [data-testid="msg-meta"], #main [data-testid="conversation-compose-box-input"], #main [data-testid="compose-btn-send"], #main [data-testid="msg-container"] [data-testid="quoted-message"] .selectable-text) *,
+  html[data-uirapp~="parcial"][data-uirapp~="ve-midia"] :is(#main [data-testid="msgImage"], #main [data-testid="msg-video"], #main [data-testid="image-album"], #main [data-testid="sticker-container"], #main [data-testid="link-preview-thumbnail"], #main [data-testid="chat_thread_gif_thumb_image"], #main [data-testid="document-thumb-details"], #main [data-testid="audio-play"], #main [data-testid="ptt-status"], #main [data-testid="msg-container"] img[src^="blob:"]),
+  html[data-uirapp~="parcial"][data-uirapp~="ve-midia"] :is(#main [data-testid="msgImage"], #main [data-testid="msg-video"], #main [data-testid="image-album"], #main [data-testid="sticker-container"], #main [data-testid="link-preview-thumbnail"], #main [data-testid="chat_thread_gif_thumb_image"], #main [data-testid="document-thumb-details"], #main [data-testid="audio-play"], #main [data-testid="ptt-status"], #main [data-testid="msg-container"] img[src^="blob:"]) *,
+  html[data-uirapp~="parcial"][data-uirapp~="ve-previas"][data-uirapp~="ve-nomes"] :is(#pane-side [data-testid="last-msg-status"]),
+  html[data-uirapp~="parcial"][data-uirapp~="ve-previas"][data-uirapp~="ve-nomes"] :is(#pane-side [data-testid="last-msg-status"]) * {
+    visibility: visible !important;
+  }
+
+  
+  html[data-uirapp~="parcial"][data-uirapp~="ve-previas"]:not([data-uirapp~="ve-nomes"]) :is(#pane-side [data-testid="last-msg-status"] > span[dir]:last-child),
+  html[data-uirapp~="parcial"][data-uirapp~="ve-previas"]:not([data-uirapp~="ve-nomes"]) :is(#pane-side [data-testid="last-msg-status"] > span[dir]:last-child) * {
+    visibility: visible !important;
+    pointer-events: none !important;
+  }
+
+  
+  html[data-uirapp~="parcial"][data-uirapp~="ve-previas"]:not([data-uirapp~="ve-nomes"]) :is(#pane-side [data-testid="last-msg-status"]:has(> span[dir]:last-child) > :not(span[dir]:last-child)) {
+    display: none !important;
+  }
+
+  
+  html[data-uirapp~="parcial"][data-uirapp~="ve-mensagens"] :is(#main [data-pre-plain-text] .selectable-text, #main [data-pre-plain-text] [data-testid~="selectable-text"], #main [data-testid="msg-container"] [data-testid="msg-meta"], #main [data-testid="conversation-compose-box-input"], #main [data-testid="compose-btn-send"], #main [data-testid="msg-container"] [data-testid="quoted-message"] .selectable-text):not(img) {
+    background-color: #FFFFFF !important; 
+    color: #1E1E24 !important;
+    border-radius: 5px !important;
+    box-decoration-break: clone !important;
+  }
+
+  html[data-uirapp~="parcial"][data-uirapp~="ve-mensagens"]:has(> body.dark) :is(#main [data-pre-plain-text] .selectable-text, #main [data-pre-plain-text] [data-testid~="selectable-text"], #main [data-testid="msg-container"] [data-testid="msg-meta"], #main [data-testid="conversation-compose-box-input"], #main [data-testid="compose-btn-send"], #main [data-testid="msg-container"] [data-testid="quoted-message"] .selectable-text):not(img) {
+    background-color: #21313D !important;
+    color: #EEF4F6 !important;
+  }
+
+  html[data-uirapp~="parcial"][data-uirapp~="ve-mensagens"] :is(#main [data-pre-plain-text] .selectable-text, #main [data-pre-plain-text] [data-testid~="selectable-text"], #main [data-testid="msg-container"] [data-testid="msg-meta"], #main [data-testid="conversation-compose-box-input"], #main [data-testid="compose-btn-send"], #main [data-testid="msg-container"] [data-testid="quoted-message"] .selectable-text) * {
+    color: inherit !important;
+  }
+
+  
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-nomes"]) :is([data-testid="cell-frame-title"], [data-testid="conversation-info-header-chat-title-name"]),
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-previas"]) :is(#pane-side [data-testid="cell-frame-secondary"]),
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-mensagens"]) :is(#main [data-testid="msg-container"]),
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-fotos"]) :is([data-testid="cell-frame-container"] > :first-child, [data-testid="conversation-header-avatar"]) {
+    position: relative !important;
+  }
+
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-nomes"]) :is([data-testid="cell-frame-title"], [data-testid="conversation-info-header-chat-title-name"])::after,
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-previas"]) :is(#pane-side [data-testid="cell-frame-secondary"])::after,
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-mensagens"]) :is(#main [data-testid="msg-container"])::after,
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-fotos"]) :is([data-testid="cell-frame-container"] > :first-child, [data-testid="conversation-header-avatar"], #main [data-testid="group-chat-profile-picture"])::after {
+    content: "" !important;
+    display: block !important;
+    visibility: visible !important;
+    position: absolute !important;
+    box-sizing: border-box !important;
+    pointer-events: none !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 5px !important;
+    background: #AFC0C8 !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  html[data-uirapp~="parcial"]:has(> body.dark):not([data-uirapp~="ve-nomes"]) :is([data-testid="cell-frame-title"], [data-testid="conversation-info-header-chat-title-name"])::after,
+  html[data-uirapp~="parcial"]:has(> body.dark):not([data-uirapp~="ve-previas"]) :is(#pane-side [data-testid="cell-frame-secondary"])::after,
+  html[data-uirapp~="parcial"]:has(> body.dark):not([data-uirapp~="ve-mensagens"]) :is(#main [data-testid="msg-container"])::after {
+    background: #47606F !important;
+  }
+
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-nomes"]) :is([data-testid="cell-frame-title"], [data-testid="conversation-info-header-chat-title-name"])::after {
+    inset: 50% auto auto 0 !important;
+    margin: -.45em 0 0 !important;
+    width: 9em !important;
+    height: .9em !important;
+  }
+
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-previas"]) :is(#pane-side [data-testid="cell-frame-secondary"])::after {
+    inset: 50% auto auto 0 !important;
+    margin: -.4em 0 0 !important;
+    width: 14em !important;
+    height: .8em !important;
+  }
+
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-mensagens"]) :is(#main [data-testid="msg-container"])::after {
+    inset: auto auto 8px 32px !important; 
+    margin: 0 !important;
+    width: 14em !important;
+    height: 1.1em !important;
+  }
+
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-fotos"]) :is([data-testid="cell-frame-container"] > :first-child, [data-testid="conversation-header-avatar"], #main [data-testid="group-chat-profile-picture"])::after {
+    inset: 50% auto auto 50% !important;
+    margin: 0 !important;
+    translate: -50% -50% !important;
+    width: min(44px, 100%) !important; 
+    height: auto !important;
+    aspect-ratio: 1 !important;
+    border-radius: 50% !important;
+    background: #58758C url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22180%20178%20690%20696%22%3E%3Cpath%20d%3D%22M212.5%20594C222%20560%20261%20520%20303%20497C352%20468%20405%20453%20461%20454C558%20455%20581%20502%20668%20500C721%20499%20757%20477%20773%20441L776%20445C794%20480%20803%20517%20803%20557C803%20714%20664%20829%20497%20829C441%20829%20389%20817%20344%20792L213%20856C198%20862%20188%20849%20195%20835L254%20722C226%20688%20212%20647%20212%20604Z%22%20fill%3D%22%231E1E24%22%2F%3E%3Cpath%20d%3D%22M212%20598C211%20553%20242%20511%20270%20472C299%20432%20312%20399%20331%20359C379%20258%20466%20190%20575%20190C653%20190%20722%20229%20758%20292L766%20377C761%20405%20764%20423%20776%20445C759%20483%20721%20505%20668%20506C581%20508%20558%20461%20461%20460C405%20459%20352%20474%20303%20503C261%20526%20222%20565%20212%20598Z%22%20fill%3D%22%23E63323%22%2F%3E%3Cpath%20d%3D%22M590%20318Q636%20372%20682%20318%22%20fill%3D%22none%22%20stroke%3D%22%231E1E24%22%20stroke-width%3D%2227%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M758%20292C795%20292%20836%20305%20853%20321C858%20326%20855%20331%20848%20335L772%20376C758%20382%20737%20384%20725%20372C714%20361%20716%20346%20722%20333C731%20314%20743%20301%20758%20292Z%22%20fill%3D%22%23FF8A3D%22%2F%3E%3C%2Fsvg%3E") center / 78% no-repeat !important;
+  }
+
+  html[data-uirapp~="parcial"][data-uirapp~="laranja"]:not([data-uirapp~="ve-fotos"]) :is([data-testid="cell-frame-container"] > :first-child, [data-testid="conversation-header-avatar"], #main [data-testid="group-chat-profile-picture"])::after {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22180%20178%20690%20696%22%3E%3Cpath%20d%3D%22M212.5%20594C222%20560%20261%20520%20303%20497C352%20468%20405%20453%20461%20454C558%20455%20581%20502%20668%20500C721%20499%20757%20477%20773%20441L776%20445C794%20480%20803%20517%20803%20557C803%20714%20664%20829%20497%20829C441%20829%20389%20817%20344%20792L213%20856C198%20862%20188%20849%20195%20835L254%20722C226%20688%20212%20647%20212%20604Z%22%20fill%3D%22%231E1E24%22%2F%3E%3Cpath%20d%3D%22M212%20598C211%20553%20242%20511%20270%20472C299%20432%20312%20399%20331%20359C379%20258%20466%20190%20575%20190C653%20190%20722%20229%20758%20292L766%20377C761%20405%20764%20423%20776%20445C759%20483%20721%20505%20668%20506C581%20508%20558%20461%20461%20460C405%20459%20352%20474%20303%20503C261%20526%20222%20565%20212%20598Z%22%20fill%3D%22%23F47A20%22%2F%3E%3Cpath%20d%3D%22M590%20318Q636%20372%20682%20318%22%20fill%3D%22none%22%20stroke%3D%22%231E1E24%22%20stroke-width%3D%2227%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M758%20292C795%20292%20836%20305%20853%20321C858%20326%20855%20331%20848%20335L772%20376C758%20382%20737%20384%20725%20372C714%20361%20716%20346%20722%20333C731%20314%20743%20301%20758%20292Z%22%20fill%3D%22%23FFD166%22%2F%3E%3C%2Fsvg%3E") !important;
+  }
+
+  html[data-uirapp~="parcial"][data-uirapp~="lenda"]:not([data-uirapp~="ve-fotos"]) :is([data-testid="cell-frame-container"] > :first-child, [data-testid="conversation-header-avatar"], #main [data-testid="group-chat-profile-picture"])::after {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22180%20178%20690%20696%22%3E%3Cpath%20d%3D%22M212.5%20594C222%20560%20261%20520%20303%20497C352%20468%20405%20453%20461%20454C558%20455%20581%20502%20668%20500C721%20499%20757%20477%20773%20441L776%20445C794%20480%20803%20517%20803%20557C803%20714%20664%20829%20497%20829C441%20829%20389%20817%20344%20792L213%20856C198%20862%20188%20849%20195%20835L254%20722C226%20688%20212%20647%20212%20604Z%22%20fill%3D%22%234A332C%22%2F%3E%3Cpath%20d%3D%22M212%20598C211%20553%20242%20511%20270%20472C299%20432%20312%20399%20331%20359C379%20258%20466%20190%20575%20190C653%20190%20722%20229%20758%20292L766%20377C761%20405%20764%20423%20776%20445C759%20483%20721%20505%20668%20506C581%20508%20558%20461%20461%20460C405%20459%20352%20474%20303%20503C261%20526%20222%20565%20212%20598Z%22%20fill%3D%22%23B5562B%22%2F%3E%3Cpath%20d%3D%22M590%20318Q636%20372%20682%20318%22%20fill%3D%22none%22%20stroke%3D%22%231E1E24%22%20stroke-width%3D%2227%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22M758%20292C795%20292%20836%20305%20853%20321C858%20326%20855%20331%20848%20335L772%20376C758%20382%20737%20384%20725%20372C714%20361%20716%20346%20722%20333C731%20314%20743%20301%20758%20292Z%22%20fill%3D%22%23E0A06A%22%2F%3E%3C%2Fsvg%3E") !important;
+  }
+}
+
+
+@layer nega {
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-nomes"]) :is([data-testid="quoted-message"], [data-testid="author"], [data-pre-plain-text] .selectable-text [role]:not(img), [data-pre-plain-text] .selectable-text [tabindex]:not(img), [data-pre-plain-text] .selectable-text [title], [data-testid="last-msg-status"] > span[dir]:last-child [role]:not(img), [data-testid="last-msg-status"] > span[dir]:last-child [title], [data-testid="profile-first-initial"], [data-testid="profile-second-initial"]),
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-nomes"]) :is([data-testid="quoted-message"], [data-testid="author"], [data-pre-plain-text] .selectable-text [role]:not(img), [data-pre-plain-text] .selectable-text [tabindex]:not(img), [data-pre-plain-text] .selectable-text [title], [data-testid="last-msg-status"] > span[dir]:last-child [role]:not(img), [data-testid="last-msg-status"] > span[dir]:last-child [title], [data-testid="profile-first-initial"], [data-testid="profile-second-initial"]) *,
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-midia"]) :is(#main [data-testid="msgImage"], #main [data-testid="msg-video"], #main [data-testid="image-album"], #main [data-testid="sticker-container"], #main [data-testid="link-preview-thumbnail"], #main [data-testid="chat_thread_gif_thumb_image"], #main [data-testid="document-thumb-details"], #main [data-testid="audio-play"], #main [data-testid="ptt-status"], #main [data-testid="msg-container"] img[src^="blob:"]),
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-midia"]) :is(#main [data-testid="msgImage"], #main [data-testid="msg-video"], #main [data-testid="image-album"], #main [data-testid="sticker-container"], #main [data-testid="link-preview-thumbnail"], #main [data-testid="chat_thread_gif_thumb_image"], #main [data-testid="document-thumb-details"], #main [data-testid="audio-play"], #main [data-testid="ptt-status"], #main [data-testid="msg-container"] img[src^="blob:"]) *,
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-midia"]) :is([data-testid="chat_list_last_msg_media_thumb"], [data-testid="last-msg-status"] img:not(.emoji), [data-testid="last-msg-status"] video, [data-testid="last-msg-status"] canvas),
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-midia"]) :is([data-testid="chat_list_last_msg_media_thumb"], [data-testid="last-msg-status"] img:not(.emoji), [data-testid="last-msg-status"] video, [data-testid="last-msg-status"] canvas) *,
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-fotos"]) :is(#main [data-testid*="avatar"], #main [data-testid="group-chat-profile-picture"]),
+  html[data-uirapp~="parcial"]:not([data-uirapp~="ve-fotos"]) :is(#main [data-testid*="avatar"], #main [data-testid="group-chat-profile-picture"]) * {
+    visibility: hidden !important;
+  }
+}
+
+
+html:not([data-uirapp])::after {
+  content: "O Uirapp cobriu a tela. Recarregue a página.";
+  position: fixed;
+  z-index: 2147483647;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #F7D9A0;
+  color: #1E1E24;
+  font: 700 20px/1.2 system-ui, sans-serif;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  animation: uirapp-parou 1ms linear 4s forwards;
+}
+
+@keyframes uirapp-parou {
+  to { opacity: 1; }
+}

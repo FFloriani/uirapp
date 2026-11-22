@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR" data-tema="dia">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design system do Uirapp</title>
+<style>{{css}}</style>
+</head>
+<body>
+
+<header class="abertura">
+  <div class="abertura-dentro">
+    <div class="abertura-fala">
+      <div class="abertura-nome">{{nome}}</div>
+      <h1>Quando ele canta, a floresta silencia.</h1>
+      <p>Design system 0.1 de uma extensão grátis, segura e carismática para usar com o WhatsApp Web. A janela ao lado funciona: esconda as conversas, troque a plumagem, crie uma resposta.</p>
+      <div class="abertura-passaro" data-humor="cantando">{{passaro}}</div>
+    </div>
+    <div class="abertura-janela">{{janela_principal}}</div>
+  </div>
+  {{galho}}
+</header>
+
+<main>
+<section>
+  <h2>Na conversa</h2>
+  <p class="intro">No silêncio, cada foto vira um passarinho dormindo e cada texto vira tarja opaca. Clique no pássaro do canto para mostrar e esconder.</p>
+  {{conversa}}
+</section>
+
+<section>
+  <h2>Marca</h2>
+  <p class="intro">O corpo do pássaro é um balão de conversa. A história vem do uirapuru-verdadeiro, o da lenda. As cores vêm do uirapuru-vermelho.</p>
+  {{marca}}
+</section>
+
+<section>
+  <h2>O mascote diz o estado</h2>
+  <p class="intro">Olho fechado quer dizer escondido, e nada mais.</p>
+  {{mascote}}
+</section>
+
+<section>
+  <h2>Cores</h2>
+  <p class="intro">O céu é estado e o tema é gosto. O azul fundo é ação. O escarlate é só o pássaro.</p>
+  {{cores}}
+</section>
+
+<section>
+  <h2>Tipografia</h2>
+  <p class="intro">Sofia Sans em tudo, com licença livre e dentro do pacote.</p>
+  {{tipos}}
+</section>
+
+<section>
+  <h2>Espaço e forma</h2>
+  <p class="intro">O raio diz o papel: tecla, controle, painel, interruptor.</p>
+  {{medidas}}
+</section>
+
+<section>
+  <h2>Componentes e estados</h2>
+  {{componentes}}
+</section>
+
+<section>
+  <h2>Telas</h2>
+  <p class="intro">Todas navegam.</p>
+  {{telas}}
+</section>
+
+<section>
+  <h2>Contraste medido</h2>
+  <p class="intro">Conta feita a partir dos tokens. O mínimo para texto é 4,5.</p>
+  {{contraste}}
+</section>
+
+<section>
+  <h2>O que fazer e o que não fazer</h2>
+  {{regras}}
+</section>
+</main>
+
+<footer class="pe">Protótipo de design, com conversas fictícias. Não é afiliado ao WhatsApp. Fonte Sofia Sans (SIL OFL), ícones Tabler (MIT).</footer>
+</body>
+</html>

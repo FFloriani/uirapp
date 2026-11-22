@@ -1,0 +1,41 @@
+name: Algo não funcionou
+description: Um defeito do Uirapp, ou o aviso "O WhatsApp mudou".
+labels: ["problema"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Não cole print, vídeo nem texto de uma conversa de verdade.** Descreva o que apareceu e onde, sem o conteúdo.
+        Falha de segurança não vai aqui: use a aba Security (veja o SECURITY.md).
+  - type: input
+    id: versao
+    attributes:
+      label: Versão do Uirapp
+      description: Aparece em brave://extensions ou chrome://extensions, no cartão do Uirapp.
+      placeholder: "0.2.0"
+    validations:
+      required: true
+  - type: input
+    id: navegador
+    attributes:
+      label: Navegador e versão
+      placeholder: "Brave 1.80 no Windows 11"
+    validations:
+      required: true
+  - type: textarea
+    id: passos
+    attributes:
+      label: O que você fez
+      placeholder: |
+        1. Abri o WhatsApp Web
+        2. Apertei Alt+S
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: O que aconteceu e o que você esperava
+      placeholder: "O nome do grupo continuou à vista no topo da conversa."
+    validations:
+      required: true

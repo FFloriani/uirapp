@@ -1,0 +1,114 @@
+/* O Ninho: página inteira da extensão. Componente mora em ui/componentes.css; aqui é só o encaixe. */
+html { min-height: 100%; }
+body { min-height: 100vh; }
+.ninho-topo {
+  position: sticky; top: 0; z-index: 2; display: flex; flex-wrap: wrap; align-items: center; gap: var(--espaco-3) var(--espaco-6);
+  padding: var(--espaco-3) var(--espaco-5); background: var(--ceu-aberto); color: var(--on-ceu-aberto);
+  border-bottom: var(--tam-perch) solid var(--galho);
+}
+.ninho-marca { display: flex; align-items: center; gap: var(--espaco-2); }
+.ninho-marca .passaro { width: 48px; }
+.ninho-marca .nome { color: var(--carvao); }
+.ninho-nome { font: var(--tipo-title); }
+.abas { display: flex; flex-wrap: wrap; gap: var(--espaco-1); }
+.aba {
+  min-height: var(--tam-hit); display: inline-flex; align-items: center; gap: var(--espaco-2); padding: 0 var(--espaco-3);
+  border-radius: var(--raio-control); color: inherit; font: var(--tipo-label); text-decoration: none;
+}
+.aba:hover { background: color-mix(in srgb, var(--carvao) 10%, transparent); }
+.aba[aria-current="page"] { background: var(--carvao); color: var(--ceu-aberto); }
+
+.ninho { max-width: 1280px; margin: 0 auto; padding: var(--espaco-5) var(--espaco-5) var(--espaco-7); }
+.parte-topo { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--espaco-3); margin-bottom: var(--espaco-4); }
+.parte-topo h2 { font: var(--tipo-display); }
+.parte-topo h2:focus { outline: none; }
+.ferramentas { display: flex; flex-wrap: wrap; align-items: center; gap: var(--espaco-2); }
+.ferramentas .entrada { width: auto; min-width: 180px; }
+.sub { font: var(--tipo-title); margin: var(--espaco-6) 0 var(--espaco-3); }
+.acoes { display: flex; flex-wrap: wrap; gap: var(--espaco-2); margin-top: var(--espaco-4); }
+.campo { padding: var(--espaco-3) 0 0; }
+.campo-apoio { color: var(--text-muted); font: var(--tipo-small); margin-top: var(--espaco-2); }
+select.entrada { appearance: auto; }
+
+/* atendimento */
+.quadro { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(240px, 1fr); gap: var(--espaco-3); overflow-x: auto; padding-bottom: var(--espaco-3); }
+.coluna { display: flex; flex-direction: column; min-height: 320px; padding: var(--espaco-3); border-radius: var(--raio-panel); background: var(--surface); border: 1px solid var(--line); }
+.coluna.solta { outline: 3px dashed var(--primary); outline-offset: -3px; }
+.coluna-titulo { display: flex; justify-content: space-between; gap: var(--espaco-2); font: var(--tipo-label); padding-bottom: var(--espaco-2); }
+.coluna-conta { color: var(--text-muted); font: var(--tipo-small); text-align: right; }
+.coluna-fichas { display: grid; gap: var(--espaco-2); align-content: start; flex: 1; }
+.ficha { border-radius: var(--raio-control); background: var(--bg); border: 1px solid var(--line); }
+.ficha.arrastando { opacity: .5; }
+.ficha-abrir { width: 100%; min-height: var(--tam-hit); display: grid; gap: var(--espaco-1); padding: var(--espaco-3); text-align: left; border-radius: var(--raio-control); }
+.ficha-abrir:hover { background: var(--surface-hover); }
+.ficha-nome { font: var(--tipo-label); overflow-wrap: anywhere; }
+.ficha-valor, .ficha-nota { color: var(--text-muted); font: var(--tipo-small); }
+.ficha-nota { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ficha-etiquetas { display: flex; flex-wrap: wrap; gap: var(--espaco-1); }
+.etiqueta { padding: 2px var(--espaco-2); border-radius: var(--raio-round); background: var(--surface-hover); font: var(--tipo-small); }
+
+/* lembretes */
+.lista-lembretes { display: grid; gap: var(--espaco-2); }
+.lembrete {
+  display: grid; grid-template-columns: 170px 1fr auto; align-items: center; gap: var(--espaco-3);
+  padding: var(--espaco-2) var(--espaco-3); border-radius: var(--raio-control); background: var(--surface); border: 1px solid var(--line);
+}
+.lembrete.feito { opacity: .6; }
+.lembrete.feito .lembrete-titulo { text-decoration: line-through; }
+.lembrete.atrasado .lembrete-quando { color: var(--danger); }
+.lembrete-quando { color: var(--text-muted); font: var(--tipo-small); }
+.lembrete-titulo { font: var(--tipo-label); overflow-wrap: anywhere; }
+.lembrete-acoes { display: flex; align-items: center; gap: var(--espaco-1); }
+
+/* temas */
+.estudio { display: grid; grid-template-columns: minmax(260px, 380px) 1fr; gap: var(--espaco-6); align-items: start; }
+.cores { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--espaco-3); padding-top: var(--espaco-4); }
+.cor { display: grid; gap: var(--espaco-1); font: var(--tipo-small); cursor: pointer; }
+.cor input { width: 100%; height: var(--tam-hit); padding: 2px; border: 1px solid var(--control); border-radius: var(--raio-control); background: var(--surface); cursor: pointer; }
+.previa { display: grid; grid-template-columns: 34% 1fr; min-height: 320px; border-radius: var(--raio-panel); overflow: hidden; border: 1px solid var(--line); }
+.previa-lista { display: grid; align-content: start; gap: var(--espaco-3); padding: var(--espaco-4); }
+.previa-lista i { display: block; height: 40px; border-radius: var(--raio-control); }
+.previa-conversa { display: flex; flex-direction: column; justify-content: flex-end; gap: var(--espaco-2); padding: var(--espaco-4); background-size: cover; background-position: center; }
+.previa-conversa span { max-width: 78%; padding: var(--espaco-2) var(--espaco-3); border-radius: var(--raio-control); font: var(--tipo-body); }
+.balao-enviado { align-self: flex-end; }
+.previa-escrever { max-width: none !important; margin-top: var(--espaco-3); }
+.meus-temas { display: grid; gap: var(--espaco-2); }
+.meu-tema { display: flex; align-items: center; gap: var(--espaco-3); padding: var(--espaco-2) var(--espaco-3); border-radius: var(--raio-control); background: var(--surface); border: 1px solid var(--line); }
+.meu-tema-nome { flex: 1; font: var(--tipo-label); }
+.meu-tema .tema-amostra { width: 88px; height: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 6px; border-radius: var(--raio-key); border: 1px solid var(--line); }
+.meu-tema .tema-amostra i { display: block; border-radius: 3px; }
+.arquivo { position: relative; overflow: hidden; }
+.arquivo input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+
+/* desenho */
+.pinceis { display: flex; gap: var(--espaco-1); }
+.pincel { position: relative; width: var(--tam-hit); height: var(--tam-hit); display: grid; place-items: center; border-radius: var(--raio-round); cursor: pointer; }
+.pincel input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+.pincel-cor { width: 28px; height: 28px; border-radius: var(--raio-round); border: 2px solid var(--control); }
+.pincel:has(:checked) { outline: 3px solid var(--primary); outline-offset: -2px; }
+.pincel:has(:focus-visible) { outline: 3px solid var(--primary); }
+.espessura { display: flex; align-items: center; gap: var(--espaco-2); font: var(--tipo-small); }
+.tela-desenho { display: block; width: 100%; height: auto; aspect-ratio: 5 / 3; border-radius: var(--raio-panel); background: #FFFFFF; border: 1px solid var(--line); touch-action: none; cursor: crosshair; }
+
+/* backup */
+.colunas { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--espaco-4); }
+.cartao { padding: var(--espaco-5); border-radius: var(--raio-panel); background: var(--surface); border: 1px solid var(--line); }
+.cartao h3 { font: var(--tipo-title); }
+
+/* diálogos grandes */
+.dialogo-largo { width: min(720px, calc(100% - var(--espaco-6))); max-width: none; }
+.grade { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--espaco-4); }
+.campo-inteiro { grid-column: 1 / -1; }
+.dialogo-largo .dialogo-acoes { flex-wrap: wrap; }
+.dialogo-largo .apagar { color: var(--danger); margin-right: auto; }
+.etapas { display: grid; gap: var(--espaco-2); margin: var(--espaco-3) 0; list-style: none; }
+.etapas li { display: flex; gap: var(--espaco-2); align-items: center; }
+.aviso-ninho { position: fixed; left: auto; right: var(--espaco-5); bottom: var(--espaco-5); width: min(420px, calc(100% - var(--espaco-6))); }
+
+@media (max-width: 720px) {
+  .ninho { padding: var(--espaco-4); }
+  .estudio, .grade { grid-template-columns: 1fr; }
+  .lembrete { grid-template-columns: 1fr auto; }
+  .lembrete-quando { grid-column: 1 / -1; }
+  .ferramentas .entrada { min-width: 0; flex: 1 1 140px; }
+}

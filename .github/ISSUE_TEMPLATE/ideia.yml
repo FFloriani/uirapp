@@ -1,0 +1,21 @@
+name: Ideia
+description: Uma função ou mudança que faria o Uirapp melhor.
+labels: ["ideia"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Antes, veja "O que fica de fora" no CONTRIBUTING.md: envio automático, servidor e guardar conversas de outras pessoas são recusados.
+  - type: textarea
+    id: dor
+    attributes:
+      label: O que incomoda hoje
+      placeholder: "Atendo muitos clientes e perco a conta de quem já respondi."
+    validations:
+      required: true
+  - type: textarea
+    id: ideia
+    attributes:
+      label: Como o Uirapp poderia ajudar
+    validations:
+      required: true

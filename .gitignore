@@ -1,0 +1,19 @@
+# memória local do projeto (Rastro): tem dados pessoais e caminhos do computador
+rastro/
+
+# material de estudo e de origem que fica só no computador do autor
+docs/aprendizados.md
+docs/funcoes.md
+scripts/funcoes.py
+marca/origem/
+
+# pacote: vai para as Releases, não para o código
+extensao/*.zip
+
+# gerados por ferramentas
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini

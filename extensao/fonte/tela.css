@@ -1,0 +1,43 @@
+/* O que o Uirapp desenha dentro do WhatsApp. Componente mora em ui/componentes.css; aqui é só o encaixe. */
+.casa { position: fixed; inset: 0; pointer-events: none; color: var(--text); font: var(--tipo-body); text-align: start; }
+.flutuante, .cena, .cobertura { pointer-events: auto; }
+.flutuante { right: var(--espaco-4); bottom: calc(var(--espaco-7) + var(--espaco-6) + var(--espaco-2)); color: var(--carvao); }
+.flutuante[data-lado="esquerda"] { right: auto; left: calc(var(--espaco-7) + var(--espaco-4)); }
+
+.cena { position: fixed; inset: 0; z-index: 1; display: grid; background: var(--bg); overflow: hidden; cursor: default; user-select: none; }
+.cena > * { min-width: 0; }
+.cena-trilho { background: var(--surface-hover); }
+.cena-lista { overflow: hidden; border-right: 1px solid var(--line); }
+.cena-busca {
+  height: var(--tam-hit); margin: var(--espaco-5) var(--espaco-4) var(--espaco-3);
+  border-radius: var(--raio-control); background: var(--surface-hover);
+}
+.cena-linha { height: 76px; padding: 0 var(--espaco-4); display: flex; align-items: center; gap: var(--espaco-3); }
+.cena-foto {
+  width: var(--espaco-7); height: var(--espaco-7); flex: none; display: grid; place-items: center;
+  border-radius: var(--raio-round); background: var(--ceu-silencio);
+}
+.cena-foto .passaro { width: 36px; }
+.cena-foto .passaro .olho-acordado { display: none; }
+.cena-foto .passaro .olho-silencio { display: inline; }
+.cena-textos { flex: 1; min-width: 0; display: grid; gap: var(--espaco-2); }
+.cena-tarja { display: block; max-width: 100%; border-radius: var(--raio-key); background: var(--tarja); }
+.cena-nome { width: 9em; height: var(--espaco-4); }
+.cena-previa { width: 14em; height: var(--espaco-3); }
+.cena-conversa { display: flex; flex-direction: column; overflow: hidden; background: var(--surface); }
+.cena-topo {
+  flex: none; display: flex; align-items: center; gap: var(--espaco-3);
+  padding: var(--espaco-3) var(--espaco-4); border-bottom: 1px solid var(--line);
+}
+.cena-baloes {
+  flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end;
+  gap: var(--espaco-3); padding: var(--espaco-5);
+  padding-right: calc(var(--espaco-7) * 2); /* o lugar do pássaro */
+}
+.cena-balao { flex: none; align-self: flex-start; width: 18em; height: var(--tam-hit); border-radius: var(--raio-panel); }
+.cena-balao.meu { align-self: flex-end; }
+.cena-escrever {
+  flex: none; height: var(--tam-hit); margin: var(--espaco-3) var(--espaco-4) var(--espaco-4);
+  border: 1px solid var(--control); border-radius: var(--raio-control);
+}
+.cobertura > p { font: var(--tipo-body); }

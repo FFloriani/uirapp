@@ -1,0 +1,343 @@
+<!doctype html>
+<!-- GERADO por scripts/montar.py. Não edite aqui. -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<title>Uirapp</title>
+<link rel="icon" href="icones/icone-32.png">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="componentes.css">
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<main class="app">
+
+<section class="tela" data-tela="inicio" aria-label="Início" hidden>
+  <header class="topo topo-marca"><h1><svg class="nome" viewBox="546 388 914 278" role="img" aria-label="Uirapp"><g fill="currentColor" fill-rule="evenodd"><path d="M552 428C552 415 562 406 575 406H581C594 406 603 415 603 428V520C603 543 616 555 636 555C656 555 669 543 669 520V428C669 415 678 406 691 406H699C712 406 721 415 721 428V517C721 570 686 602 636 602C586 602 552 570 552 517Z"/><rect x="748" y="456" width="50" height="144.5" rx="22"/><path d="M825 578V470C825 457 836 448 848 448C862 448 870 454 873 463C885 451 896 446 907 446C923 446 932 457 932 474C932 493 919 500 902 496C886 492 874 504 874 526V578C874 592 865 601 849 601C834 601 825 592 825 578Z"/><path d="M1052 456C1056 451 1064 448 1075 448C1089 448 1099 457 1099 471V578C1099 592 1089 601 1075 601C1064 601 1055 596 1052 589C1041 598 1027 603 1009 603C969 603 937 568 937 524C937 480 970 446 1015 446C1030 446 1042 450 1052 456ZM987 523.5a32 36 0 1 0 64 0a32 36 0 1 0 -64 0Z"/><path d="M1125 636V470C1125 457 1134 448 1148 448C1159 448 1167 452 1172 460C1183 451 1197 446 1213 446C1251 446 1280 480 1280 524C1280 568 1250 603 1210 603C1195 603 1182 599 1172 591V636C1172 650 1163 659 1148 659C1134 659 1125 650 1125 636ZM1169 522a31 35.5 0 1 0 62 0a31 35.5 0 1 0 -62 0Z"/><path d="M1125 636V470C1125 457 1134 448 1148 448C1159 448 1167 452 1172 460C1183 451 1197 446 1213 446C1251 446 1280 480 1280 524C1280 568 1250 603 1210 603C1195 603 1182 599 1172 591V636C1172 650 1163 659 1148 659C1134 659 1125 650 1125 636ZM1169 522a31 35.5 0 1 0 62 0a31 35.5 0 1 0 -62 0Z" transform="translate(173.5 0)"/></g><circle cx="773.5" cy="419.5" r="25.5" fill="#E63323"/></svg></h1></header>
+  <div class="rolo">
+    <div class="palco" id="palco" data-estado="aberto">
+      <svg class="passaro " viewBox="180 178 690 696" aria-hidden="true" focusable="false"><path class="p-corpo" d="M212.5 594C222 560 261 520 303 497C352 468 405 453 461 454C558 455 581 502 668 500C721 499 757 477 773 441L776 445C794 480 803 517 803 557C803 714 664 829 497 829C441 829 389 817 344 792L213 856C198 862 188 849 195 835L254 722C226 688 212 647 212 604Z"/><path class="p-cabeca" d="M212 598C211 553 242 511 270 472C299 432 312 399 331 359C379 258 466 190 575 190C653 190 722 229 758 292L766 377C761 405 764 423 776 445C759 483 721 505 668 506C581 508 558 461 461 460C405 459 352 474 303 503C261 526 222 565 212 598Z"/><g class="olho olho-acordado"><circle cx="636" cy="324" r="45.5" fill="#1E1E24"/><circle cx="652" cy="307" r="14" fill="#FFFFFF"/></g><g class="olho olho-silencio"><path d="M590 318Q636 372 682 318" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-cantando"><path d="M590 342Q636 286 682 342" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-alerta"><circle cx="636" cy="324" r="62" fill="#FFFFFF"/><circle cx="642" cy="324" r="35" fill="#1E1E24"/><circle cx="653" cy="311" r="11" fill="#FFFFFF"/></g><path class="p-bico bico-fechado" d="M758 292C795 292 836 305 853 321C858 326 855 331 848 335L772 376C758 382 737 384 725 372C714 361 716 346 722 333C731 314 743 301 758 292Z"/><path class="p-bico bico-aberto" d="M758 292C795 283 832 279 859 283C867 285 867 292 860 296L788 340L847 370C854 375 852 382 843 383C810 388 763 390 734 379C716 372 711 352 722 333C731 314 743 301 758 292Z"/></svg>
+      <div class="palco-texto" aria-live="polite">
+        <p class="palco-titulo" id="palco-titulo">Conversas à vista</p>
+        <p class="palco-apoio" id="palco-apoio" hidden></p>
+      </div>
+      <span class="galho" aria-hidden="true"><svg class="folhas" viewBox="0 0 64 34" focusable="false"><path d="M22 32C8 32 1 22 2 8C16 8 25 17 22 32Z"/><path d="M30 33C29 15 41 3 60 3C61 22 49 33 30 33Z"/></svg></span>
+    </div>
+    <div class="principal">
+      <button class="botao botao-largo botao-com-tecla" id="silencio" type="button">
+        <span id="silencio-texto">Esconder conversas</span><span class="tecla" id="silencio-tecla">Alt+S</span>
+      </button>
+    </div>
+    <div class="busca"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /> <path d="M21 21l-6 -6" /></svg><input class="entrada" id="busca" type="search" placeholder="Buscar" aria-label="Buscar no Uirapp" autocomplete="off"></div>
+    <nav class="menu" id="menu" aria-label="Ajustes">
+      <button class="linha" type="button" data-ir="privacidade" data-busca="silêncio esconder parado som título"><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4c4.29 0 7.863 2.429 10.665 7.154l.22 .379l.045 .1l.03 .083l.014 .055l.014 .082l.011 .1v.11l-.014 .111a.992 .992 0 0 1 -.026 .11l-.039 .108l-.036 .075l-.016 .03c-2.764 4.836 -6.3 7.38 -10.555 7.499l-.313 .004c-4.396 0 -8.037 -2.549 -10.868 -7.504a1 1 0 0 1 0 -.992c2.831 -4.955 6.472 -7.504 10.868 -7.504zm0 5a3 3 0 1 0 0 6a3 3 0 0 0 0 -6" /></svg><span class="linha-texto">Privacidade</span><span class="linha-valor" id="valor-privacidade"></span><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6l-6 6" /></svg></button>
+      <button class="linha" type="button" data-ir="respostas" data-busca="modelo atalho pix assinatura variável"><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18 3a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-4.724l-4.762 2.857a1 1 0 0 1 -1.508 -.743l-.006 -.114v-2h-1a4 4 0 0 1 -3.995 -3.8l-.005 -.2v-8a4 4 0 0 1 4 -4zm-4 9h-6a1 1 0 0 0 0 2h6a1 1 0 0 0 0 -2m2 -4h-8a1 1 0 1 0 0 2h8a1 1 0 0 0 0 -2" /></svg><span class="linha-texto">Respostas prontas</span><span class="linha-valor" id="valor-respostas"></span><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6l-6 6" /></svg></button>
+      <button class="linha" type="button" data-ir="aparencia" data-busca="tema cor letra filtros status canais comunidades ligações faixas idioma"><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2c5.498 0 10 4.002 10 9c0 1.351 -.6 2.64 -1.654 3.576c-1.03 .914 -2.412 1.424 -3.846 1.424h-2.516a1 1 0 0 0 -.5 1.875a1 1 0 0 1 .194 .14a2.3 2.3 0 0 1 -1.597 3.99l-.156 -.009l.068 .004l-.273 -.004c-5.3 -.146 -9.57 -4.416 -9.716 -9.716l-.004 -.28c0 -5.523 4.477 -10 10 -10m-3.5 6.5a2 2 0 0 0 -1.995 1.85l-.005 .15a2 2 0 1 0 2 -2m8 0a2 2 0 0 0 -1.995 1.85l-.005 .15a2 2 0 1 0 2 -2m-4 -3a2 2 0 0 0 -1.995 1.85l-.005 .15a2 2 0 1 0 2 -2" /></svg><span class="linha-texto">Aparência</span><span class="linha-valor" id="valor-aparencia"></span><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6l-6 6" /></svg></button>
+      <button class="linha" type="button" data-ir="conversar" data-busca="número contato sem salvar"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" /></svg><span class="linha-texto">Conversar sem salvar o número</span><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6l-6 6" /></svg></button>
+      <button class="linha" type="button" data-ir="exportar" data-busca="exportar salvar conversa senha planilha"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3v4a1 1 0 0 0 1 1h4" /> <path d="M11.5 21h-4.5a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v5m-5 6h7m-3 -3l3 3l-3 3" /></svg><span class="linha-texto">Exportar conversa</span><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6l-6 6" /></svg></button>
+      <button class="linha" type="button" id="baixar" data-busca="baixar foto vídeo mídia status"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /> <path d="M7 11l5 5l5 -5" /> <path d="M12 4l0 12" /></svg><span class="linha-texto">Baixar a foto ou o vídeo aberto</span></button>
+      <button class="linha" type="button" id="abrir-ninho" data-busca="atendimento ficha contato etiqueta kanban lembrete temas estúdio desenho backup"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4l6 0" /> <path d="M14 4l6 0" /> <path d="M4 10a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2l0 -8" /> <path d="M14 10a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v2a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2l0 -2" /></svg><span class="linha-texto">Ninho</span><span class="linha-valor">Atendimento, lembretes, temas e mais</span></button>
+      <button class="linha" type="button" data-ir="plumagem" data-busca="passarinho mascote cor janela"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6" /></svg><span class="linha-texto">Plumagem</span><span class="linha-valor" id="valor-plumagem"></span><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6l-6 6" /></svg></button>
+      <button class="linha" type="button" data-ir="acesso" data-busca="privacidade dados apagar"><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11.998 2l.118 .007l.059 .008l.061 .013l.111 .034a.993 .993 0 0 1 .217 .112l.104 .082l.255 .218a11 11 0 0 0 7.189 2.537l.342 -.01a1 1 0 0 1 1.005 .717a13 13 0 0 1 -9.208 16.25a1 1 0 0 1 -.502 0a13 13 0 0 1 -9.209 -16.25a1 1 0 0 1 1.005 -.717a11 11 0 0 0 7.531 -2.527l.263 -.225l.096 -.075a.993 .993 0 0 1 .217 -.112l.112 -.034a.97 .97 0 0 1 .119 -.021l.115 -.007zm3.71 7.293a1 1 0 0 0 -1.415 0l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.32 1.497l2 2l.094 .083a1 1 0 0 0 1.32 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" /></svg><span class="linha-texto">O que o Uirapp acessa</span><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6l-6 6" /></svg></button>
+    </nav>
+    <p class="vazio-busca" id="busca-vazia" hidden>Nada com esse nome</p>
+  </div>
+</section>
+
+<section class="tela" data-tela="privacidade" aria-labelledby="t-privacidade" hidden>
+  <header class="topo">
+    <button class="botao-icone" type="button" data-ir="inicio" aria-label="Voltar"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12l14 0" /> <path d="M5 12l6 6" /> <path d="M5 12l6 -6" /></svg></button>
+    <h2 id="t-privacidade" tabindex="-1">Privacidade</h2>
+    <button class="botao-icone favorito" type="button" data-favorito="privacidade" aria-pressed="false" aria-label="Pôr no começo"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /></svg><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg></button>
+  </header>
+  <div class="rolo">
+    <p class="grupo-titulo">No silêncio, esconder</p>
+    <div id="esconde">
+      <label class="linha"><span class="linha-texto">Mensagens</span><input class="interruptor" type="checkbox" role="switch" data-esconde="mensagens" checked></label>
+      <label class="linha"><span class="linha-texto">Prévias na lista</span><input class="interruptor" type="checkbox" role="switch" data-esconde="previas" checked></label>
+      <label class="linha"><span class="linha-texto">Nomes e números</span><input class="interruptor" type="checkbox" role="switch" data-esconde="nomes" checked></label>
+      <label class="linha"><span class="linha-texto">Fotos de perfil</span><input class="interruptor" type="checkbox" role="switch" data-esconde="fotos" checked></label>
+      <label class="linha"><span class="linha-texto">Fotos, vídeos e áudios</span><input class="interruptor" type="checkbox" role="switch" data-esconde="midia" checked></label>
+    </div>
+    <p class="grupo-titulo">Fazer silêncio sozinho</p>
+    <label class="linha"><span class="linha-texto">Ao ficar parado</span><input class="interruptor" type="checkbox" role="switch" data-ajuste="parado"></label>
+    <div class="segmentos" role="radiogroup" aria-label="Minutos parado" id="minutos">
+      <label class="segmento"><input type="radio" name="paradoMin" value="1"><span>1 min</span></label>
+      <label class="segmento"><input type="radio" name="paradoMin" value="5" checked><span>5 min</span></label>
+      <label class="segmento"><input type="radio" name="paradoMin" value="10"><span>10 min</span></label>
+      <label class="segmento"><input type="radio" name="paradoMin" value="30"><span>30 min</span></label>
+    </div>
+    <label class="linha"><span class="linha-texto">Ao abrir o WhatsApp Web</span><input class="interruptor" type="checkbox" role="switch" data-ajuste="aoAbrir"></label>
+    <label class="linha"><span class="linha-texto">Ao sair da aba</span><input class="interruptor" type="checkbox" role="switch" data-ajuste="aoSair"></label>
+    <p class="grupo-titulo">Junto com o silêncio</p>
+    <label class="linha"><span class="linha-texto">Tirar o som da aba</span><input class="interruptor" type="checkbox" role="switch" data-ajuste="som"></label>
+    <label class="linha"><span class="linha-texto">Título da aba sem contagem</span><input class="interruptor" type="checkbox" role="switch" data-ajuste="titulo"></label>
+    <p class="grupo-titulo">Atalho</p>
+    <div class="linha"><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 5a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-16a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3zm-14 8a1 1 0 0 0 -1 1v.01a1 1 0 0 0 2 0v-.01a1 1 0 0 0 -1 -1m12 0a1 1 0 0 0 -1 1v.01a1 1 0 0 0 2 0v-.01a1 1 0 0 0 -1 -1m-7.998 0a1 1 0 0 0 -.004 2l4 .01a1 1 0 0 0 .005 -2zm-4.002 -4a1 1 0 0 0 -1 1v.01a1 1 0 0 0 2 0v-.01a1 1 0 0 0 -1 -1m4 0a1 1 0 0 0 -1 1v.01a1 1 0 0 0 2 0v-.01a1 1 0 0 0 -1 -1m4 0a1 1 0 0 0 -1 1v.01a1 1 0 0 0 2 0v-.01a1 1 0 0 0 -1 -1m4 0a1 1 0 0 0 -1 1v.01a1 1 0 0 0 2 0v-.01a1 1 0 0 0 -1 -1" /></svg><span class="linha-texto">Esconder ou mostrar</span><span class="tecla">Alt+S</span></div>
+  </div>
+</section>
+
+<section class="tela" data-tela="respostas" aria-labelledby="t-respostas" hidden>
+  <header class="topo">
+    <button class="botao-icone" type="button" data-ir="inicio" aria-label="Voltar"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12l14 0" /> <path d="M5 12l6 6" /> <path d="M5 12l6 -6" /></svg></button>
+    <h2 id="t-respostas" tabindex="-1">Respostas prontas</h2>
+    <button class="botao-icone favorito" type="button" data-favorito="respostas" aria-pressed="false" aria-label="Pôr no começo"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /></svg><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg></button>
+  </header>
+  <div class="rolo">
+    <ul id="lista-respostas" aria-label="Respostas"></ul>
+    <div class="vazio" id="respostas-vazio" hidden>
+      <div class="vazio-poleiro"><svg class="passaro " viewBox="180 178 690 696" aria-hidden="true" focusable="false"><path class="p-corpo" d="M212.5 594C222 560 261 520 303 497C352 468 405 453 461 454C558 455 581 502 668 500C721 499 757 477 773 441L776 445C794 480 803 517 803 557C803 714 664 829 497 829C441 829 389 817 344 792L213 856C198 862 188 849 195 835L254 722C226 688 212 647 212 604Z"/><path class="p-cabeca" d="M212 598C211 553 242 511 270 472C299 432 312 399 331 359C379 258 466 190 575 190C653 190 722 229 758 292L766 377C761 405 764 423 776 445C759 483 721 505 668 506C581 508 558 461 461 460C405 459 352 474 303 503C261 526 222 565 212 598Z"/><g class="olho olho-acordado"><circle cx="636" cy="324" r="45.5" fill="#1E1E24"/><circle cx="652" cy="307" r="14" fill="#FFFFFF"/></g><g class="olho olho-silencio"><path d="M590 318Q636 372 682 318" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-cantando"><path d="M590 342Q636 286 682 342" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-alerta"><circle cx="636" cy="324" r="62" fill="#FFFFFF"/><circle cx="642" cy="324" r="35" fill="#1E1E24"/><circle cx="653" cy="311" r="11" fill="#FFFFFF"/></g><path class="p-bico bico-fechado" d="M758 292C795 292 836 305 853 321C858 326 855 331 848 335L772 376C758 382 737 384 725 372C714 361 716 346 722 333C731 314 743 301 758 292Z"/><path class="p-bico bico-aberto" d="M758 292C795 283 832 279 859 283C867 285 867 292 860 296L788 340L847 370C854 375 852 382 843 383C810 388 763 390 734 379C716 372 711 352 722 333C731 314 743 301 758 292Z"/></svg><span class="galho" aria-hidden="true"><svg class="folhas" viewBox="0 0 64 34" focusable="false"><path d="M22 32C8 32 1 22 2 8C16 8 25 17 22 32Z"/><path d="M30 33C29 15 41 3 60 3C61 22 49 33 30 33Z"/></svg></span></div>
+      <h2>Nenhuma resposta ainda</h2>
+    </div>
+    <button class="linha" type="button" data-ir="assinatura"><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 5a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-16a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3zm-14 8a1 1 0 0 0 -1 1v.01a1 1 0 0 0 2 0v-.01a1 1 0 0 0 -1 -1m12 0a1 1 0 0 0 -1 1v.01a1 1 0 0 0 2 0v-.01a1 1 0 0 0 -1 -1m-7.998 0a1 1 0 0 0 -.004 2l4 .01a1 1 0 0 0 .005 -2zm-4.002 -4a1 1 0 0 0 -1 1v.01a1 1 0 0 0 2 0v-.01a1 1 0 0 0 -1 -1m4 0a1 1 0 0 0 -1 1v.01a1 1 0 0 0 2 0v-.01a1 1 0 0 0 -1 -1m4 0a1 1 0 0 0 -1 1v.01a1 1 0 0 0 2 0v-.01a1 1 0 0 0 -1 -1m4 0a1 1 0 0 0 -1 1v.01a1 1 0 0 0 2 0v-.01a1 1 0 0 0 -1 -1" /></svg><span class="linha-texto">Atalho, assinatura e Pix</span><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6l-6 6" /></svg></button>
+  </div>
+  <footer class="rodape"><button class="botao botao-largo" type="button" data-ir="nova"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5l0 14" /> <path d="M5 12l14 0" /></svg>Criar resposta</button></footer>
+</section>
+
+<section class="tela" data-tela="nova" aria-labelledby="t-nova" hidden>
+  <header class="topo">
+    <button class="botao-icone" type="button" data-ir="respostas" aria-label="Voltar"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12l14 0" /> <path d="M5 12l6 6" /> <path d="M5 12l6 -6" /></svg></button>
+    <h2 id="t-nova" tabindex="-1">Criar resposta</h2>
+  </header>
+  <form class="formulario" id="form-resposta" novalidate>
+    <div class="rolo">
+      <div class="campo">
+        <label class="campo-rotulo" for="r-nome">Nome</label>
+        <input class="entrada" id="r-nome" maxlength="60" autocomplete="off" aria-describedby="e-nome">
+        <p class="campo-erro" id="e-nome" hidden><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" /></svg>Dê um nome à resposta.</p>
+      </div>
+      <div class="campo">
+        <label class="campo-rotulo" for="r-atalho">Atalho</label>
+        <input class="entrada" id="r-atalho" maxlength="25" autocomplete="off" placeholder="/horario" aria-describedby="e-atalho">
+        <p class="campo-erro" id="e-atalho" hidden><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" /></svg>Esse atalho já existe.</p>
+      </div>
+      <div class="campo">
+        <label class="campo-rotulo" for="r-texto">Texto</label>
+        <textarea class="entrada" id="r-texto" maxlength="4000" aria-describedby="e-texto"></textarea>
+        <p class="campo-erro" id="e-texto" hidden><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" /></svg>Escreva o texto da resposta.</p>
+      </div>
+      <div class="fichas-variaveis" role="group" aria-label="Pôr no texto">
+        <button class="chip" type="button" data-variavel="{saudacao}">Saudação</button>
+        <button class="chip" type="button" data-variavel="{primeiro_nome}">Nome</button>
+        <button class="chip" type="button" data-variavel="{data}">Data</button>
+        <button class="chip" type="button" data-variavel="{hora}">Hora</button>
+        <button class="chip" type="button" data-variavel="{assinatura}">Assinatura</button>
+        <button class="chip" type="button" data-variavel="{pix}">Pix</button>
+      </div>
+    </div>
+    <footer class="rodape"><button class="botao botao-largo" type="submit">Salvar resposta</button></footer>
+  </form>
+</section>
+
+<section class="tela" data-tela="assinatura" aria-labelledby="t-assinatura" hidden>
+  <header class="topo">
+    <button class="botao-icone" type="button" data-ir="respostas" aria-label="Voltar"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12l14 0" /> <path d="M5 12l6 6" /> <path d="M5 12l6 -6" /></svg></button>
+    <h2 id="t-assinatura" tabindex="-1">Atalho, assinatura e Pix</h2>
+  </header>
+  <div class="rolo">
+    <label class="linha"><span class="linha-texto">Trocar /atalho pela resposta com Tab</span><input class="interruptor" type="checkbox" role="switch" data-ajuste="atalhos" checked></label>
+    <div class="campo">
+      <label class="campo-rotulo" for="a-assinatura">Assinatura</label>
+      <textarea class="entrada entrada-curta" id="a-assinatura" maxlength="200" data-texto="assinatura"></textarea>
+    </div>
+    <p class="grupo-titulo">Pix copia e cola</p>
+    <div class="campo"><label class="campo-rotulo" for="a-chave">Chave</label><input class="entrada" id="a-chave" maxlength="77" autocomplete="off" data-pix="chave"></div>
+    <div class="campo"><label class="campo-rotulo" for="a-recebedor">Nome de quem recebe</label><input class="entrada" id="a-recebedor" maxlength="25" autocomplete="off" data-pix="nome"></div>
+    <div class="campo"><label class="campo-rotulo" for="a-cidade">Cidade</label><input class="entrada" id="a-cidade" maxlength="15" autocomplete="off" data-pix="cidade"></div>
+    <p class="campo-apoio" id="pix-estado"></p>
+  </div>
+</section>
+
+<section class="tela" data-tela="aparencia" aria-labelledby="t-aparencia" hidden>
+  <header class="topo">
+    <button class="botao-icone" type="button" data-ir="inicio" aria-label="Voltar"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12l14 0" /> <path d="M5 12l6 6" /> <path d="M5 12l6 -6" /></svg></button>
+    <h2 id="t-aparencia" tabindex="-1">Aparência</h2>
+    <button class="botao-icone favorito" type="button" data-favorito="aparencia" aria-pressed="false" aria-label="Pôr no começo"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /></svg><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg></button>
+  </header>
+  <div class="rolo">
+    <p class="grupo-titulo" id="r-temas">Tema do WhatsApp</p>
+    <div class="temas" id="temas" role="radiogroup" aria-labelledby="r-temas"></div>
+    <button class="linha" type="button" data-ninho="temas"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21v-4a4 4 0 1 1 4 4h-4" /> <path d="M21 3a16 16 0 0 0 -12.8 10.2" /> <path d="M21 3a16 16 0 0 1 -10.2 12.8" /> <path d="M10.6 9a9 9 0 0 1 4.4 4.4" /></svg><span class="linha-texto">Criar um tema</span><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6l-6 6" /></svg></button>
+    <p class="grupo-titulo" id="r-letra">Tamanho da letra</p>
+    <div class="segmentos" role="radiogroup" aria-labelledby="r-letra">
+      <label class="segmento"><input type="radio" name="letra" value="90"><span>Menor</span></label>
+      <label class="segmento"><input type="radio" name="letra" value="100" checked><span>Normal</span></label>
+      <label class="segmento"><input type="radio" name="letra" value="110"><span>Maior</span></label>
+      <label class="segmento"><input type="radio" name="letra" value="125"><span>Grande</span></label>
+    </div>
+    <p class="grupo-titulo">Tirar da tela</p>
+    <label class="linha"><span class="linha-texto">Filtros da lista</span><input class="interruptor" type="checkbox" role="switch" data-oculta="filtros"></label>
+    <label class="linha"><span class="linha-texto">Faixas e avisos</span><input class="interruptor" type="checkbox" role="switch" data-oculta="faixas"></label>
+    <label class="linha"><span class="linha-texto">Status</span><input class="interruptor" type="checkbox" role="switch" data-oculta="status"></label>
+    <label class="linha"><span class="linha-texto">Canais</span><input class="interruptor" type="checkbox" role="switch" data-oculta="canais"></label>
+    <label class="linha"><span class="linha-texto">Comunidades</span><input class="interruptor" type="checkbox" role="switch" data-oculta="comunidades"></label>
+    <label class="linha"><span class="linha-texto">Ligações</span><input class="interruptor" type="checkbox" role="switch" data-oculta="ligacoes"></label>
+    <label class="linha"><span class="linha-texto">Desenhos do fundo da conversa</span><input class="interruptor" type="checkbox" role="switch" data-oculta="desenhos"></label>
+    <p class="grupo-titulo" id="r-idioma">Idioma do Uirapp</p>
+    <div class="segmentos" role="radiogroup" aria-labelledby="r-idioma">
+      <label class="segmento"><input type="radio" name="idioma" value="auto" checked><span>Auto</span></label>
+      <label class="segmento"><input type="radio" name="idioma" value="pt"><span>PT</span></label>
+      <label class="segmento"><input type="radio" name="idioma" value="en"><span>EN</span></label>
+      <label class="segmento"><input type="radio" name="idioma" value="es"><span>ES</span></label>
+    </div>
+  </div>
+</section>
+
+<section class="tela" data-tela="plumagem" aria-labelledby="t-plumagem" hidden>
+  <header class="topo">
+    <button class="botao-icone" type="button" data-ir="inicio" aria-label="Voltar"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12l14 0" /> <path d="M5 12l6 6" /> <path d="M5 12l6 -6" /></svg></button>
+    <h2 id="t-plumagem" tabindex="-1">Plumagem</h2>
+  </header>
+  <div class="rolo">
+    <p class="grupo-titulo" id="r-plumagem">Seu uirapuru</p>
+    <div class="plumagens" role="radiogroup" aria-labelledby="r-plumagem">
+      <label class="plumagem"><input type="radio" name="plumagem" value="vermelha" checked><span class="plumagem-ceu"><svg class="passaro plumagem-vermelha" viewBox="180 178 690 696" aria-hidden="true" focusable="false"><path class="p-corpo" d="M212.5 594C222 560 261 520 303 497C352 468 405 453 461 454C558 455 581 502 668 500C721 499 757 477 773 441L776 445C794 480 803 517 803 557C803 714 664 829 497 829C441 829 389 817 344 792L213 856C198 862 188 849 195 835L254 722C226 688 212 647 212 604Z"/><path class="p-cabeca" d="M212 598C211 553 242 511 270 472C299 432 312 399 331 359C379 258 466 190 575 190C653 190 722 229 758 292L766 377C761 405 764 423 776 445C759 483 721 505 668 506C581 508 558 461 461 460C405 459 352 474 303 503C261 526 222 565 212 598Z"/><g class="olho olho-acordado"><circle cx="636" cy="324" r="45.5" fill="#1E1E24"/><circle cx="652" cy="307" r="14" fill="#FFFFFF"/></g><g class="olho olho-silencio"><path d="M590 318Q636 372 682 318" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-cantando"><path d="M590 342Q636 286 682 342" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-alerta"><circle cx="636" cy="324" r="62" fill="#FFFFFF"/><circle cx="642" cy="324" r="35" fill="#1E1E24"/><circle cx="653" cy="311" r="11" fill="#FFFFFF"/></g><path class="p-bico bico-fechado" d="M758 292C795 292 836 305 853 321C858 326 855 331 848 335L772 376C758 382 737 384 725 372C714 361 716 346 722 333C731 314 743 301 758 292Z"/><path class="p-bico bico-aberto" d="M758 292C795 283 832 279 859 283C867 285 867 292 860 296L788 340L847 370C854 375 852 382 843 383C810 388 763 390 734 379C716 372 711 352 722 333C731 314 743 301 758 292Z"/></svg></span><span class="plumagem-nome">Vermelha</span></label>
+      <label class="plumagem"><input type="radio" name="plumagem" value="laranja"><span class="plumagem-ceu"><svg class="passaro plumagem-laranja" viewBox="180 178 690 696" aria-hidden="true" focusable="false"><path class="p-corpo" d="M212.5 594C222 560 261 520 303 497C352 468 405 453 461 454C558 455 581 502 668 500C721 499 757 477 773 441L776 445C794 480 803 517 803 557C803 714 664 829 497 829C441 829 389 817 344 792L213 856C198 862 188 849 195 835L254 722C226 688 212 647 212 604Z"/><path class="p-cabeca" d="M212 598C211 553 242 511 270 472C299 432 312 399 331 359C379 258 466 190 575 190C653 190 722 229 758 292L766 377C761 405 764 423 776 445C759 483 721 505 668 506C581 508 558 461 461 460C405 459 352 474 303 503C261 526 222 565 212 598Z"/><g class="olho olho-acordado"><circle cx="636" cy="324" r="45.5" fill="#1E1E24"/><circle cx="652" cy="307" r="14" fill="#FFFFFF"/></g><g class="olho olho-silencio"><path d="M590 318Q636 372 682 318" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-cantando"><path d="M590 342Q636 286 682 342" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-alerta"><circle cx="636" cy="324" r="62" fill="#FFFFFF"/><circle cx="642" cy="324" r="35" fill="#1E1E24"/><circle cx="653" cy="311" r="11" fill="#FFFFFF"/></g><path class="p-bico bico-fechado" d="M758 292C795 292 836 305 853 321C858 326 855 331 848 335L772 376C758 382 737 384 725 372C714 361 716 346 722 333C731 314 743 301 758 292Z"/><path class="p-bico bico-aberto" d="M758 292C795 283 832 279 859 283C867 285 867 292 860 296L788 340L847 370C854 375 852 382 843 383C810 388 763 390 734 379C716 372 711 352 722 333C731 314 743 301 758 292Z"/></svg></span><span class="plumagem-nome">Laranja</span></label>
+      <label class="plumagem"><input type="radio" name="plumagem" value="lenda"><span class="plumagem-ceu"><svg class="passaro plumagem-lenda" viewBox="180 178 690 696" aria-hidden="true" focusable="false"><path class="p-corpo" d="M212.5 594C222 560 261 520 303 497C352 468 405 453 461 454C558 455 581 502 668 500C721 499 757 477 773 441L776 445C794 480 803 517 803 557C803 714 664 829 497 829C441 829 389 817 344 792L213 856C198 862 188 849 195 835L254 722C226 688 212 647 212 604Z"/><path class="p-cabeca" d="M212 598C211 553 242 511 270 472C299 432 312 399 331 359C379 258 466 190 575 190C653 190 722 229 758 292L766 377C761 405 764 423 776 445C759 483 721 505 668 506C581 508 558 461 461 460C405 459 352 474 303 503C261 526 222 565 212 598Z"/><g class="olho olho-acordado"><circle cx="636" cy="324" r="45.5" fill="#1E1E24"/><circle cx="652" cy="307" r="14" fill="#FFFFFF"/></g><g class="olho olho-silencio"><path d="M590 318Q636 372 682 318" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-cantando"><path d="M590 342Q636 286 682 342" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-alerta"><circle cx="636" cy="324" r="62" fill="#FFFFFF"/><circle cx="642" cy="324" r="35" fill="#1E1E24"/><circle cx="653" cy="311" r="11" fill="#FFFFFF"/></g><path class="p-bico bico-fechado" d="M758 292C795 292 836 305 853 321C858 326 855 331 848 335L772 376C758 382 737 384 725 372C714 361 716 346 722 333C731 314 743 301 758 292Z"/><path class="p-bico bico-aberto" d="M758 292C795 283 832 279 859 283C867 285 867 292 860 296L788 340L847 370C854 375 852 382 843 383C810 388 763 390 734 379C716 372 711 352 722 333C731 314 743 301 758 292Z"/></svg></span><span class="plumagem-nome">Da lenda</span></label>
+    </div>
+    <p class="grupo-titulo" id="r-lado">No WhatsApp</p>
+    <div class="segmentos" role="radiogroup" aria-labelledby="r-lado">
+      <label class="segmento"><input type="radio" name="passaro" value="direita" checked><span>Direita</span></label>
+      <label class="segmento"><input type="radio" name="passaro" value="esquerda"><span>Esquerda</span></label>
+      <label class="segmento"><input type="radio" name="passaro" value="oculto"><span>Só no silêncio</span></label>
+    </div>
+    <p class="grupo-titulo" id="r-tema">Tema desta janela</p>
+    <div class="segmentos" role="radiogroup" aria-labelledby="r-tema">
+      <label class="segmento"><input type="radio" name="tema" value="" checked><span>Sistema</span></label>
+      <label class="segmento"><input type="radio" name="tema" value="dia"><span>Claro</span></label>
+      <label class="segmento"><input type="radio" name="tema" value="noite"><span>Escuro</span></label>
+    </div>
+  </div>
+</section>
+
+<section class="tela" data-tela="conversar" aria-labelledby="t-conversar" hidden>
+  <header class="topo">
+    <button class="botao-icone" type="button" data-ir="inicio" aria-label="Voltar"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12l14 0" /> <path d="M5 12l6 6" /> <path d="M5 12l6 -6" /></svg></button>
+    <h2 id="t-conversar" tabindex="-1">Conversar sem salvar</h2>
+    <button class="botao-icone favorito" type="button" data-favorito="conversar" aria-pressed="false" aria-label="Pôr no começo"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /></svg><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg></button>
+  </header>
+  <form class="formulario" id="form-conversar" novalidate>
+    <div class="rolo">
+      <div class="campo">
+        <label class="campo-rotulo" for="c-numero">Número</label>
+        <input class="entrada" id="c-numero" type="tel" inputmode="tel" maxlength="30" autocomplete="off" placeholder="(11) 91234-5678" aria-describedby="e-numero">
+        <p class="campo-erro" id="e-numero" hidden><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" /></svg>Confira o número, com DDD.</p>
+      </div>
+      <div class="campo">
+        <label class="campo-rotulo" for="c-texto">Mensagem</label>
+        <textarea class="entrada" id="c-texto" maxlength="4000"></textarea>
+      </div>
+    </div>
+    <footer class="rodape"><button class="botao botao-largo" type="submit">Abrir conversa</button></footer>
+  </form>
+</section>
+
+<section class="tela" data-tela="exportar" aria-labelledby="t-exportar" hidden>
+  <header class="topo">
+    <button class="botao-icone" type="button" data-ir="inicio" aria-label="Voltar"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12l14 0" /> <path d="M5 12l6 6" /> <path d="M5 12l6 -6" /></svg></button>
+    <h2 id="t-exportar" tabindex="-1">Exportar conversa</h2>
+    <button class="botao-icone favorito" type="button" data-favorito="exportar" aria-pressed="false" aria-label="Pôr no começo"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245" /></svg><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" /></svg></button>
+  </header>
+  <form class="formulario" id="form-exportar" novalidate>
+    <div class="rolo">
+      <p class="grupo-titulo" id="r-formato">Formato</p>
+      <div class="segmentos" role="radiogroup" aria-labelledby="r-formato">
+        <label class="segmento"><input type="radio" name="formato" value="html" checked><span>Página</span></label>
+        <label class="segmento"><input type="radio" name="formato" value="txt"><span>Texto</span></label>
+        <label class="segmento"><input type="radio" name="formato" value="csv"><span>Planilha</span></label>
+      </div>
+      <div class="campo" id="campo-senha">
+        <label class="campo-rotulo" for="x-senha">Senha para abrir</label>
+        <input class="entrada" id="x-senha" type="password" maxlength="200" autocomplete="new-password" aria-describedby="e-senha">
+        <p class="campo-erro" id="e-senha" hidden><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" /></svg>Use 8 letras ou mais.</p>
+      </div>
+      <p class="campo-apoio">Sai o que está carregado na conversa aberta.</p>
+    </div>
+    <footer class="rodape"><button class="botao botao-largo" type="submit">Exportar conversa</button></footer>
+  </form>
+</section>
+
+<section class="tela" data-tela="acesso" aria-labelledby="t-acesso" hidden>
+  <header class="topo">
+    <button class="botao-icone" type="button" data-ir="inicio" aria-label="Voltar"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12l14 0" /> <path d="M5 12l6 6" /> <path d="M5 12l6 -6" /></svg></button>
+    <h2 id="t-acesso" tabindex="-1">O que o Uirapp acessa</h2>
+  </header>
+  <div class="rolo">
+    <dl class="acessos">
+      <div><dt>Vê</dt><dd>A tela do WhatsApp Web, para esconder</dd></div>
+      <div><dt>Lê a conversa</dt><dd>Só quando você exporta ou usa uma resposta</dd></div>
+      <div><dt>Guarda aqui</dt><dd>Ajustes, respostas, fichas, lembretes e temas que você criou</dd></div>
+      <div><dt>Não esconde</dt><dd>Notificações do computador</dd></div>
+      <div><dt>Envia para fora</dt><dd class="nada">Nada</dd></div>
+      <div><dt>Faz na sua conta</dt><dd class="nada">Nada</dd></div>
+    </dl>
+  </div>
+  <footer class="rodape"><button class="botao botao-discreto botao-largo apagar-tudo" type="button" id="apagar-tudo"><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6a1 1 0 0 1 .117 1.993l-.117 .007h-.081l-.919 11a3 3 0 0 1 -2.824 2.995l-.176 .005h-8c-1.598 0 -2.904 -1.249 -2.992 -2.75l-.005 -.167l-.923 -11.083h-.08a1 1 0 0 1 -.117 -1.993l.117 -.007zm-10 4a1 1 0 0 0 -1 1v6a1 1 0 0 0 2 0v-6a1 1 0 0 0 -1 -1m4 0a1 1 0 0 0 -1 1v6a1 1 0 0 0 2 0v-6a1 1 0 0 0 -1 -1" /> <path d="M14 2a2 2 0 0 1 2 2a1 1 0 0 1 -1.993 .117l-.007 -.117h-4l-.007 .117a1 1 0 0 1 -1.993 -.117a2 2 0 0 1 1.85 -1.995l.15 -.005z" /></svg>Apagar dados do Uirapp</button></footer>
+</section>
+
+<section class="tela" data-tela="boas-vindas" aria-labelledby="t-boas" hidden>
+  <div class="palco palco-alto" data-estado="aberto" data-humor="cantando">
+    <svg class="passaro " viewBox="180 178 690 696" aria-hidden="true" focusable="false"><path class="p-corpo" d="M212.5 594C222 560 261 520 303 497C352 468 405 453 461 454C558 455 581 502 668 500C721 499 757 477 773 441L776 445C794 480 803 517 803 557C803 714 664 829 497 829C441 829 389 817 344 792L213 856C198 862 188 849 195 835L254 722C226 688 212 647 212 604Z"/><path class="p-cabeca" d="M212 598C211 553 242 511 270 472C299 432 312 399 331 359C379 258 466 190 575 190C653 190 722 229 758 292L766 377C761 405 764 423 776 445C759 483 721 505 668 506C581 508 558 461 461 460C405 459 352 474 303 503C261 526 222 565 212 598Z"/><g class="olho olho-acordado"><circle cx="636" cy="324" r="45.5" fill="#1E1E24"/><circle cx="652" cy="307" r="14" fill="#FFFFFF"/></g><g class="olho olho-silencio"><path d="M590 318Q636 372 682 318" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-cantando"><path d="M590 342Q636 286 682 342" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-alerta"><circle cx="636" cy="324" r="62" fill="#FFFFFF"/><circle cx="642" cy="324" r="35" fill="#1E1E24"/><circle cx="653" cy="311" r="11" fill="#FFFFFF"/></g><path class="p-bico bico-fechado" d="M758 292C795 292 836 305 853 321C858 326 855 331 848 335L772 376C758 382 737 384 725 372C714 361 716 346 722 333C731 314 743 301 758 292Z"/><path class="p-bico bico-aberto" d="M758 292C795 283 832 279 859 283C867 285 867 292 860 296L788 340L847 370C854 375 852 382 843 383C810 388 763 390 734 379C716 372 711 352 722 333C731 314 743 301 758 292Z"/></svg>
+    <div class="palco-texto"><h2 class="palco-titulo" id="t-boas" tabindex="-1">Sua tela, só sua.</h2></div>
+    <span class="galho" aria-hidden="true"><svg class="folhas" viewBox="0 0 64 34" focusable="false"><path d="M22 32C8 32 1 22 2 8C16 8 25 17 22 32Z"/><path d="M30 33C29 15 41 3 60 3C61 22 49 33 30 33Z"/></svg></span>
+  </div>
+  <dl class="acessos">
+    <div><dt>Vê</dt><dd>A tela do WhatsApp Web, para esconder</dd></div>
+    <div><dt>Envia para fora</dt><dd class="nada">Nada</dd></div>
+  </dl>
+  <footer class="rodape rodape-duplo">
+    <button class="botao botao-largo" type="button" id="permitir">Permitir e começar</button>
+    <button class="botao botao-discreto botao-largo" type="button" data-ir="acesso">Ver tudo o que acessa</button>
+    <p class="afiliacao">Não é afiliado ao WhatsApp.</p>
+  </footer>
+</section>
+
+<section class="tela" data-tela="novidades" aria-labelledby="t-novidades" hidden>
+  <div class="palco palco-alto" data-estado="aberto" data-humor="cantando">
+    <svg class="passaro " viewBox="180 178 690 696" aria-hidden="true" focusable="false"><path class="p-corpo" d="M212.5 594C222 560 261 520 303 497C352 468 405 453 461 454C558 455 581 502 668 500C721 499 757 477 773 441L776 445C794 480 803 517 803 557C803 714 664 829 497 829C441 829 389 817 344 792L213 856C198 862 188 849 195 835L254 722C226 688 212 647 212 604Z"/><path class="p-cabeca" d="M212 598C211 553 242 511 270 472C299 432 312 399 331 359C379 258 466 190 575 190C653 190 722 229 758 292L766 377C761 405 764 423 776 445C759 483 721 505 668 506C581 508 558 461 461 460C405 459 352 474 303 503C261 526 222 565 212 598Z"/><g class="olho olho-acordado"><circle cx="636" cy="324" r="45.5" fill="#1E1E24"/><circle cx="652" cy="307" r="14" fill="#FFFFFF"/></g><g class="olho olho-silencio"><path d="M590 318Q636 372 682 318" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-cantando"><path d="M590 342Q636 286 682 342" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-alerta"><circle cx="636" cy="324" r="62" fill="#FFFFFF"/><circle cx="642" cy="324" r="35" fill="#1E1E24"/><circle cx="653" cy="311" r="11" fill="#FFFFFF"/></g><path class="p-bico bico-fechado" d="M758 292C795 292 836 305 853 321C858 326 855 331 848 335L772 376C758 382 737 384 725 372C714 361 716 346 722 333C731 314 743 301 758 292Z"/><path class="p-bico bico-aberto" d="M758 292C795 283 832 279 859 283C867 285 867 292 860 296L788 340L847 370C854 375 852 382 843 383C810 388 763 390 734 379C716 372 711 352 722 333C731 314 743 301 758 292Z"/></svg>
+    <div class="palco-texto"><h2 class="palco-titulo" id="t-novidades" tabindex="-1">Novidades da 0.2</h2></div>
+    <span class="galho" aria-hidden="true"><svg class="folhas" viewBox="0 0 64 34" focusable="false"><path d="M22 32C8 32 1 22 2 8C16 8 25 17 22 32Z"/><path d="M30 33C29 15 41 3 60 3C61 22 49 33 30 33Z"/></svg></span>
+  </div>
+  <ul class="novidades">
+    <li>Respostas com /atalho, variáveis e Pix</li>
+    <li>Temas e opções de tela para o WhatsApp</li>
+    <li>Ninho: atendimento, lembretes, desenho e backup</li>
+    <li>Exportar conversa, com senha</li>
+  </ul>
+  <footer class="rodape"><button class="botao botao-largo" type="button" id="entendi">Entendi</button></footer>
+</section>
+
+<div class="aviso" id="aviso" role="status" data-humor="cantando" hidden><svg class="passaro " viewBox="180 178 690 696" aria-hidden="true" focusable="false"><path class="p-corpo" d="M212.5 594C222 560 261 520 303 497C352 468 405 453 461 454C558 455 581 502 668 500C721 499 757 477 773 441L776 445C794 480 803 517 803 557C803 714 664 829 497 829C441 829 389 817 344 792L213 856C198 862 188 849 195 835L254 722C226 688 212 647 212 604Z"/><path class="p-cabeca" d="M212 598C211 553 242 511 270 472C299 432 312 399 331 359C379 258 466 190 575 190C653 190 722 229 758 292L766 377C761 405 764 423 776 445C759 483 721 505 668 506C581 508 558 461 461 460C405 459 352 474 303 503C261 526 222 565 212 598Z"/><g class="olho olho-acordado"><circle cx="636" cy="324" r="45.5" fill="#1E1E24"/><circle cx="652" cy="307" r="14" fill="#FFFFFF"/></g><g class="olho olho-silencio"><path d="M590 318Q636 372 682 318" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-cantando"><path d="M590 342Q636 286 682 342" fill="none" stroke="#1E1E24" stroke-width="27" stroke-linecap="round"/></g><g class="olho olho-alerta"><circle cx="636" cy="324" r="62" fill="#FFFFFF"/><circle cx="642" cy="324" r="35" fill="#1E1E24"/><circle cx="653" cy="311" r="11" fill="#FFFFFF"/></g><path class="p-bico bico-fechado" d="M758 292C795 292 836 305 853 321C858 326 855 331 848 335L772 376C758 382 737 384 725 372C714 361 716 346 722 333C731 314 743 301 758 292Z"/><path class="p-bico bico-aberto" d="M758 292C795 283 832 279 859 283C867 285 867 292 860 296L788 340L847 370C854 375 852 382 843 383C810 388 763 390 734 379C716 372 711 352 722 333C731 314 743 301 758 292Z"/></svg><span id="aviso-texto"></span></div>
+
+<dialog class="dialogo" id="dialogo" aria-labelledby="dialogo-titulo">
+  <h2 id="dialogo-titulo">Apagar resposta?</h2>
+  <p id="dialogo-texto">Não dá para desfazer.</p>
+  <div class="dialogo-acoes">
+    <button class="botao botao-discreto" type="button" id="dialogo-manter">Manter</button>
+    <button class="botao botao-perigo" type="button" id="dialogo-apagar">Apagar</button>
+  </div>
+</dialog>
+
+<template id="molde-resposta">
+  <li class="resposta">
+    <button class="linha resposta-copiar" type="button"><span class="linha-texto"><span class="resposta-nome"></span><span class="linha-apoio"></span></span><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.926 7.074a3.67 3.67 0 0 1 1.074 2.593v8.666a3.667 3.667 0 0 1 -3.667 3.667h-8.666a3.667 3.667 0 0 1 -3.667 -3.667v-8.666q 0 -.053 .005 -.102a3.66 3.66 0 0 1 3.662 -3.565h8.666c.973 0 1.905 .386 2.593 1.074" /> <path d="M17.374 3.514a1 1 0 1 1 -1.748 .972c-.221 -.398 -.342 -.486 -.626 -.486h-10c-.548 0 -1 .452 -1 1v9.998c0 .36 .194 .692 .507 .87a1 1 0 1 1 -.99 1.738a3 3 0 0 1 -1.517 -2.606v-10c0 -1.652 1.348 -3 3 -3h10c1.094 0 1.828 .533 2.374 1.514" /></svg></button>
+    <button class="botao-icone resposta-usar" type="button"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 14l11 -11" /> <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" /></svg></button>
+    <button class="botao-icone resposta-apagar" type="button"><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6a1 1 0 0 1 .117 1.993l-.117 .007h-.081l-.919 11a3 3 0 0 1 -2.824 2.995l-.176 .005h-8c-1.598 0 -2.904 -1.249 -2.992 -2.75l-.005 -.167l-.923 -11.083h-.08a1 1 0 0 1 -.117 -1.993l.117 -.007zm-10 4a1 1 0 0 0 -1 1v6a1 1 0 0 0 2 0v-6a1 1 0 0 0 -1 -1m4 0a1 1 0 0 0 -1 1v6a1 1 0 0 0 2 0v-6a1 1 0 0 0 -1 -1" /> <path d="M14 2a2 2 0 0 1 2 2a1 1 0 0 1 -1.993 .117l-.007 -.117h-4l-.007 .117a1 1 0 0 1 -1.993 -.117a2 2 0 0 1 1.85 -1.995l.15 -.005z" /></svg></button>
+  </li>
+</template>
+
+<template id="molde-tema">
+  <label class="tema"><input type="radio" name="tema-whatsapp"><span class="tema-amostra"><i></i><i></i><i></i></span><span class="tema-nome"></span></label>
+</template>
+
+</main>
+<script src="regras.js" defer></script>
+<script src="nucleo.js" defer></script>
+<script src="frases.js" defer></script>
+<script src="idioma.js" defer></script>
+<script src="deposito.js" defer></script>
+<script src="popup.js" defer></script>
+</body>
+</html>
