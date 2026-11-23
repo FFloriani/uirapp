@@ -2,6 +2,22 @@
 
 Formato do [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/). Versões seguem o [SemVer](https://semver.org/lang/pt-BR/).
 
+## [0.3.0] - 2026-11-22
+
+### Adicionado
+
+- IA no computador, com a IA que o Google Chrome traz: resumir a conversa aberta, traduzir as mensagens, sugerir três respostas, traduzir o que você escreveu e deixá-lo mais educado ou mais curto. Roda neste computador, sem servidor; a conversa só é lida quando você pede.
+- Aba IA no Ninho, para baixar a IA uma vez (cerca de 4 GB) e ver o que falta.
+- O modelo não fala português: o Uirapp traduz para o inglês e de volta, também no computador.
+
+### Corrigido
+
+- **Pôr na conversa** punha o texto antes do que já estava escrito quando o cursor não estava no campo. Agora vai para o fim.
+
+### Limites conhecidos
+
+- A IA não existe no Brave nem em navegadores sem a IA do Chrome: lá a tela explica e não mostra as ações.
+
 ## [0.2.0] - 2026-11-22
 
 ### Adicionado
@@ -33,4 +49,5 @@ Formato do [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/). Versões
 - Respostas prontas para copiar.
 - Tela **O que o Uirapp acessa**, com o botão de apagar os dados.
 
+[0.3.0]: https://github.com/FFloriani/uirapp/releases/tag/v0.3.0
 [0.2.0]: https://github.com/FFloriani/uirapp/releases/tag/v0.2.0

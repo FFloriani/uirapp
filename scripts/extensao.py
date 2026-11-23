@@ -28,8 +28,8 @@ FAMILIA_NA_PAGINA = "Uirapp Sofia"
 
 
 CONTEUDO = ("regras.js", "nucleo.js", "frases.js", "idioma.js", "pacote.js", "silencio.js", "aparencia.js", "conversa.js")
-PAGINA = ("regras.js", "nucleo.js", "frases.js", "idioma.js", "deposito.js")
-FONTES_JS = ("regras.js", "nucleo.js", "frases.js", "idioma.js", "deposito.js", "silencio.js", "aparencia.js", "conversa.js",
+PAGINA = ("regras.js", "nucleo.js", "frases.js", "idioma.js", "deposito.js", "ia.js")
+FONTES_JS = ("regras.js", "nucleo.js", "frases.js", "idioma.js", "deposito.js", "ia.js", "silencio.js", "aparencia.js", "conversa.js",
              "fundo.js", "popup.js", "ninho.js")
 
 

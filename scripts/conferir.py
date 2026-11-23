@@ -102,7 +102,8 @@ AUDITA = r"""() => {
 
 TELAS = ["inicio", "inicio?silencio=1", "inicio?estado=alerta", "inicio?estado=fechado", "inicio?estado=recarregar",
          "inicio?estado=parou", "aparencia", "conversar", "exportar", "assinatura", "novidades", "privacidade", "plumagem",
-         "respostas", "respostas?vazio", "respostas?copiada", "nova", "nova?erro", "acesso", "respostas?apagar", "boas-vindas"]
+         "respostas", "respostas?vazio", "respostas?copiada", "nova", "nova?erro", "acesso", "respostas?apagar", "boas-vindas",
+         "ia", "ia?ia=sem", "ia?ia=baixar", "ia?acao=resumir", "ia?acao=sugerir", "ia?acao=traduzir-conversa", "ia?acao=educado"]
 
 
 def espera(pg, expressao, prazo=8000):

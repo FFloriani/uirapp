@@ -9,7 +9,7 @@
   const T = (s) => globalThis.UirappIdioma?.t(s) ?? s;
   const $ = (s) => document.querySelector(s);
   const $$ = (s) => document.querySelectorAll(s);
-  const PARTES = ["atendimento", "lembretes", "temas", "desenho", "backup"];
+  const PARTES = ["atendimento", "lembretes", "temas", "desenho", "ia", "backup"];
 
   let ajustes = U.ajustes();
   let dados = R.dados();
@@ -80,6 +80,7 @@
     }
     if (foca) $(`#t-${qual}`).focus({ preventScroll: true });
     if (qual === "desenho") preparaDesenho();
+    if (qual === "ia") pintaIA();
   }
   addEventListener("hashchange", () => mostra(location.hash.slice(1)));
 
@@ -539,6 +540,58 @@
       ajustes = novos;
       if (await guarda(paraRestaurar.dados, true)) avisa("Backup restaurado");
     });
+  });
+
+  // ---------- IA no computador: baixar e preparar uma vez (extensao/fonte/ia.js)
+  const IA = globalThis.UirappIA;
+  const IA_PARTES = { modelo: "Modelo de IA", resumo: "Resumo", detector: "Detector de idioma", ida: "Tradutor para a IA", volta: "Tradutor de volta" };
+  const IA_ESTADOS = { available: "Pronto", downloadable: "Falta baixar", downloading: "Baixando", unavailable: "Não funciona aqui" };
+  const IA_SITUACAO = {
+    sem: "Este navegador não tem IA embutida. Ela funciona no Google Chrome 138 ou mais novo.",
+    baixar: "Falta baixar. Toque em Preparar a IA e deixe esta página aberta.",
+    baixando: "Baixando. Deixe esta página aberta.",
+    pronta: "Pronta. Use na janela do Uirapp, em IA no computador.",
+  };
+  const idiomaIA = () => globalThis.UirappIdioma?.resolve(ajustes.idioma) ?? "pt";
+
+  async function pintaIA() {
+    let e = { geral: "sem", partes: {} };
+    try {
+      if (IA) e = await IA.estado(idiomaIA());
+    } catch {
+      // navegador sem a IA
+    }
+    $("#ia-situacao").textContent = T(IA_SITUACAO[e.geral]);
+    const lista = $("#ia-partes");
+    lista.replaceChildren();
+    for (const [parte, estado] of Object.entries(e.partes)) {
+      const li = document.createElement("li");
+      li.dataset.parte = parte;
+      const nome = document.createElement("span");
+      nome.textContent = T(IA_PARTES[parte]);
+      const valor = document.createElement("span");
+      valor.className = "ia-parte-estado";
+      valor.textContent = T(IA_ESTADOS[estado] ?? "");
+      li.append(nome, valor);
+      lista.append(li);
+    }
+    $("#ia-preparar").hidden = e.geral !== "baixar" && e.geral !== "baixando";
+  }
+
+  $("#ia-preparar").addEventListener("click", async () => {
+    if (!IA) return;
+    const botao = $("#ia-preparar");
+    botao.disabled = true;
+    // o Chrome só baixa logo depois de um clique: a IA começa aqui, antes de qualquer espera
+    const ok = await IA.prepara(idiomaIA(), (parte, v) => {
+      const valor = $(`#ia-partes [data-parte="${parte}"] .ia-parte-estado`);
+      if (!valor) return;
+      if (typeof v === "number") valor.textContent = `${T("Baixando")} ${Math.round(v * 100)}%`;
+      else valor.textContent = T(v === "ok" ? "Pronto" : "Toque de novo");
+    });
+    botao.disabled = false;
+    await pintaIA();
+    avisa(ok ? "IA pronta" : "Toque de novo para terminar de preparar.");
   });
 
   // ---------- comum

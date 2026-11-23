@@ -262,6 +262,8 @@ Todos vivem em `ui/componentes.css` e usam só variáveis de `ui/tokens.css`, ge
 | Tarja | texto, foto (passarinho dormindo), mídia, página inteira quando falha |
 | Amostra de tema | normal, mouse, selecionada, foco; "do WhatsApp" é listrada |
 | Ficha (Ninho) | normal, mouse, arrastando, coluna recebendo |
+| Resultado da IA | pensando, lista; item com copiar ao lado, ou com "Pôr na conversa" / "Trocar no campo" embaixo; quem disse e o original, quando é tradução |
+| Partes da IA (Ninho) | pronto, falta baixar, baixando com porcentagem, não funciona aqui, toque de novo |
 
 **Movimento:** só responde a uma ação. O céu vira em `motion.dusk` e o pássaro assenta 4 px no galho. Com movimento
 reduzido no sistema, tudo troca na hora.

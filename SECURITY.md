@@ -10,20 +10,21 @@ Conte a versão do Uirapp, o navegador e os passos para reproduzir. Não mande d
 
 | Versão | Recebe correção |
 |---|---|
-| 0.2.x | Sim |
-| 0.1.x | Não |
+| 0.3.x | Sim |
+| 0.2.x e anteriores | Não |
 
 ## Regras que o código segue
 
-Cada regra tem checagem em `scripts/testar.py`, e `testes/defeitos_plantados.py` planta 18 defeitos para provar que o teste os pega.
+Cada regra tem checagem em `scripts/testar.py`, e `testes/defeitos_plantados.py` planta 22 defeitos para provar que o teste os pega.
 
 1. **Sem servidor, telemetria ou código remoto.** As páginas da extensão têm `connect-src 'none'`, e o teste falha se qualquer pedido sair da extensão.
 2. **Não mexe na página do WhatsApp.** Não troca cabeçalho de rede e não roda script no mundo da página; só lê a tela e aplica estilo.
 3. **Nenhuma ponte com a página.** O WhatsApp Web não alcança os dados da extensão.
 4. **Dado de fora entra só como texto.** Nada que vem da página, de um tema ou de um backup importado vira HTML.
 5. **Nunca age na conta.** O Uirapp não envia, publica, entra, segue nem apaga nada. Ele escreve no campo da conversa quando você pede; quem envia é você.
-6. **Guarda só o que você criou.** Ajustes, respostas, fichas, lembretes e temas, no banco da própria extensão. A conversa só é lida quando você clica em exportar ou em usar uma resposta, e não é guardada.
+6. **Guarda só o que você criou.** Ajustes, respostas, fichas, lembretes e temas, no banco da própria extensão. A conversa só é lida quando você clica em exportar, em usar uma resposta ou numa ação da IA, e não é guardada.
 7. **Falha fechado.** Se não reconhecer a tela, cobre a página inteira e avisa, em vez de deixar algo à vista.
+8. **IA só no computador.** A IA no computador usa a IA que o Google Chrome traz, que roda neste computador. O Uirapp não baixa nem chama modelo nenhum: quem baixa o modelo é o Chrome, e a conversa não vai a servidor.
 
 ## O que o Silêncio não protege
 

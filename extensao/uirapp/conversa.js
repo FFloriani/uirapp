@@ -1,5 +1,6 @@
 // Ajudas dentro da conversa, sempre por pedido da pessoa: pôr uma resposta no campo de escrever, trocar /atalho
-// pela resposta, ler o nome da conversa aberta, exportar as mensagens carregadas e baixar a foto ou o vídeo aberto.
+// pela resposta, ler o nome da conversa aberta, exportar as mensagens carregadas, ler e trocar o rascunho (para a IA)
+// e baixar a foto ou o vídeo aberto.
 //
 // Nunca envia: não aperta Enter, não clica em enviar. O texto fica no campo e quem manda é a pessoa.
 "use strict";
@@ -22,9 +23,12 @@
   function poeNoCampo(texto, apagarAntes = 0) {
     const ed = editavel();
     if (!ed) return false;
-    ed.focus();
+    // onde a pessoa deixou o cursor vale; sem cursor no campo, vai para o fim. Olha antes do focus, que põe o
+    // cursor no começo e faria o texto entrar antes do que já estava escrito.
     const sel = getSelection();
-    if (!sel.rangeCount || !ed.contains(sel.anchorNode)) {
+    const noCampo = sel.rangeCount > 0 && ed.contains(sel.anchorNode);
+    ed.focus();
+    if (!noCampo) {
       sel.selectAllChildren(ed);
       sel.collapseToEnd();
     }
@@ -32,6 +36,26 @@
     // o editor do WhatsApp entende o insertText como se a pessoa tivesse digitado
     return document.execCommand("insertText", false, texto);
   }
+
+  // troca tudo o que está no campo pelo texto novo (tradução ou reescrita pedida pela pessoa)
+  function trocaNoCampo(texto) {
+    const ed = editavel();
+    if (!ed) return false;
+    ed.focus();
+    getSelection().selectAllChildren(ed);
+    return document.execCommand("insertText", false, texto);
+  }
+
+  // o rascunho, uma linha por parágrafo do editor
+  function rascunho() {
+    const ed = editavel();
+    if (!ed) return null;
+    const linhas = [...ed.children].map((p) => p.textContent);
+    return (linhas.length ? linhas.join("\n") : ed.textContent).trim().slice(0, 4000);
+  }
+
+  // quem mandou: a classe do balão (message-out) ou o id da mensagem (true_ = enviada por esta conta)
+  const daPessoa = (bloco) => Boolean(bloco.closest('.message-out, [data-id^="true_"]'));
 
   // /atalho + Tab vira a resposta, só se houver uma com esse atalho
   addEventListener("keydown", async (e) => {
@@ -68,8 +92,12 @@
       else if (bloco.querySelector('[data-testid="msgImage"], img[src^="blob:"]')) tipo = "foto";
       else if (bloco.querySelector('[data-testid="document-thumb-details"]')) tipo = "documento";
       if (!texto && tipo === "texto") continue;
-      lista.push({ data: cab?.data ?? "", hora: cab?.hora ?? "", autor: cab?.autor ?? "", texto, tipo });
+      lista.push({ data: cab?.data ?? "", hora: cab?.hora ?? "", autor: cab?.autor ?? "", texto, tipo, de: daPessoa(bloco) ? "eu" : "" });
     }
+    // sem marca de quem mandou, numa conversa a dois: quem não é o contato é a pessoa
+    const autores = new Set(lista.map((m) => m.autor).filter(Boolean));
+    const nome = nomeDaConversa();
+    if (!lista.some((m) => m.de) && autores.size === 2 && autores.has(nome)) for (const m of lista) if (m.autor && m.autor !== nome) m.de = "eu";
     return lista;
   }
 
@@ -108,6 +136,16 @@
         case "exportar":
           if (silencio) return responde({ ok: false, motivo: "silencio" }), false;
           responde({ ok: true, nome: nomeDaConversa(), mensagens: mensagens() });
+          return false;
+        case "rascunho": {
+          if (silencio) return responde({ ok: false, motivo: "silencio" }), false;
+          const texto = rascunho();
+          responde(texto === null ? { ok: false, motivo: "sem" } : { ok: true, texto });
+          return false;
+        }
+        case "trocar":
+          if (silencio) return responde({ ok: false, motivo: "silencio" }), false;
+          responde({ ok: typeof pedido.texto === "string" && trocaNoCampo(pedido.texto.slice(0, 4000)) });
           return false;
         case "baixar":
           if (silencio) return responde({ ok: false, motivo: "silencio" }), false;

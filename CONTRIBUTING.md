@@ -44,9 +44,10 @@ Depois de montar, carregue a pasta `extensao/uirapp` em `brave://extensions` (Mo
 | `python scripts/montar.py` | Gera os tokens, as telas do protótipo, a vitrine e a extensão (pasta e ZIP) |
 | `node --test testes/regras.test.mjs` | Testa as regras puras: telefone, Pix, variáveis, temas, exportação, senha e backup |
 | `python scripts/testar.py [brave\|chrome] [--parado]` | Testa a extensão de verdade; `--parado` espera os 5 minutos reais do "parado" |
-| `python testes/defeitos_plantados.py` | Planta 18 defeitos, um por vez, e exige que o `testar.py` pegue todos |
+| `python testes/defeitos_plantados.py` | Planta 22 defeitos, um por vez, e exige que o `testar.py` pegue todos |
 | `python scripts/testar_idioma.py` | Confere que toda frase das telas tem inglês e espanhol |
 | `python scripts/conferir.py` | Confere o design system no Chrome: contraste, teclado, rede, temas e larguras |
+| `python scripts/provar_ia.py PERFIL [--imagem]` | Prova a IA com o modelo de verdade num perfil de teste do Chrome (baixa cerca de 4 GB na primeira vez); `--imagem` refaz `docs/imagens/readme-ia.png` |
 | `python scripts/marca.py` | Gera a logo, o mascote e os ícones a partir do código |
 | `python scripts/imagem_instalar.py` | Refaz a imagem do passo a passo de instalar |
 | `python scripts/imagens_readme.py` | Refaz as imagens do README com dados de exemplo |
@@ -60,6 +61,7 @@ Depois de montar, carregue a pasta `extensao/uirapp` em `brave://extensions` (Mo
 | `extensao/fonte/ancoras.json` | Os marcadores do WhatsApp Web, todos num lugar só | Sim, com o teste antes |
 | `extensao/fonte/regras.js` | Regras puras: telefone, Pix, variáveis, temas, exportação, senha, backup | Sim, com teste |
 | `extensao/fonte/frases.js` | Inglês e espanhol de cada frase | Sim |
+| `extensao/fonte/ia.js` | IA no computador: prepara a IA do Chrome e faz resumir, traduzir, sugerir e reescrever | Sim, e depois monta |
 | `extensao/uirapp/` | A pasta que o navegador carrega | Não, é gerada |
 | `scripts/extensao.py` | Manifesto, permissões e pacote | Sim, e depois monta |
 | `testes/whatsapp_falso.py` | O WhatsApp de mentira dos testes | Sim |

@@ -359,7 +359,48 @@ globalThis.UirappRegras = (() => {
 
   const paraBackup = (ajustes, d) => JSON.stringify({ uirapp: "backup", versao: 1, criado: new Date().toISOString(), ajustes, dados: dados(d) }, null, 1);
 
+  // ---------- IA no computador: o que vai para o modelo e o que volta dele
+  const IA_TIPOS = Object.freeze({ foto: "[photo]", "vídeo": "[video]", "áudio": "[audio]", figurinha: "[sticker]", documento: "[document]" });
+
+  // as últimas mensagens que cabem no limite, na ordem da conversa; "Me" marca as da própria pessoa
+  function iaConversa(mensagens, limite = 4000) {
+    const linhas = [];
+    let total = 0;
+    for (const m of [...(Array.isArray(mensagens) ? mensagens : [])].reverse()) {
+      const quem = m?.de === "eu" ? "Me" : corta(m?.autor, 40).replace(/[:\n]/g, " ") || "Contact";
+      const texto = [IA_TIPOS[m?.tipo], corta(m?.texto, 1000).replace(/\s+/g, " ")].filter(Boolean).join(" ");
+      if (!texto) continue;
+      const linha = `${quem}: ${texto}`;
+      if (total + linha.length + 1 > limite) break;
+      linhas.unshift(linha);
+      total += linha.length + 1;
+    }
+    return linhas.join("\n");
+  }
+
+  // o modelo devolve {"replies": [...]}; se vier torto, aproveita as linhas
+  function iaRespostas(saida, max = 3) {
+    let lista;
+    try {
+      const j = JSON.parse(saida);
+      lista = Array.isArray(j) ? j : Array.isArray(j?.replies) ? j.replies : [];
+    } catch {
+      lista = String(saida ?? "").split("\n").map((l) => l.replace(/^\s*(?:[-*•]|\d+[.)])\s*/, ""));
+    }
+    const vistas = new Set();
+    return lista.filter((v) => typeof v === "string")
+      .map((v) => v.trim().replace(/^["“]+|["”]+$/g, "").trim().slice(0, 600))
+      .filter((v) => {
+        const k = v.toLowerCase();
+        if (!v || vistas.has(k)) return false;
+        vistas.add(k);
+        return true;
+      })
+      .slice(0, max);
+  }
+
   return Object.freeze({
+    iaConversa, iaRespostas,
     atalho, telefone, linkConversa, preenche, centavos, crc16, pix, contraste, mistura, paleta, TEMAS, imagem, tema, cssTema,
     cabecalho, txt, csv, html, htmlTrancado, paraTrancar, escapa, tranca, destranca, ETAPAS, dados, backup, paraBackup, novoId,
   });

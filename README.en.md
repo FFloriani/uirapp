@@ -68,6 +68,7 @@ Using the same folder keeps your settings, replies and customer cards. Removing 
 
 - **Silence.** Alt+S hides messages, previews, names, photos and media, all of them or only the ones you pick. It can turn on by itself when you open the tab, when you leave it, or after 1, 5, 10 or 30 minutes idle. It also mutes the tab and removes the unread count from the title.
 - **Quick replies.** Type `/shortcut` and press Tab inside the chat. Variables work too: `{saudacao}`, `{primeiro_nome}`, `{nome}`, `{data}`, `{hora}`, `{dia}`, `{assinatura}` and `{pix}`, which builds a Brazilian Pix copy-and-paste payment code with your key.
+- **AI on this computer.** In Google Chrome, it summarizes the open chat, translates the messages, suggests three replies, and translates what you wrote or makes it more polite or shorter. It uses Chrome's own AI, on this computer: the chat never leaves it, and Uirapp only reads it when you ask.
 - **Appearance.** 14 WhatsApp themes, a studio to build your own with a background image, text size, and the option to remove the filters, banners, Status, Channels, Communities, Calls and the background doodles.
 - **Tools.** Chat with a number without saving the contact, **Compartilhar no WhatsApp** (share on WhatsApp, the menu item is in Portuguese) from the right-click menu on any page, export the open chat as text, spreadsheet or web page (the web page can have a password) and download the open photo or video.
 - **Ninho.** A page of its own with a customer pipeline (cards, tags and amounts), reminders with desktop notifications, drawing, and a password-protected backup.
@@ -75,9 +76,13 @@ Using the same folder keeps your settings, replies and customer cards. Removing 
 
 <img src="docs/imagens/readme-ninho.png" alt="Uirapp Ninho page on the Atendimento tab: customer cards in the columns New, Talking, Proposal and Closed, with tags and amounts" width="800">
 
+<img src="docs/imagens/readme-ia.png" alt="Three AI screens, in Portuguese: the actions, the summary of a chat about a wedding cake and three reply suggestions, written by Google Chrome's AI" width="800">
+
+The AI downloads once, about 4 GB, in the **IA** tab of the Ninho. Chrome's model does not speak Portuguese, so for Portuguese Uirapp translates to English and back, also on the computer; the text can read like a translation. In English and Spanish it works directly.
+
 ## Privacy and permissions
 
-Uirapp has no server, no account and no telemetry. The extension pages are not allowed to open connections (`connect-src 'none'`), and the automated test checks that no request leaves the extension. It does not store your chats: it only keeps your settings and what you wrote yourself (replies, customer cards, reminders and themes). In **What Uirapp accesses**, in the popup, the **Delete Uirapp data** button erases everything.
+Uirapp has no server, no account and no telemetry. The extension pages are not allowed to open connections (`connect-src 'none'`), and the automated test checks that no request leaves the extension. It does not store your chats: it only keeps your settings and what you wrote yourself (replies, customer cards, reminders and themes). The AI reads the open chat only when you tap one of its actions, runs in Chrome on this computer, and what it answers is not stored. In **What Uirapp accesses**, in the popup, the **Delete Uirapp data** button erases everything.
 
 | The browser asks for | What for |
 |---|---|
@@ -94,6 +99,7 @@ Security rules and how to report a vulnerability are in [SECURITY.md](SECURITY.m
 ## Compatibility
 
 - Tested on **Brave** and **Google Chrome**. The package requires Chromium 120 or newer; other Chromium browsers were not tested.
+- **AI on this computer** needs Google Chrome 138 or newer, 22 GB free and a graphics card with more than 4 GB or 16 GB of memory ([Google's requirements](https://developer.chrome.com/docs/ai/get-started)). Brave does not have it: the AI screen explains this and shows no actions.
 - WhatsApp Web on a computer only. The phone app and the Windows app are not affected.
 - When WhatsApp Web changes its page and Uirapp no longer recognizes what to hide, it covers the whole screen and says **WhatsApp changed** instead of leaving anything visible. If that happens, [open an issue](https://github.com/FFloriani/uirapp/issues/new/choose) with the date and your browser, without screenshots of your chats.
 

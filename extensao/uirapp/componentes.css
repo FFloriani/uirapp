@@ -10,7 +10,8 @@
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
 html { background: var(--bg); color: var(--text); font: var(--tipo-body); }
-body { margin: 0; }
+/* o Chrome dá às páginas de extensão "Segoe UI" a 75%; o Uirapp usa a letra do design system */
+body { margin: 0; font: inherit; }
 h1, h2, h3, p, ul { margin: 0; padding: 0; }
 ul { list-style: none; }
 button, input, textarea, select { font: inherit; color: inherit; }

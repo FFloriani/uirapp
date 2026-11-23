@@ -226,6 +226,7 @@
     const destino = $(`[data-tela="${CSS.escape(pedida)}"]`);
     if (!destino) return;
     for (const t of $$(".tela")) t.hidden = t !== destino;
+    if (pedida === "ia") pintaIA();
     if (!foca) return;
     const alvo = destino.querySelector("h2[tabindex]") || destino.querySelector("button");
     alvo?.focus({ preventScroll: true });
@@ -438,6 +439,111 @@
     const r = await pedeAoWhatsApp({ uirapp: "baixar" });
     avisa(r.ok ? "Baixando" : MOTIVOS[r.motivo] ?? "Abra a foto ou o vídeo primeiro.");
   });
+
+  // ---------- IA no computador (extensao/fonte/ia.js): tudo roda neste computador, sempre por um clique
+  const IA = globalThis.UirappIA;
+  const idiomaJanela = () => globalThis.UirappIdioma?.resolve(ajustes.idioma) ?? "pt";
+  const IA_ESTADOS = {
+    sem: "Este navegador não tem IA embutida. Ela funciona no Google Chrome, num computador com 22 GB livres.",
+    baixar: "A IA baixa uma vez, cerca de 4 GB, e depois roda sem internet. Nada da conversa sai deste computador.",
+    baixando: "A IA está baixando. Acompanhe no Ninho.",
+    pronta: "Roda neste computador. Nada da conversa sai dele.",
+  };
+  const IA_TITULOS = { resumir: "Resumo", "traduzir-conversa": "Tradução", sugerir: "Sugestões", "traduzir-texto": "Tradução", educado: "Mais educado", curto: "Mais curto" };
+  const IA_MOTIVOS = {
+    tocar: "Toque de novo para terminar de preparar.",
+    idioma: "Esse idioma ainda não tem tradutor no computador.",
+    grande: "A conversa é grande demais para a IA.",
+    falhou: "A IA não conseguiu agora. Tente de novo.",
+  };
+  let iaItens = [];
+
+  async function pintaIA() {
+    let geral = "sem";
+    try {
+      geral = IA ? (await IA.estado(idiomaJanela())).geral : "sem";
+    } catch {
+      geral = "sem";
+    }
+    $("#ia-estado").textContent = T(IA_ESTADOS[geral]);
+    $("#ia-acoes").hidden = geral !== "pronta";
+    $("#ia-preparar").hidden = geral !== "baixar" && geral !== "baixando";
+    if ($("#ia-para").value === idiomaJanela()) $("#ia-para").value = idiomaJanela() === "en" ? "pt" : "en";
+  }
+
+  async function copia(texto) {
+    try {
+      await navigator.clipboard.writeText(texto);
+      avisa("Copiado");
+    } catch {
+      avisa("Não deu para copiar. Tente de novo.");
+    }
+  }
+
+  function pintaResultado(itens) {
+    iaItens = itens;
+    $("#ia-pensando").hidden = true;
+    const lista = $("#ia-lista");
+    lista.replaceChildren();
+    for (const item of itens) {
+      const li = $("#molde-ia").content.firstElementChild.cloneNode(true);
+      li.querySelector(".ia-texto").textContent = item.texto;
+      const quem = li.querySelector(".ia-quem");
+      quem.hidden = !item.quem;
+      quem.textContent = item.quem ?? "";
+      const original = li.querySelector(".ia-original");
+      original.hidden = !item.original;
+      original.textContent = item.original ?? "";
+      li.querySelector(".ia-copiar").addEventListener("click", () => copia(item.texto));
+      const usar = li.querySelector(".ia-usar");
+      if (item.usar) {
+        usar.hidden = false;
+        usar.querySelector("span").textContent = T(item.usar === "trocar" ? "Trocar no campo" : "Pôr na conversa");
+        usar.addEventListener("click", async () => {
+          const r = await pedeAoWhatsApp({ uirapp: item.usar, texto: item.texto });
+          if (!r.ok) return avisa(MOTIVOS[r.motivo] ?? MOTIVOS.sem);
+          window.close();
+        });
+      }
+      lista.append(li);
+    }
+    $("#ia-rodape").hidden = itens.length < 2;
+    globalThis.UirappIdioma?.aplica(ajustes.idioma);
+  }
+
+  async function pedeIA(acao) {
+    if (!IA) return;
+    const idioma = idiomaJanela();
+    const daConversa = ["resumir", "traduzir-conversa", "sugerir"].includes(acao);
+    const r = await pedeAoWhatsApp({ uirapp: daConversa ? "exportar" : "rascunho" });
+    if (!r.ok) return avisa(MOTIVOS[r.motivo] ?? MOTIVOS.sem);
+    if (daConversa ? !r.mensagens.length : !r.texto.trim()) return avisa(daConversa ? MOTIVOS.sem : "Escreva algo na conversa primeiro.");
+    $("#t-ia-resultado").textContent = T(IA_TITULOS[acao]);
+    $("#ia-lista").replaceChildren();
+    $("#ia-pensando").hidden = false;
+    $("#ia-rodape").hidden = true;
+    vai("ia-resultado");
+    try {
+      let itens;
+      if (acao === "resumir") itens = (await IA.resumir(r.mensagens, idioma)).map((texto) => ({ texto }));
+      else if (acao === "sugerir") itens = (await IA.sugerir(r.mensagens, idioma)).map((texto) => ({ texto, usar: "inserir" }));
+      else if (acao === "traduzir-conversa") {
+        itens = (await IA.traduzirConversa(r.mensagens, idioma)).map((m) => ({
+          quem: m.de === "eu" ? T("Você") : m.autor, texto: m.traducao || m.texto, original: m.traducao ? m.texto : "",
+        }));
+      } else if (acao === "traduzir-texto") itens = [{ texto: await IA.traduzirTexto(r.texto, $("#ia-para").value, idioma), usar: "trocar" }];
+      else itens = [{ texto: await IA.reescrever(r.texto, acao, idioma), usar: "trocar" }];
+      itens = itens.filter((i) => i.texto);
+      if (!itens.length) throw new Error("vazio");
+      pintaResultado(itens);
+    } catch (e) {
+      vai("ia");
+      avisa(e?.message === "vazio" ? "A IA não achou o que dizer." : IA_MOTIVOS[IA.motivo(e)]);
+    }
+  }
+
+  for (const b of $$("[data-ia]")) b.addEventListener("click", () => pedeIA(b.dataset.ia).catch(() => avisa(IA_MOTIVOS.falhou)));
+  $("#ia-copiar-tudo").addEventListener("click", () => copia(iaItens.map((i) => (i.quem ? `${i.quem}: ${i.texto}` : `• ${i.texto}`)).join("\n")));
 
   $("#apagar-tudo").addEventListener("click", () => confirma("Apagar dados do Uirapp?", async () => {
     try {

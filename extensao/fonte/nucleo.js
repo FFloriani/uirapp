@@ -8,7 +8,7 @@ globalThis.Uirapp = (() => {
   const PARADO = Object.freeze([1, 5, 10, 30]);
   const LETRA = Object.freeze([90, 100, 110, 125]);
   const IDIOMAS = Object.freeze({ auto: "Do navegador", pt: "Português", en: "English", es: "Español" });
-  const VERSAO = "0.2.0";
+  const VERSAO = "0.3.0";
 
   const texto = (v, max) => (typeof v === "string" ? v.trim().slice(0, max) : "");
   const umDe = (v, lista, padrao) => (lista.includes(v) ? v : padrao);

@@ -99,7 +99,7 @@ def icone(n):
     return f'<svg class="icone icone-{tipo}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">{" ".join(miolo.split())}</svg>'
 
 
-SCRIPTS_DEMO = ("demo.js", *(f"../extensao/fonte/{n}" for n in ("regras.js", "nucleo.js", "frases.js", "idioma.js", "deposito.js", "popup.js")))
+SCRIPTS_DEMO = ("demo.js", *(f"../extensao/fonte/{n}" for n in ("regras.js", "nucleo.js", "frases.js", "idioma.js", "deposito.js", "ia.js", "popup.js")))
 
 
 def expande(t, scripts=SCRIPTS_DEMO):

@@ -53,6 +53,9 @@ def frases_das_telas():
         for linha in t.splitlines():
             if re.search(r"\b(avisa|confirma|T)\(|MOTIVOS|\[visual, titulo|titulo\.textContent|acao\.textContent|const verbo", linha):
                 achadas |= {s for s in re.findall(r'"([^"\n]{3,})"', linha) if re.match(r"[A-ZÀ-Ú]", s) and " " in s}
+        # os textos da IA moram em dicionários (const IA_... = { ... }); palavra sozinha também conta
+        for bloco in re.findall(r"const IA_\w+ = \{(.*?)\};", t, re.S):
+            achadas |= {s for s in re.findall(r'"([^"\n]{3,})"', bloco) if re.match(r"[A-ZÀ-Ú]", s)}
     achadas |= set(re.findall(r'nome: "([^"]+)"', (EXT / "regras.js").read_text("utf-8")))
     achadas |= set(re.findall(r'"([A-ZÀ-Ú][^"]+)"', re.search(r"PLUMAGENS = Object\.freeze\(\{([^}]+)\}", (EXT / "nucleo.js").read_text("utf-8")).group(1)))
     return {a for a in achadas if a not in IGUAIS and not re.fullmatch(r"[\d\s:+/.,()-]+", a) and not a.startswith("{")}

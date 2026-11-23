@@ -112,3 +112,9 @@ select.entrada { appearance: auto; }
   .lembrete-quando { grid-column: 1 / -1; }
   .ferramentas .entrada { min-width: 0; flex: 1 1 140px; }
 }
+
+/* IA no computador */
+.ia-partes { list-style: none; margin: var(--espaco-3) 0 0; padding: 0; }
+.ia-partes li { display: flex; justify-content: space-between; gap: var(--espaco-3); padding: var(--espaco-2) 0; border-top: 1px solid var(--line); font: var(--tipo-label); }
+.ia-parte-estado { color: var(--text-muted); font: var(--tipo-small); text-align: right; }
+.ia-como { margin: var(--espaco-3) 0 0; padding-left: 1.2em; display: grid; gap: var(--espaco-2); font: var(--tipo-body); }

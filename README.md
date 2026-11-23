@@ -67,6 +67,7 @@ Usar a mesma pasta mantém seus ajustes, respostas e fichas. Remover a extensão
 
 - **Silêncio.** Alt+S esconde mensagens, prévias, nomes, fotos e mídias, tudo ou só o que você escolher. Pode ligar sozinho ao abrir a aba, ao sair dela ou depois de 1, 5, 10 ou 30 minutos parado. Junto, tira o som da aba e a contagem de mensagens do título.
 - **Respostas prontas.** Digite `/atalho` e aperte Tab dentro da conversa. Aceita variáveis: `{saudacao}`, `{primeiro_nome}`, `{nome}`, `{data}`, `{hora}`, `{dia}`, `{assinatura}` e `{pix}`, que monta o código Pix copia e cola com a sua chave.
+- **IA no computador.** No Google Chrome, resume a conversa aberta, traduz as mensagens, sugere três respostas e traduz ou deixa mais educado ou mais curto o que você escreveu. Usa a IA do próprio Chrome, neste computador: a conversa não sai dele, e o Uirapp só a lê quando você pede.
 - **Aparência.** 14 temas para o WhatsApp, um estúdio para criar o seu com imagem de fundo, tamanho da letra e a opção de tirar da tela os filtros, as faixas, Status, Canais, Comunidades, Ligações e os desenhos do fundo.
 - **Ferramentas.** Conversar com um número sem salvar o contato, **Compartilhar no WhatsApp** pelo botão direito em qualquer página, exportar a conversa aberta em texto, planilha ou página (a página pode ter senha) e baixar a foto ou o vídeo aberto.
 - **Ninho.** Uma página própria com atendimento em etapas (fichas, etiquetas e valores), lembretes com aviso do computador, desenho e backup com senha.
@@ -74,9 +75,13 @@ Usar a mesma pasta mantém seus ajustes, respostas e fichas. Remover a extensão
 
 <img src="docs/imagens/readme-ninho.png" alt="Ninho do Uirapp na aba Atendimento: fichas de clientes nas colunas Novo, Conversando, Proposta e Fechado, com etiquetas e valores" width="800">
 
+<img src="docs/imagens/readme-ia.png" alt="Três telas da IA no computador: as ações, o resumo de uma conversa sobre um bolo de casamento e três sugestões de resposta, escritos pela IA do Google Chrome" width="800">
+
+A IA baixa uma vez, cerca de 4 GB, na aba **IA** do Ninho. O modelo do Chrome não fala português; o Uirapp traduz para o inglês e de volta, também no computador. Por isso o texto pode sair com cara de tradução.
+
 ## Privacidade e permissões
 
-O Uirapp não tem servidor, conta nem telemetria. As páginas da extensão são proibidas de abrir conexão (`connect-src 'none'`), e o teste automático confere que nenhum pedido sai dela. Ele não guarda suas conversas: guarda só os ajustes e o que você mesmo escreveu (respostas, fichas, lembretes e temas). Em **O que o Uirapp acessa**, na janela, o botão **Apagar dados do Uirapp** limpa tudo.
+O Uirapp não tem servidor, conta nem telemetria. As páginas da extensão são proibidas de abrir conexão (`connect-src 'none'`), e o teste automático confere que nenhum pedido sai dela. Ele não guarda suas conversas: guarda só os ajustes e o que você mesmo escreveu (respostas, fichas, lembretes e temas). A IA lê a conversa aberta só quando você toca numa ação dela, roda no Chrome deste computador e o que ela responde não fica guardado. Em **O que o Uirapp acessa**, na janela, o botão **Apagar dados do Uirapp** limpa tudo.
 
 | O navegador pede | Para quê |
 |---|---|
@@ -93,6 +98,7 @@ As regras de segurança e como reportar uma falha estão em [SECURITY.md](SECURI
 ## Compatibilidade
 
 - Testado no **Brave** e no **Google Chrome**. O pacote pede Chromium 120 ou mais novo; outros navegadores baseados no Chromium não foram testados.
+- A **IA no computador** precisa do Google Chrome 138 ou mais novo, de 22 GB livres e de placa de vídeo com mais de 4 GB ou 16 GB de memória ([requisitos do Google](https://developer.chrome.com/docs/ai/get-started)). No Brave ela não existe: a tela da IA explica e não mostra as ações.
 - Só o WhatsApp Web no computador. O app do celular e o aplicativo de Windows não mudam.
 - Quando o WhatsApp Web muda a página e o Uirapp não reconhece mais o que esconder, ele cobre a tela inteira e avisa **O WhatsApp mudou**, em vez de deixar algo à vista. Se isso acontecer, [abra uma issue](https://github.com/FFloriani/uirapp/issues/new/choose) dizendo a data e o navegador, sem print de conversa.
 

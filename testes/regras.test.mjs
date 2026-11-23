@@ -168,3 +168,24 @@ test("backup que não é do Uirapp é recusado", () => {
   assert.equal(R.backup("não é json"), null);
   assert.ok(R.backup(JSON.stringify({ uirapp: "backup", versao: 1, dados: {}, ajustes: {} })));
 });
+
+test("IA: a conversa vai curta, na ordem, com Me para a pessoa", () => {
+  const ms = [
+    { autor: "Ana", texto: "Bom dia!\nTudo bem?", tipo: "texto" },
+    { autor: "Eu Mesmo", de: "eu", texto: "Tudo, e você?", tipo: "texto" },
+    { autor: "Ana", texto: "", tipo: "foto" },
+    { autor: "Ana: falsa\nlinha", texto: "legenda", tipo: "vídeo" },
+    { autor: "Ana", texto: "", tipo: "texto" },
+  ];
+  assert.equal(R.iaConversa(ms), "Ana: Bom dia! Tudo bem?\nMe: Tudo, e você?\nAna: [photo]\nAna  falsa linha: [video] legenda");
+  assert.equal(R.iaConversa(ms, 50), "Ana: [photo]\nAna  falsa linha: [video] legenda", "corta pelas mais antigas");
+  assert.equal(R.iaConversa(ms, 40), "Ana  falsa linha: [video] legenda");
+  assert.equal(R.iaConversa(null), "");
+});
+
+test("IA: sugestões saem limpas do JSON ou das linhas", () => {
+  assert.deepEqual(R.iaRespostas('{"replies":["Oi!", " \\"Claro\\" ", "oi!", "", 4, "Até já", "Mais uma"]}'), ["Oi!", "Claro", "Até já"]);
+  assert.deepEqual(R.iaRespostas("1. Sim\n2) Não\n- Talvez\n"), ["Sim", "Não", "Talvez"]);
+  assert.deepEqual(R.iaRespostas('["a","b"]', 1), ["a"]);
+  assert.deepEqual(R.iaRespostas(undefined), []);
+});

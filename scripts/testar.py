@@ -1009,6 +1009,123 @@ def ninho(n, prints):
     n.ajustes()
 
 
+# IA de mentira, só nas páginas da extensão: previsível e com registro do que recebeu.
+# localStorage "ia-modo" escolhe: available (padrão) ou downloadable (o create, com clique, deixa available).
+IA_FALSA = """(() => {
+  if (location.protocol !== 'chrome-extension:') return;
+  const modo = () => localStorage.getItem('ia-modo') || 'available';
+  const reg = (k, v) => { const l = JSON.parse(localStorage.getItem('ia-reg') || '[]'); l.push([k, v]); localStorage.setItem('ia-reg', JSON.stringify(l)); };
+  const cria = async () => {
+    if (modo() !== 'downloadable') return;
+    if (!navigator.userActivation.isActive) throw new DOMException('sem clique', 'NotAllowedError');
+    localStorage.setItem('ia-modo', 'available');
+  };
+  const disp = async () => modo();
+  globalThis.Translator = { availability: disp, create: async (o) => (await cria(), {
+    translate: async (t) => (reg('traduz', [o.sourceLanguage, o.targetLanguage, t]), `[${o.targetLanguage}] ${t}`) }) };
+  globalThis.LanguageDetector = { availability: disp, create: async () => (await cria(), {
+    detect: async (t) => [{ detectedLanguage: /Hello/.test(t) ? 'en' : 'pt', confidence: 0.99 }] }) };
+  globalThis.Summarizer = { availability: disp, create: async () => (await cria(), {
+    summarize: async (t) => (reg('resumo', t), '* point one\\n* point two'), destroy() {} }) };
+  globalThis.LanguageModel = { availability: disp, create: async () => (await cria(), {
+    prompt: async (t) => (reg('prompt', t), JSON.stringify({ replies: ['reply one', 'reply two', 'reply three'], message: 'rewritten' })),
+    destroy() {} }) };
+})();"""
+
+
+def ia(n, prints):
+    w = n.wa
+    n.ajustes()
+    n.poe(silencio=False)
+    n.abre(v="a")
+
+    # sem a IA do navegador (Brave, ou Chrome sem o modelo): explica e não mostra as ações
+    j = abre_popup_em(n, "ia")
+    j.wait_for_timeout(400)
+    ok(j.is_hidden("#ia-acoes") and "não tem IA" in j.text_content("#ia-estado"), f"{n.nome}: IA sem modelo mostrou as ações")
+
+    # com a IA (de mentira, previsível)
+    n.ctx.add_init_script(IA_FALSA)
+    j = abre_popup_em(n, "ia")
+    j.evaluate("localStorage.removeItem('ia-modo'); localStorage.removeItem('ia-reg')")
+    j = abre_popup_em(n, "ia")
+    j.wait_for_timeout(400)
+    ok(j.is_visible("#ia-acoes") and j.is_hidden("#ia-preparar"), f"{n.nome}: IA pronta não mostrou as ações")
+    registro = lambda: j.evaluate("JSON.parse(localStorage.getItem('ia-reg') || '[]')")
+    itens = lambda: j.eval_on_selector_all("#ia-lista .ia-texto", "l => l.map(e => e.textContent)")
+
+    j.click('[data-ia="resumir"]')
+    j.wait_for_timeout(500)
+    ok(j.is_visible('[data-tela="ia-resultado"]') and itens() == ["[pt] point one", "[pt] point two"], f"{n.nome}: resumo veio errado: {itens()}")
+    resumo = [v for k, v in registro() if k == "resumo"]
+    ok(resumo and "Me: [en] MENSQa3" in resumo[-1] and "AUTORQa0: [en] MENSQa0" in resumo[-1] and "[sticker]" in resumo[-1],
+       f"{n.nome}: a IA não recebeu a conversa em inglês, com Me: {resumo[-1][:200] if resumo else ''!r}")
+
+    j = abre_popup_em(n, "ia")
+    j.click('[data-ia="sugerir"]')
+    j.wait_for_timeout(500)
+    ok(itens() == ["[pt] reply one", "[pt] reply two", "[pt] reply three"] and j.locator(".ia-usar:visible").count() == 3,
+       f"{n.nome}: sugestões vieram erradas: {itens()}")
+    antes = campo_whatsapp(n)
+    j.locator(".ia-usar").first.click()
+    w.wait_for_timeout(300)
+    ok(campo_whatsapp(n) == antes + "[pt] reply one", f"{n.nome}: 'Pôr na conversa' da IA não pôs: {campo_whatsapp(n)[-60:]!r}")
+    ok(w.evaluate("envios") == 0, f"{n.nome}: a sugestão da IA foi enviada")
+
+    j = abre_popup_em(n, "ia")
+    j.click('[data-ia="traduzir-conversa"]')
+    j.wait_for_timeout(500)
+    quem = j.eval_on_selector_all("#ia-lista .ia-quem:not([hidden])", "l => l.map(e => e.textContent)")
+    ok(len(itens()) == len(quem) >= 3 and "Você" in quem and "AUTORQa0" in quem, f"{n.nome}: tradução da conversa veio errada: {quem}")
+
+    # o que a pessoa escreveu: traduzir e trocar no campo
+    j = abre_popup_em(n, "ia")
+    j.select_option("#ia-para", "es")
+    j.click('[data-ia="traduzir-texto"]')
+    j.wait_for_timeout(500)
+    antes = campo_whatsapp(n)
+    ok(itens() == [f"[es] {antes}"], f"{n.nome}: tradução do rascunho veio errada: {itens()} / {antes!r}")
+    j.click(".ia-usar")
+    w.wait_for_timeout(300)
+    ok(campo_whatsapp(n) == f"[es] {antes}", f"{n.nome}: 'Trocar no campo' não trocou: {campo_whatsapp(n)!r}")
+    j = abre_popup_em(n, "ia")
+    j.click('[data-ia="educado"]')
+    j.wait_for_timeout(500)
+    prompt = [v for k, v in registro() if k == "prompt"][-1]
+    ok(itens() == ["[pt] rewritten"] and "polite" in prompt and "[en] [es]" in prompt, f"{n.nome}: reescrever veio errado: {itens()} / {prompt[-80:]!r}")
+    ok(w.evaluate("envios") == 0, f"{n.nome}: a IA enviou")
+    if prints:
+        j.screenshot(path=str(Path(prints) / f"{n.nome}-ia-reescrever.png"))
+
+    # conversa escondida: a IA não lê nem mostra nada
+    n.poe(silencio=True)
+    j = abre_popup_em(n, "ia")
+    j.click('[data-ia="resumir"]')
+    j.wait_for_timeout(400)
+    ok(j.is_hidden('[data-tela="ia-resultado"]') and "Mostre as conversas" in j.text_content("#aviso-texto"),
+       f"{n.nome}: a IA leu a conversa escondida")
+    n.poe(silencio=False)
+
+    # preparar no Ninho: o clique baixa o que falta e deixa pronta
+    pg = n.ctx.new_page()
+    pg.set_viewport_size({"width": 1180, "height": 720})
+    pg.goto(f"chrome-extension://{n.id}/ninho.html#ia")
+    espera_pronta(pg)
+    pg.evaluate("localStorage.setItem('ia-modo', 'downloadable')")
+    pg.reload()
+    espera_pronta(pg)
+    pg.wait_for_timeout(400)
+    ok(pg.is_visible("#ia-preparar") and "Falta baixar" in pg.text_content("#ia-partes"), f"{n.nome}: Ninho não mostrou o que falta baixar")
+    pg.click("#ia-preparar")
+    pg.wait_for_timeout(800)
+    ok(pg.is_hidden("#ia-preparar") and "Pronta" in pg.text_content("#ia-situacao"), f"{n.nome}: preparar no Ninho não deixou pronta")
+    if prints:
+        pg.screenshot(path=str(Path(prints) / f"{n.nome}-ninho-ia.png"))
+    pg.close()
+    j = abre_popup_em(n, "inicio")
+    j.evaluate("localStorage.removeItem('ia-modo'); localStorage.removeItem('ia-reg')")
+
+
 def loja(n):
     pg = n.ctx.new_page()
     pg.goto("chrome://extensions/")
@@ -1076,7 +1193,7 @@ def roda(p, nome, prints, espera_parado):
               ("combinações", lambda: combinacoes(n, prints)), ("ataques", lambda: ataques(n)),
               ("sem flash", lambda: sem_flash(n)), ("falha fechado", lambda: falha_fechado(n, prints)),
               ("janela", lambda: janela_real(n, prints)), ("funções da 0.2", lambda: funcoes(n, prints)),
-              ("ninho", lambda: ninho(n, prints))]
+              ("ninho", lambda: ninho(n, prints)), ("ia", lambda: ia(n, prints))]
     if espera_parado:
         passos.append(("parado", lambda: parado(n)))
     passos.append(("órfã", lambda: orfa(n, prints)))

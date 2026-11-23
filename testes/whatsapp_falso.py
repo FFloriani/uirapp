@@ -68,7 +68,8 @@ def balao(i, v):
                  f'<span role="button">MENCQ{v}{i}</span></span><span><span><span>SOLTOQespaco</span></span></span></div></div>')
     foto = (f'<img src="{F}" width="28" height="28">' if i % 2 == 0 else
             f'<div><div><div data-testid="profile-first-initial">INICQ{v}{i}</div></div></div>')
-    return (f'<div role="row"><div class="linha-msg"><div class="coluna-foto"><div role="button" data-testid="group-chat-profile-picture" class="foto-grupo">{foto}</div></div>'
+    lado = "message-out" if i == 3 else "message-in"
+    return (f'<div role="row"><div class="linha-msg {lado}"><div class="coluna-foto"><div role="button" data-testid="group-chat-profile-picture" class="foto-grupo">{foto}</div></div>'
             f'<div data-testid="msg-container" class="msg"><div class="balao"><span data-testid="author">AUTORQ{v}{i}</span>'
             f'{corpo}<div data-testid="msg-meta"><span><span>10:0{i}</span></span></div></div></div></div></div>')
 

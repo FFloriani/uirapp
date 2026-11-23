@@ -113,6 +113,8 @@ def sec_telas(m):
              ("Plumagem", "plumagem?tema=dia&plumagem=lenda"), ("Respostas prontas", "respostas?tema=dia"),
              ("Sem respostas", "respostas?tema=dia&vazio"), ("Criar resposta, com erro", "nova?tema=dia&erro"),
              ("O que o Uirapp acessa", "acesso?tema=dia"), ("Resposta copiada", "respostas?tema=dia&copiada"),
+             ("IA no computador", "ia?tema=dia"), ("Sugestões da IA", "ia?tema=dia&acao=sugerir"),
+             ("Mensagens traduzidas", "ia?tema=dia&acao=traduzir-conversa"), ("IA fora do Chrome", "ia?tema=dia&ia=sem"),
              ("À vista, escuro", "inicio?tema=noite"), ("Escondidas, escuro", "inicio?tema=noite&silencio=1&plumagem=laranja"),
              ("Plumagem, escuro", "plumagem?tema=noite"))
     return '<div class="telas">' + "".join(

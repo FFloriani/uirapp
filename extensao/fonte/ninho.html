@@ -18,6 +18,7 @@
     <a class="aba" href="#lembretes" data-aba="lembretes"><!--@icone:bell-->Lembretes</a>
     <a class="aba" href="#temas" data-aba="temas"><!--@icone:brush-->Temas</a>
     <a class="aba" href="#desenho" data-aba="desenho"><!--@icone:palette-->Desenho</a>
+    <a class="aba" href="#ia" data-aba="ia"><!--@icone:wand-->IA</a>
     <a class="aba" href="#backup" data-aba="backup"><!--@icone:database-->Backup</a>
   </nav>
 </header>
@@ -98,6 +99,26 @@
     </div>
   </div>
   <canvas class="tela-desenho" id="tela-desenho" width="1200" height="720" aria-label="Área de desenho"></canvas>
+</section>
+
+<section class="parte" id="ia" aria-labelledby="t-ia" hidden>
+  <div class="parte-topo"><h2 id="t-ia" tabindex="-1">IA no computador</h2></div>
+  <div class="colunas">
+    <div class="cartao">
+      <h3>Preparar</h3>
+      <p class="campo-apoio" id="ia-situacao" role="status"></p>
+      <ul class="ia-partes" id="ia-partes" aria-label="Partes da IA"></ul>
+      <div class="acoes"><button class="botao" type="button" id="ia-preparar"><!--@icone:download-->Preparar a IA</button></div>
+    </div>
+    <div class="cartao">
+      <h3>Como funciona</h3>
+      <ul class="ia-como">
+        <li>Usa a IA do Google Chrome, neste computador. A conversa não sai dele.</li>
+        <li>Baixa uma vez cerca de 4 GB. Precisa de 22 GB livres e de placa de vídeo com mais de 4 GB ou 16 GB de memória.</li>
+        <li>A IA não fala português: o Uirapp traduz para o inglês e de volta, também no computador.</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <section class="parte" id="backup" aria-labelledby="t-backup" hidden>

@@ -69,6 +69,22 @@
 .tema-nome { min-height: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .novidades { display: grid; gap: var(--espaco-3); padding: var(--espaco-4); list-style: disc inside; font: var(--tipo-label); }
 .tela > .rolo > .palco { margin-bottom: 0; }
+/* IA no computador */
+.ia-estado:empty { display: none; }
+.ia-para .entrada { width: auto; max-width: 112px; padding: 0 var(--espaco-2); }
+.ia-para .botao { padding: 0 var(--espaco-3); }
+.ia-lista { list-style: none; margin: 0; padding: 0 var(--espaco-4); }
+.ia-item { padding: var(--espaco-3) 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--espaco-2); align-items: start; }
+.ia-item > p { grid-column: 1; }
+.ia-item > .ia-botoes { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; }
+.ia-item:has(.ia-usar:not([hidden])) > .ia-botoes { grid-column: 1 / -1; grid-row: auto; margin-top: var(--espaco-1); }
+.ia-item + .ia-item { border-top: 1px solid var(--line); }
+.ia-quem { color: var(--text-muted); font: var(--tipo-small); }
+.ia-texto { white-space: pre-wrap; overflow-wrap: anywhere; }
+.ia-original { margin-top: var(--espaco-1); color: var(--text-muted); font: var(--tipo-small); white-space: pre-wrap; overflow-wrap: anywhere; }
+.ia-botoes { display: flex; align-items: center; justify-content: flex-end; gap: var(--espaco-1); margin-top: var(--espaco-1); }
+.ia-botoes .botao-icone { color: var(--text-muted); }
+.ia-botoes .botao { padding: 0 var(--espaco-3); }
 
 /* a janela da extensão tem o tamanho do conteúdo */
 body { width: var(--tam-popup); }

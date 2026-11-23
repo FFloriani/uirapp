@@ -29,6 +29,7 @@ gestos, cega, comb, ataq, flash, falha, janela = (
     lambda n: testar.ataques(n), lambda n: testar.sem_flash(n), lambda n: testar.falha_fechado(n, None),
     lambda n: testar.janela_real(n, None))
 funcoes, ninho = (lambda n: testar.funcoes(n, None)), (lambda n: testar.ninho(n, None))
+ia, estatico = (lambda n: testar.ia(n, None)), (lambda n: testar.estatico())
 
 DEFEITOS = [
     ("CSS sem origem USER", "fundo.js", 'origin: "USER"', 'origin: "AUTHOR"', ataq),
@@ -52,6 +53,12 @@ DEFEITOS = [
      'poeNoCampo(texto ? R.preenche(texto, contexto()) : "", m[1].length + 1);', funcoes),
     ("tema sem conferir cor", "aparencia.js", "let t = ap.temaDados ? R.cssTema(ap.temaDados) : \"\";",
      "let t = ap.temaDados ? R.cssTema(ap.temaDados) + 'body{visibility:visible!important}#side{background:#ff00ff!important}' : \"\";", funcoes),
+    ("IA le a conversa escondida", "conversa.js", 'case "exportar":\n          if (silencio) return responde({ ok: false, motivo: "silencio" }), false;\n',
+     'case "exportar":\n', ia),
+    ("portugues direto para a IA", "ia.js", 'const pivo = async (l) => (DO_MODELO.includes(l) ? l : "en");', "const pivo = async (l) => l;", ia),
+    ("texto entra antes do rascunho", "conversa.js", "const noCampo = sel.rangeCount > 0 && ed.contains(sel.anchorNode);\n    ed.focus();",
+     "ed.focus();\n    const noCampo = sel.rangeCount > 0 && ed.contains(sel.anchorNode);", ia),
+    ("resultado da IA vira HTML", "popup.js", 'li.querySelector(".ia-texto").textContent = item.texto;', 'li.querySelector(".ia-texto").innerHTML = item.texto;', estatico),
 ]
 
 if len(sys.argv) > 1:

@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Uirapp",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Esconde conversas no WhatsApp Web com Alt+S, guarda respostas prontas e troca o tema. Sem servidor. Não é afiliado ao WhatsApp.",
   "minimum_chrome_version": "120",
   "permissions": [

@@ -19,6 +19,7 @@
     <a class="aba" href="#lembretes" data-aba="lembretes"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /> <path d="M9 17v1a3 3 0 0 0 6 0v-1" /></svg>Lembretes</a>
     <a class="aba" href="#temas" data-aba="temas"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21v-4a4 4 0 1 1 4 4h-4" /> <path d="M21 3a16 16 0 0 0 -12.8 10.2" /> <path d="M21 3a16 16 0 0 1 -10.2 12.8" /> <path d="M10.6 9a9 9 0 0 1 4.4 4.4" /></svg>Temas</a>
     <a class="aba" href="#desenho" data-aba="desenho"><svg class="icone icone-cheio" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2c5.498 0 10 4.002 10 9c0 1.351 -.6 2.64 -1.654 3.576c-1.03 .914 -2.412 1.424 -3.846 1.424h-2.516a1 1 0 0 0 -.5 1.875a1 1 0 0 1 .194 .14a2.3 2.3 0 0 1 -1.597 3.99l-.156 -.009l.068 .004l-.273 -.004c-5.3 -.146 -9.57 -4.416 -9.716 -9.716l-.004 -.28c0 -5.523 4.477 -10 10 -10m-3.5 6.5a2 2 0 0 0 -1.995 1.85l-.005 .15a2 2 0 1 0 2 -2m8 0a2 2 0 0 0 -1.995 1.85l-.005 .15a2 2 0 1 0 2 -2m-4 -3a2 2 0 0 0 -1.995 1.85l-.005 .15a2 2 0 1 0 2 -2" /></svg>Desenho</a>
+    <a class="aba" href="#ia" data-aba="ia"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 21l15 -15l-3 -3l-15 15l3 3" /> <path d="M15 6l3 3" /> <path d="M9 3a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" /> <path d="M19 13a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" /></svg>IA</a>
     <a class="aba" href="#backup" data-aba="backup"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6a8 3 0 1 0 16 0a8 3 0 1 0 -16 0" /> <path d="M4 6v6a8 3 0 0 0 16 0v-6" /> <path d="M4 12v6a8 3 0 0 0 16 0v-6" /></svg>Backup</a>
   </nav>
 </header>
@@ -99,6 +100,26 @@
     </div>
   </div>
   <canvas class="tela-desenho" id="tela-desenho" width="1200" height="720" aria-label="Área de desenho"></canvas>
+</section>
+
+<section class="parte" id="ia" aria-labelledby="t-ia" hidden>
+  <div class="parte-topo"><h2 id="t-ia" tabindex="-1">IA no computador</h2></div>
+  <div class="colunas">
+    <div class="cartao">
+      <h3>Preparar</h3>
+      <p class="campo-apoio" id="ia-situacao" role="status"></p>
+      <ul class="ia-partes" id="ia-partes" aria-label="Partes da IA"></ul>
+      <div class="acoes"><button class="botao" type="button" id="ia-preparar"><svg class="icone icone-traco" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" /> <path d="M7 11l5 5l5 -5" /> <path d="M12 4l0 12" /></svg>Preparar a IA</button></div>
+    </div>
+    <div class="cartao">
+      <h3>Como funciona</h3>
+      <ul class="ia-como">
+        <li>Usa a IA do Google Chrome, neste computador. A conversa não sai dele.</li>
+        <li>Baixa uma vez cerca de 4 GB. Precisa de 22 GB livres e de placa de vídeo com mais de 4 GB ou 16 GB de memória.</li>
+        <li>A IA não fala português: o Uirapp traduz para o inglês e de volta, também no computador.</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <section class="parte" id="backup" aria-labelledby="t-backup" hidden>
@@ -203,6 +224,7 @@
 <script src="frases.js" defer></script>
 <script src="idioma.js" defer></script>
 <script src="deposito.js" defer></script>
+<script src="ia.js" defer></script>
 <script src="ninho.js" defer></script>
 </body>
 </html>
